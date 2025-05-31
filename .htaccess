@@ -1,0 +1,57 @@
+RewriteEngine On
+
+# Enable CORS
+Header set Access-Control-Allow-Origin "*"
+Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+Header set Access-Control-Allow-Headers "Content-Type, X-API-Key, Authorization"
+
+# Forward Authorization Headers
+SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+
+# Ensure PHP receives the headers
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteRule .* - [E=HTTP_X_API_KEY:%{HTTP:X-API-Key}]
+
+# Handle OPTIONS method
+RewriteCond %{REQUEST_METHOD} OPTIONS
+RewriteRule ^(.*)$ $1 [R=200,L]
+
+# Prevent InfinityFree security JavaScript for all API endpoints
+RewriteCond %{REQUEST_URI} ^/user_auth_api1/(api|dev)/.*\.php$ [NC]
+RewriteRule .* - [E=no_ifree_js:1]
+
+# Add i=1 parameter to bypass InfinityFree security
+RewriteCond %{QUERY_STRING} !^i=1$ [NC]
+RewriteRule ^(api|dev)/.*\.php$ $0?i=1 [QSA,L]
+
+# Set content type for API responses
+<FilesMatch "\.(php)$">
+    Header set Content-Type "application/json" env=no_ifree_js
+</FilesMatch>
+
+# Ensure PHP errors are logged
+php_flag display_errors off
+php_value error_reporting E_ALL
+php_flag log_errors on
+php_value error_log php_errors.log
+
+# Prevent directory listing
+Options -Indexes
+
+# Set default character set
+AddDefaultCharset UTF-8
+
+# Prevent access to .htaccess
+<Files .htaccess>
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Prevent access to sensitive files
+<FilesMatch "^(config|.*\.log)">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Prevent 404 redirects to InfinityFree error page
+ErrorDocument 404 /user_auth_api1/404.php 

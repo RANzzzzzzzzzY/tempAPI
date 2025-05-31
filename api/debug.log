@@ -1,0 +1,1156 @@
+[30-May-2025 23:27:38 Europe/Berlin] === VERIFY EMAIL ENDPOINT HIT ===
+[30-May-2025 23:27:38 Europe/Berlin] Time: 2025-05-30 23:27:38
+[30-May-2025 23:27:38 Europe/Berlin] All headers received: Array
+(
+    [Host] => 648c-122-54-183-231.ngrok-free.app
+    [User-Agent] => PostmanRuntime/7.44.0
+    [Content-Length] => 244
+    [Accept] => */*
+    [Accept-Encoding] => gzip, deflate, br
+    [Content-Type] => application/json
+    [Postman-Token] => 361b97f9-0cc3-4f71-b8f1-fc4508f07726
+    [X-Api-Key] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+    [X-Forwarded-For] => 122.54.183.231
+    [X-Forwarded-Host] => 648c-122-54-183-231.ngrok-free.app
+    [X-Forwarded-Proto] => https
+)
+
+[30-May-2025 23:27:38 Europe/Berlin] All SERVER variables: Array
+(
+    [DOCUMENT_ROOT] => C:\xampp\htdocs\user_auth_api1
+    [REMOTE_ADDR] => ::1
+    [REMOTE_PORT] => 53137
+    [SERVER_SOFTWARE] => PHP 8.0.30 Development Server
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [SERVER_NAME] => localhost
+    [SERVER_PORT] => 3000
+    [REQUEST_URI] => /api/verify-email.php
+    [REQUEST_METHOD] => POST
+    [SCRIPT_NAME] => /api/verify-email.php
+    [SCRIPT_FILENAME] => C:\xampp\htdocs\user_auth_api1\api\verify-email.php
+    [PHP_SELF] => /api/verify-email.php
+    [HTTP_HOST] => 648c-122-54-183-231.ngrok-free.app
+    [HTTP_USER_AGENT] => PostmanRuntime/7.44.0
+    [CONTENT_LENGTH] => 244
+    [HTTP_CONTENT_LENGTH] => 244
+    [HTTP_ACCEPT] => */*
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, br
+    [CONTENT_TYPE] => application/json
+    [HTTP_CONTENT_TYPE] => application/json
+    [HTTP_POSTMAN_TOKEN] => 361b97f9-0cc3-4f71-b8f1-fc4508f07726
+    [HTTP_X_API_KEY] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+    [HTTP_X_FORWARDED_FOR] => 122.54.183.231
+    [HTTP_X_FORWARDED_HOST] => 648c-122-54-183-231.ngrok-free.app
+    [HTTP_X_FORWARDED_PROTO] => https
+    [REQUEST_TIME_FLOAT] => 1748640458.1988
+    [REQUEST_TIME] => 1748640458
+)
+
+[30-May-2025 23:27:38 Europe/Berlin] FULL DEBUG INFO: Array
+(
+    [REQUEST_METHOD] => POST
+    [CONTENT_TYPE] => application/json
+    [RAW_HEADERS] => Array
+        (
+            [Host] => 648c-122-54-183-231.ngrok-free.app
+            [User-Agent] => PostmanRuntime/7.44.0
+            [Content-Length] => 244
+            [Accept] => */*
+            [Accept-Encoding] => gzip, deflate, br
+            [Content-Type] => application/json
+            [Postman-Token] => 361b97f9-0cc3-4f71-b8f1-fc4508f07726
+            [X-Api-Key] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+            [X-Forwarded-For] => 122.54.183.231
+            [X-Forwarded-Host] => 648c-122-54-183-231.ngrok-free.app
+            [X-Forwarded-Proto] => https
+        )
+
+    [SERVER_VARS] => Array
+        (
+            [HTTP_HOST] => 648c-122-54-183-231.ngrok-free.app
+            [HTTP_USER_AGENT] => PostmanRuntime/7.44.0
+            [CONTENT_LENGTH] => 244
+            [HTTP_CONTENT_LENGTH] => 244
+            [HTTP_ACCEPT] => */*
+            [HTTP_ACCEPT_ENCODING] => gzip, deflate, br
+            [CONTENT_TYPE] => application/json
+            [HTTP_CONTENT_TYPE] => application/json
+            [HTTP_POSTMAN_TOKEN] => 361b97f9-0cc3-4f71-b8f1-fc4508f07726
+            [HTTP_X_API_KEY] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+            [HTTP_X_FORWARDED_FOR] => 122.54.183.231
+            [HTTP_X_FORWARDED_HOST] => 648c-122-54-183-231.ngrok-free.app
+            [HTTP_X_FORWARDED_PROTO] => https
+        )
+
+    [REQUEST_BODY] => {
+    "email": "makiemorales2@gmail.com",
+    "password": "makiemorales2",
+    "otp": "958100",
+    "purpose": "password-reset",
+    "old_password": "Admin1234",
+    "new_password": "Admin123sd6",
+    "confirm_password": "Admin123sd6"
+}
+    [POST_DATA] => Array
+        (
+        )
+
+    [NGROK_INFO] => Array
+        (
+            [is_ngrok] => 1
+            [forwarded_for] => 122.54.183.231
+            [forwarded_proto] => https
+        )
+
+)
+
+[30-May-2025 23:27:38 Europe/Berlin] Checking for HTTP_X_API_KEY: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[30-May-2025 23:27:38 Europe/Berlin] Found API key in HTTP_X_API_KEY: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[30-May-2025 23:27:38 Europe/Berlin] Checking X-Api-Key: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[30-May-2025 23:27:38 Europe/Berlin] Checking x-api-key: not set
+[30-May-2025 23:27:38 Europe/Berlin] Final API key value: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 00:04:45 Europe/Berlin] === VERIFY EMAIL ENDPOINT HIT ===
+[31-May-2025 00:04:45 Europe/Berlin] Time: 2025-05-31 00:04:45
+[31-May-2025 00:04:45 Europe/Berlin] All headers received: Array
+(
+    [Host] => 24e8-122-54-183-231.ngrok-free.app
+    [Content-Length] => 48
+    [Accept] => application/json
+    [Content-Type] => application/json
+    [X-Api-Key] => ak_773d596a5b2dedcb05de055406d7f534
+    [X-Forwarded-For] => 122.54.183.231
+    [X-Forwarded-Host] => 24e8-122-54-183-231.ngrok-free.app
+    [X-Forwarded-Proto] => https
+    [Accept-Encoding] => gzip
+)
+
+[31-May-2025 00:04:45 Europe/Berlin] All SERVER variables: Array
+(
+    [DOCUMENT_ROOT] => C:\xampp\htdocs\user_auth_api1
+    [REMOTE_ADDR] => ::1
+    [REMOTE_PORT] => 53911
+    [SERVER_SOFTWARE] => PHP 8.0.30 Development Server
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [SERVER_NAME] => localhost
+    [SERVER_PORT] => 3000
+    [REQUEST_URI] => /api/verify-email.php
+    [REQUEST_METHOD] => POST
+    [SCRIPT_NAME] => /api/verify-email.php
+    [SCRIPT_FILENAME] => C:\xampp\htdocs\user_auth_api1\api\verify-email.php
+    [PHP_SELF] => /api/verify-email.php
+    [HTTP_HOST] => 24e8-122-54-183-231.ngrok-free.app
+    [CONTENT_LENGTH] => 48
+    [HTTP_CONTENT_LENGTH] => 48
+    [HTTP_ACCEPT] => application/json
+    [CONTENT_TYPE] => application/json
+    [HTTP_CONTENT_TYPE] => application/json
+    [HTTP_X_API_KEY] => ak_773d596a5b2dedcb05de055406d7f534
+    [HTTP_X_FORWARDED_FOR] => 122.54.183.231
+    [HTTP_X_FORWARDED_HOST] => 24e8-122-54-183-231.ngrok-free.app
+    [HTTP_X_FORWARDED_PROTO] => https
+    [HTTP_ACCEPT_ENCODING] => gzip
+    [REQUEST_TIME_FLOAT] => 1748642685.0052
+    [REQUEST_TIME] => 1748642685
+)
+
+[31-May-2025 00:04:45 Europe/Berlin] FULL DEBUG INFO: Array
+(
+    [REQUEST_METHOD] => POST
+    [CONTENT_TYPE] => application/json
+    [RAW_HEADERS] => Array
+        (
+            [Host] => 24e8-122-54-183-231.ngrok-free.app
+            [Content-Length] => 48
+            [Accept] => application/json
+            [Content-Type] => application/json
+            [X-Api-Key] => ak_773d596a5b2dedcb05de055406d7f534
+            [X-Forwarded-For] => 122.54.183.231
+            [X-Forwarded-Host] => 24e8-122-54-183-231.ngrok-free.app
+            [X-Forwarded-Proto] => https
+            [Accept-Encoding] => gzip
+        )
+
+    [SERVER_VARS] => Array
+        (
+            [HTTP_HOST] => 24e8-122-54-183-231.ngrok-free.app
+            [CONTENT_LENGTH] => 48
+            [HTTP_CONTENT_LENGTH] => 48
+            [HTTP_ACCEPT] => application/json
+            [CONTENT_TYPE] => application/json
+            [HTTP_CONTENT_TYPE] => application/json
+            [HTTP_X_API_KEY] => ak_773d596a5b2dedcb05de055406d7f534
+            [HTTP_X_FORWARDED_FOR] => 122.54.183.231
+            [HTTP_X_FORWARDED_HOST] => 24e8-122-54-183-231.ngrok-free.app
+            [HTTP_X_FORWARDED_PROTO] => https
+            [HTTP_ACCEPT_ENCODING] => gzip
+        )
+
+    [REQUEST_BODY] => {"email":"loren.capuyan@evsu.edu.ph","otp":null}
+    [POST_DATA] => Array
+        (
+        )
+
+    [NGROK_INFO] => Array
+        (
+            [is_ngrok] => 1
+            [forwarded_for] => 122.54.183.231
+            [forwarded_proto] => https
+        )
+
+)
+
+[31-May-2025 00:04:45 Europe/Berlin] Checking for HTTP_X_API_KEY: ak_773d596a5b2dedcb05de055406d7f534
+[31-May-2025 00:04:45 Europe/Berlin] Found API key in HTTP_X_API_KEY: ak_773d596a5b2dedcb05de055406d7f534
+[31-May-2025 00:04:45 Europe/Berlin] Checking X-Api-Key: ak_773d596a5b2dedcb05de055406d7f534
+[31-May-2025 00:04:45 Europe/Berlin] Checking x-api-key: not set
+[31-May-2025 00:04:45 Europe/Berlin] Final API key value: ak_773d596a5b2dedcb05de055406d7f534
+[31-May-2025 00:25:47 Europe/Berlin] === VERIFY EMAIL ENDPOINT HIT ===
+[31-May-2025 00:25:47 Europe/Berlin] Time: 2025-05-31 00:25:47
+[31-May-2025 00:25:47 Europe/Berlin] All headers received: Array
+(
+    [Host] => 24e8-122-54-183-231.ngrok-free.app
+    [Content-Length] => 46
+    [Accept] => application/json
+    [Content-Type] => application/json
+    [X-Api-Key] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+    [X-Forwarded-For] => 122.54.183.231
+    [X-Forwarded-Host] => 24e8-122-54-183-231.ngrok-free.app
+    [X-Forwarded-Proto] => https
+    [Accept-Encoding] => gzip
+)
+
+[31-May-2025 00:25:47 Europe/Berlin] All SERVER variables: Array
+(
+    [DOCUMENT_ROOT] => C:\xampp\htdocs\user_auth_api1
+    [REMOTE_ADDR] => ::1
+    [REMOTE_PORT] => 54311
+    [SERVER_SOFTWARE] => PHP 8.0.30 Development Server
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [SERVER_NAME] => localhost
+    [SERVER_PORT] => 3000
+    [REQUEST_URI] => /api/verify-email.php
+    [REQUEST_METHOD] => POST
+    [SCRIPT_NAME] => /api/verify-email.php
+    [SCRIPT_FILENAME] => C:\xampp\htdocs\user_auth_api1\api\verify-email.php
+    [PHP_SELF] => /api/verify-email.php
+    [HTTP_HOST] => 24e8-122-54-183-231.ngrok-free.app
+    [CONTENT_LENGTH] => 46
+    [HTTP_CONTENT_LENGTH] => 46
+    [HTTP_ACCEPT] => application/json
+    [CONTENT_TYPE] => application/json
+    [HTTP_CONTENT_TYPE] => application/json
+    [HTTP_X_API_KEY] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+    [HTTP_X_FORWARDED_FOR] => 122.54.183.231
+    [HTTP_X_FORWARDED_HOST] => 24e8-122-54-183-231.ngrok-free.app
+    [HTTP_X_FORWARDED_PROTO] => https
+    [HTTP_ACCEPT_ENCODING] => gzip
+    [REQUEST_TIME_FLOAT] => 1748643947.0779
+    [REQUEST_TIME] => 1748643947
+)
+
+[31-May-2025 00:25:47 Europe/Berlin] FULL DEBUG INFO: Array
+(
+    [REQUEST_METHOD] => POST
+    [CONTENT_TYPE] => application/json
+    [RAW_HEADERS] => Array
+        (
+            [Host] => 24e8-122-54-183-231.ngrok-free.app
+            [Content-Length] => 46
+            [Accept] => application/json
+            [Content-Type] => application/json
+            [X-Api-Key] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+            [X-Forwarded-For] => 122.54.183.231
+            [X-Forwarded-Host] => 24e8-122-54-183-231.ngrok-free.app
+            [X-Forwarded-Proto] => https
+            [Accept-Encoding] => gzip
+        )
+
+    [SERVER_VARS] => Array
+        (
+            [HTTP_HOST] => 24e8-122-54-183-231.ngrok-free.app
+            [CONTENT_LENGTH] => 46
+            [HTTP_CONTENT_LENGTH] => 46
+            [HTTP_ACCEPT] => application/json
+            [CONTENT_TYPE] => application/json
+            [HTTP_CONTENT_TYPE] => application/json
+            [HTTP_X_API_KEY] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+            [HTTP_X_FORWARDED_FOR] => 122.54.183.231
+            [HTTP_X_FORWARDED_HOST] => 24e8-122-54-183-231.ngrok-free.app
+            [HTTP_X_FORWARDED_PROTO] => https
+            [HTTP_ACCEPT_ENCODING] => gzip
+        )
+
+    [REQUEST_BODY] => {"email":"makiemorales2@gmail.com","otp":null}
+    [POST_DATA] => Array
+        (
+        )
+
+    [NGROK_INFO] => Array
+        (
+            [is_ngrok] => 1
+            [forwarded_for] => 122.54.183.231
+            [forwarded_proto] => https
+        )
+
+)
+
+[31-May-2025 00:25:47 Europe/Berlin] Checking for HTTP_X_API_KEY: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 00:25:47 Europe/Berlin] Found API key in HTTP_X_API_KEY: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 00:25:47 Europe/Berlin] Checking X-Api-Key: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 00:25:47 Europe/Berlin] Checking x-api-key: not set
+[31-May-2025 00:25:47 Europe/Berlin] Final API key value: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 00:28:36 Europe/Berlin] === VERIFY EMAIL ENDPOINT HIT ===
+[31-May-2025 00:28:36 Europe/Berlin] Time: 2025-05-31 00:28:36
+[31-May-2025 00:28:36 Europe/Berlin] All headers received: Array
+(
+    [Host] => 24e8-122-54-183-231.ngrok-free.app
+    [Content-Length] => 46
+    [Accept] => application/json
+    [Content-Type] => application/json
+    [X-Api-Key] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+    [X-Forwarded-For] => 122.54.183.231
+    [X-Forwarded-Host] => 24e8-122-54-183-231.ngrok-free.app
+    [X-Forwarded-Proto] => https
+    [Accept-Encoding] => gzip
+)
+
+[31-May-2025 00:28:36 Europe/Berlin] All SERVER variables: Array
+(
+    [DOCUMENT_ROOT] => C:\xampp\htdocs\user_auth_api1
+    [REMOTE_ADDR] => ::1
+    [REMOTE_PORT] => 54446
+    [SERVER_SOFTWARE] => PHP 8.0.30 Development Server
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [SERVER_NAME] => localhost
+    [SERVER_PORT] => 3000
+    [REQUEST_URI] => /api/verify-email.php
+    [REQUEST_METHOD] => POST
+    [SCRIPT_NAME] => /api/verify-email.php
+    [SCRIPT_FILENAME] => C:\xampp\htdocs\user_auth_api1\api\verify-email.php
+    [PHP_SELF] => /api/verify-email.php
+    [HTTP_HOST] => 24e8-122-54-183-231.ngrok-free.app
+    [CONTENT_LENGTH] => 46
+    [HTTP_CONTENT_LENGTH] => 46
+    [HTTP_ACCEPT] => application/json
+    [CONTENT_TYPE] => application/json
+    [HTTP_CONTENT_TYPE] => application/json
+    [HTTP_X_API_KEY] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+    [HTTP_X_FORWARDED_FOR] => 122.54.183.231
+    [HTTP_X_FORWARDED_HOST] => 24e8-122-54-183-231.ngrok-free.app
+    [HTTP_X_FORWARDED_PROTO] => https
+    [HTTP_ACCEPT_ENCODING] => gzip
+    [REQUEST_TIME_FLOAT] => 1748644116.4545
+    [REQUEST_TIME] => 1748644116
+)
+
+[31-May-2025 00:28:36 Europe/Berlin] FULL DEBUG INFO: Array
+(
+    [REQUEST_METHOD] => POST
+    [CONTENT_TYPE] => application/json
+    [RAW_HEADERS] => Array
+        (
+            [Host] => 24e8-122-54-183-231.ngrok-free.app
+            [Content-Length] => 46
+            [Accept] => application/json
+            [Content-Type] => application/json
+            [X-Api-Key] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+            [X-Forwarded-For] => 122.54.183.231
+            [X-Forwarded-Host] => 24e8-122-54-183-231.ngrok-free.app
+            [X-Forwarded-Proto] => https
+            [Accept-Encoding] => gzip
+        )
+
+    [SERVER_VARS] => Array
+        (
+            [HTTP_HOST] => 24e8-122-54-183-231.ngrok-free.app
+            [CONTENT_LENGTH] => 46
+            [HTTP_CONTENT_LENGTH] => 46
+            [HTTP_ACCEPT] => application/json
+            [CONTENT_TYPE] => application/json
+            [HTTP_CONTENT_TYPE] => application/json
+            [HTTP_X_API_KEY] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+            [HTTP_X_FORWARDED_FOR] => 122.54.183.231
+            [HTTP_X_FORWARDED_HOST] => 24e8-122-54-183-231.ngrok-free.app
+            [HTTP_X_FORWARDED_PROTO] => https
+            [HTTP_ACCEPT_ENCODING] => gzip
+        )
+
+    [REQUEST_BODY] => {"email":"makiemorales2@gmail.com","otp":null}
+    [POST_DATA] => Array
+        (
+        )
+
+    [NGROK_INFO] => Array
+        (
+            [is_ngrok] => 1
+            [forwarded_for] => 122.54.183.231
+            [forwarded_proto] => https
+        )
+
+)
+
+[31-May-2025 00:28:36 Europe/Berlin] Checking for HTTP_X_API_KEY: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 00:28:36 Europe/Berlin] Found API key in HTTP_X_API_KEY: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 00:28:36 Europe/Berlin] Checking X-Api-Key: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 00:28:36 Europe/Berlin] Checking x-api-key: not set
+[31-May-2025 00:28:36 Europe/Berlin] Final API key value: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 00:35:22 Europe/Berlin] === VERIFY EMAIL ENDPOINT HIT ===
+[31-May-2025 00:35:22 Europe/Berlin] Time: 2025-05-31 00:35:22
+[31-May-2025 00:35:22 Europe/Berlin] All headers received: Array
+(
+    [Host] => 24e8-122-54-183-231.ngrok-free.app
+    [Content-Length] => 46
+    [Accept] => application/json
+    [Content-Type] => application/json
+    [X-Api-Key] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+    [X-Forwarded-For] => 122.54.183.231
+    [X-Forwarded-Host] => 24e8-122-54-183-231.ngrok-free.app
+    [X-Forwarded-Proto] => https
+    [Accept-Encoding] => gzip
+)
+
+[31-May-2025 00:35:22 Europe/Berlin] All SERVER variables: Array
+(
+    [DOCUMENT_ROOT] => C:\xampp\htdocs\user_auth_api1
+    [REMOTE_ADDR] => ::1
+    [REMOTE_PORT] => 54690
+    [SERVER_SOFTWARE] => PHP 8.0.30 Development Server
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [SERVER_NAME] => localhost
+    [SERVER_PORT] => 3000
+    [REQUEST_URI] => /api/verify-email.php
+    [REQUEST_METHOD] => POST
+    [SCRIPT_NAME] => /api/verify-email.php
+    [SCRIPT_FILENAME] => C:\xampp\htdocs\user_auth_api1\api\verify-email.php
+    [PHP_SELF] => /api/verify-email.php
+    [HTTP_HOST] => 24e8-122-54-183-231.ngrok-free.app
+    [CONTENT_LENGTH] => 46
+    [HTTP_CONTENT_LENGTH] => 46
+    [HTTP_ACCEPT] => application/json
+    [CONTENT_TYPE] => application/json
+    [HTTP_CONTENT_TYPE] => application/json
+    [HTTP_X_API_KEY] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+    [HTTP_X_FORWARDED_FOR] => 122.54.183.231
+    [HTTP_X_FORWARDED_HOST] => 24e8-122-54-183-231.ngrok-free.app
+    [HTTP_X_FORWARDED_PROTO] => https
+    [HTTP_ACCEPT_ENCODING] => gzip
+    [REQUEST_TIME_FLOAT] => 1748644522.9478
+    [REQUEST_TIME] => 1748644522
+)
+
+[31-May-2025 00:35:22 Europe/Berlin] FULL DEBUG INFO: Array
+(
+    [REQUEST_METHOD] => POST
+    [CONTENT_TYPE] => application/json
+    [RAW_HEADERS] => Array
+        (
+            [Host] => 24e8-122-54-183-231.ngrok-free.app
+            [Content-Length] => 46
+            [Accept] => application/json
+            [Content-Type] => application/json
+            [X-Api-Key] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+            [X-Forwarded-For] => 122.54.183.231
+            [X-Forwarded-Host] => 24e8-122-54-183-231.ngrok-free.app
+            [X-Forwarded-Proto] => https
+            [Accept-Encoding] => gzip
+        )
+
+    [SERVER_VARS] => Array
+        (
+            [HTTP_HOST] => 24e8-122-54-183-231.ngrok-free.app
+            [CONTENT_LENGTH] => 46
+            [HTTP_CONTENT_LENGTH] => 46
+            [HTTP_ACCEPT] => application/json
+            [CONTENT_TYPE] => application/json
+            [HTTP_CONTENT_TYPE] => application/json
+            [HTTP_X_API_KEY] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+            [HTTP_X_FORWARDED_FOR] => 122.54.183.231
+            [HTTP_X_FORWARDED_HOST] => 24e8-122-54-183-231.ngrok-free.app
+            [HTTP_X_FORWARDED_PROTO] => https
+            [HTTP_ACCEPT_ENCODING] => gzip
+        )
+
+    [REQUEST_BODY] => {"email":"makiemorales2@gmail.com","otp":null}
+    [POST_DATA] => Array
+        (
+        )
+
+    [NGROK_INFO] => Array
+        (
+            [is_ngrok] => 1
+            [forwarded_for] => 122.54.183.231
+            [forwarded_proto] => https
+        )
+
+)
+
+[31-May-2025 00:35:22 Europe/Berlin] Checking for HTTP_X_API_KEY: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 00:35:22 Europe/Berlin] Found API key in HTTP_X_API_KEY: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 00:35:22 Europe/Berlin] Checking X-Api-Key: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 00:35:22 Europe/Berlin] Checking x-api-key: not set
+[31-May-2025 00:35:22 Europe/Berlin] Final API key value: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 00:44:08 Europe/Berlin] === VERIFY EMAIL ENDPOINT HIT ===
+[31-May-2025 00:44:08 Europe/Berlin] Time: 2025-05-31 00:44:08
+[31-May-2025 00:44:08 Europe/Berlin] All headers received: Array
+(
+    [Host] => 24e8-122-54-183-231.ngrok-free.app
+    [Content-Length] => 46
+    [Accept] => application/json
+    [Content-Type] => application/json
+    [X-Api-Key] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+    [X-Forwarded-For] => 122.54.183.231
+    [X-Forwarded-Host] => 24e8-122-54-183-231.ngrok-free.app
+    [X-Forwarded-Proto] => https
+    [Accept-Encoding] => gzip
+)
+
+[31-May-2025 00:44:08 Europe/Berlin] All SERVER variables: Array
+(
+    [DOCUMENT_ROOT] => C:\xampp\htdocs\user_auth_api1
+    [REMOTE_ADDR] => ::1
+    [REMOTE_PORT] => 55005
+    [SERVER_SOFTWARE] => PHP 8.0.30 Development Server
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [SERVER_NAME] => localhost
+    [SERVER_PORT] => 3000
+    [REQUEST_URI] => /api/verify-email.php
+    [REQUEST_METHOD] => POST
+    [SCRIPT_NAME] => /api/verify-email.php
+    [SCRIPT_FILENAME] => C:\xampp\htdocs\user_auth_api1\api\verify-email.php
+    [PHP_SELF] => /api/verify-email.php
+    [HTTP_HOST] => 24e8-122-54-183-231.ngrok-free.app
+    [CONTENT_LENGTH] => 46
+    [HTTP_CONTENT_LENGTH] => 46
+    [HTTP_ACCEPT] => application/json
+    [CONTENT_TYPE] => application/json
+    [HTTP_CONTENT_TYPE] => application/json
+    [HTTP_X_API_KEY] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+    [HTTP_X_FORWARDED_FOR] => 122.54.183.231
+    [HTTP_X_FORWARDED_HOST] => 24e8-122-54-183-231.ngrok-free.app
+    [HTTP_X_FORWARDED_PROTO] => https
+    [HTTP_ACCEPT_ENCODING] => gzip
+    [REQUEST_TIME_FLOAT] => 1748645048.2151
+    [REQUEST_TIME] => 1748645048
+)
+
+[31-May-2025 00:44:08 Europe/Berlin] FULL DEBUG INFO: Array
+(
+    [REQUEST_METHOD] => POST
+    [CONTENT_TYPE] => application/json
+    [RAW_HEADERS] => Array
+        (
+            [Host] => 24e8-122-54-183-231.ngrok-free.app
+            [Content-Length] => 46
+            [Accept] => application/json
+            [Content-Type] => application/json
+            [X-Api-Key] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+            [X-Forwarded-For] => 122.54.183.231
+            [X-Forwarded-Host] => 24e8-122-54-183-231.ngrok-free.app
+            [X-Forwarded-Proto] => https
+            [Accept-Encoding] => gzip
+        )
+
+    [SERVER_VARS] => Array
+        (
+            [HTTP_HOST] => 24e8-122-54-183-231.ngrok-free.app
+            [CONTENT_LENGTH] => 46
+            [HTTP_CONTENT_LENGTH] => 46
+            [HTTP_ACCEPT] => application/json
+            [CONTENT_TYPE] => application/json
+            [HTTP_CONTENT_TYPE] => application/json
+            [HTTP_X_API_KEY] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+            [HTTP_X_FORWARDED_FOR] => 122.54.183.231
+            [HTTP_X_FORWARDED_HOST] => 24e8-122-54-183-231.ngrok-free.app
+            [HTTP_X_FORWARDED_PROTO] => https
+            [HTTP_ACCEPT_ENCODING] => gzip
+        )
+
+    [REQUEST_BODY] => {"email":"makiemorales2@gmail.com","otp":null}
+    [POST_DATA] => Array
+        (
+        )
+
+    [NGROK_INFO] => Array
+        (
+            [is_ngrok] => 1
+            [forwarded_for] => 122.54.183.231
+            [forwarded_proto] => https
+        )
+
+)
+
+[31-May-2025 00:44:08 Europe/Berlin] Checking for HTTP_X_API_KEY: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 00:44:08 Europe/Berlin] Found API key in HTTP_X_API_KEY: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 00:44:08 Europe/Berlin] Checking X-Api-Key: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 00:44:08 Europe/Berlin] Checking x-api-key: not set
+[31-May-2025 00:44:08 Europe/Berlin] Final API key value: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 00:48:08 Europe/Berlin] === VERIFY EMAIL ENDPOINT HIT ===
+[31-May-2025 00:48:08 Europe/Berlin] Time: 2025-05-31 00:48:08
+[31-May-2025 00:48:08 Europe/Berlin] All headers received: Array
+(
+    [Host] => 24e8-122-54-183-231.ngrok-free.app
+    [Content-Length] => 46
+    [Accept] => application/json
+    [Content-Type] => application/json
+    [X-Api-Key] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+    [X-Forwarded-For] => 122.54.183.231
+    [X-Forwarded-Host] => 24e8-122-54-183-231.ngrok-free.app
+    [X-Forwarded-Proto] => https
+    [Accept-Encoding] => gzip
+)
+
+[31-May-2025 00:48:08 Europe/Berlin] All SERVER variables: Array
+(
+    [DOCUMENT_ROOT] => C:\xampp\htdocs\user_auth_api1
+    [REMOTE_ADDR] => ::1
+    [REMOTE_PORT] => 55124
+    [SERVER_SOFTWARE] => PHP 8.0.30 Development Server
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [SERVER_NAME] => localhost
+    [SERVER_PORT] => 3000
+    [REQUEST_URI] => /api/verify-email.php
+    [REQUEST_METHOD] => POST
+    [SCRIPT_NAME] => /api/verify-email.php
+    [SCRIPT_FILENAME] => C:\xampp\htdocs\user_auth_api1\api\verify-email.php
+    [PHP_SELF] => /api/verify-email.php
+    [HTTP_HOST] => 24e8-122-54-183-231.ngrok-free.app
+    [CONTENT_LENGTH] => 46
+    [HTTP_CONTENT_LENGTH] => 46
+    [HTTP_ACCEPT] => application/json
+    [CONTENT_TYPE] => application/json
+    [HTTP_CONTENT_TYPE] => application/json
+    [HTTP_X_API_KEY] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+    [HTTP_X_FORWARDED_FOR] => 122.54.183.231
+    [HTTP_X_FORWARDED_HOST] => 24e8-122-54-183-231.ngrok-free.app
+    [HTTP_X_FORWARDED_PROTO] => https
+    [HTTP_ACCEPT_ENCODING] => gzip
+    [REQUEST_TIME_FLOAT] => 1748645288.8542
+    [REQUEST_TIME] => 1748645288
+)
+
+[31-May-2025 00:48:08 Europe/Berlin] FULL DEBUG INFO: Array
+(
+    [REQUEST_METHOD] => POST
+    [CONTENT_TYPE] => application/json
+    [RAW_HEADERS] => Array
+        (
+            [Host] => 24e8-122-54-183-231.ngrok-free.app
+            [Content-Length] => 46
+            [Accept] => application/json
+            [Content-Type] => application/json
+            [X-Api-Key] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+            [X-Forwarded-For] => 122.54.183.231
+            [X-Forwarded-Host] => 24e8-122-54-183-231.ngrok-free.app
+            [X-Forwarded-Proto] => https
+            [Accept-Encoding] => gzip
+        )
+
+    [SERVER_VARS] => Array
+        (
+            [HTTP_HOST] => 24e8-122-54-183-231.ngrok-free.app
+            [CONTENT_LENGTH] => 46
+            [HTTP_CONTENT_LENGTH] => 46
+            [HTTP_ACCEPT] => application/json
+            [CONTENT_TYPE] => application/json
+            [HTTP_CONTENT_TYPE] => application/json
+            [HTTP_X_API_KEY] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+            [HTTP_X_FORWARDED_FOR] => 122.54.183.231
+            [HTTP_X_FORWARDED_HOST] => 24e8-122-54-183-231.ngrok-free.app
+            [HTTP_X_FORWARDED_PROTO] => https
+            [HTTP_ACCEPT_ENCODING] => gzip
+        )
+
+    [REQUEST_BODY] => {"email":"makiemorales2@gmail.com","otp":null}
+    [POST_DATA] => Array
+        (
+        )
+
+    [NGROK_INFO] => Array
+        (
+            [is_ngrok] => 1
+            [forwarded_for] => 122.54.183.231
+            [forwarded_proto] => https
+        )
+
+)
+
+[31-May-2025 00:48:08 Europe/Berlin] Checking for HTTP_X_API_KEY: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 00:48:08 Europe/Berlin] Found API key in HTTP_X_API_KEY: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 00:48:08 Europe/Berlin] Checking X-Api-Key: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 00:48:08 Europe/Berlin] Checking x-api-key: not set
+[31-May-2025 00:48:08 Europe/Berlin] Final API key value: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 01:07:52 Europe/Berlin] === VERIFY EMAIL ENDPOINT HIT ===
+[31-May-2025 01:07:52 Europe/Berlin] Time: 2025-05-31 01:07:52
+[31-May-2025 01:07:52 Europe/Berlin] All headers received: Array
+(
+    [Host] => 24e8-122-54-183-231.ngrok-free.app
+    [Content-Length] => 50
+    [Accept] => application/json
+    [Content-Type] => application/json
+    [X-Api-Key] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+    [X-Forwarded-For] => 122.54.183.231
+    [X-Forwarded-Host] => 24e8-122-54-183-231.ngrok-free.app
+    [X-Forwarded-Proto] => https
+    [Accept-Encoding] => gzip
+)
+
+[31-May-2025 01:07:52 Europe/Berlin] All SERVER variables: Array
+(
+    [DOCUMENT_ROOT] => C:\xampp\htdocs\user_auth_api1
+    [REMOTE_ADDR] => ::1
+    [REMOTE_PORT] => 55821
+    [SERVER_SOFTWARE] => PHP 8.0.30 Development Server
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [SERVER_NAME] => localhost
+    [SERVER_PORT] => 3000
+    [REQUEST_URI] => /api/verify-email.php
+    [REQUEST_METHOD] => POST
+    [SCRIPT_NAME] => /api/verify-email.php
+    [SCRIPT_FILENAME] => C:\xampp\htdocs\user_auth_api1\api\verify-email.php
+    [PHP_SELF] => /api/verify-email.php
+    [HTTP_HOST] => 24e8-122-54-183-231.ngrok-free.app
+    [CONTENT_LENGTH] => 50
+    [HTTP_CONTENT_LENGTH] => 50
+    [HTTP_ACCEPT] => application/json
+    [CONTENT_TYPE] => application/json
+    [HTTP_CONTENT_TYPE] => application/json
+    [HTTP_X_API_KEY] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+    [HTTP_X_FORWARDED_FOR] => 122.54.183.231
+    [HTTP_X_FORWARDED_HOST] => 24e8-122-54-183-231.ngrok-free.app
+    [HTTP_X_FORWARDED_PROTO] => https
+    [HTTP_ACCEPT_ENCODING] => gzip
+    [REQUEST_TIME_FLOAT] => 1748646472.2353
+    [REQUEST_TIME] => 1748646472
+)
+
+[31-May-2025 01:07:52 Europe/Berlin] FULL DEBUG INFO: Array
+(
+    [REQUEST_METHOD] => POST
+    [CONTENT_TYPE] => application/json
+    [RAW_HEADERS] => Array
+        (
+            [Host] => 24e8-122-54-183-231.ngrok-free.app
+            [Content-Length] => 50
+            [Accept] => application/json
+            [Content-Type] => application/json
+            [X-Api-Key] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+            [X-Forwarded-For] => 122.54.183.231
+            [X-Forwarded-Host] => 24e8-122-54-183-231.ngrok-free.app
+            [X-Forwarded-Proto] => https
+            [Accept-Encoding] => gzip
+        )
+
+    [SERVER_VARS] => Array
+        (
+            [HTTP_HOST] => 24e8-122-54-183-231.ngrok-free.app
+            [CONTENT_LENGTH] => 50
+            [HTTP_CONTENT_LENGTH] => 50
+            [HTTP_ACCEPT] => application/json
+            [CONTENT_TYPE] => application/json
+            [HTTP_CONTENT_TYPE] => application/json
+            [HTTP_X_API_KEY] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+            [HTTP_X_FORWARDED_FOR] => 122.54.183.231
+            [HTTP_X_FORWARDED_HOST] => 24e8-122-54-183-231.ngrok-free.app
+            [HTTP_X_FORWARDED_PROTO] => https
+            [HTTP_ACCEPT_ENCODING] => gzip
+        )
+
+    [REQUEST_BODY] => {"email":"makiemorales2@gmail.com","otp":"789112"}
+    [POST_DATA] => Array
+        (
+        )
+
+    [NGROK_INFO] => Array
+        (
+            [is_ngrok] => 1
+            [forwarded_for] => 122.54.183.231
+            [forwarded_proto] => https
+        )
+
+)
+
+[31-May-2025 01:07:52 Europe/Berlin] Checking for HTTP_X_API_KEY: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 01:07:52 Europe/Berlin] Found API key in HTTP_X_API_KEY: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 01:07:52 Europe/Berlin] Checking X-Api-Key: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 01:07:52 Europe/Berlin] Checking x-api-key: not set
+[31-May-2025 01:07:52 Europe/Berlin] Final API key value: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 01:11:41 Europe/Berlin] === VERIFY EMAIL ENDPOINT HIT ===
+[31-May-2025 01:11:41 Europe/Berlin] Time: 2025-05-31 01:11:41
+[31-May-2025 01:11:41 Europe/Berlin] All headers received: Array
+(
+    [Host] => 24e8-122-54-183-231.ngrok-free.app
+    [Content-Length] => 50
+    [Accept] => application/json
+    [Content-Type] => application/json
+    [X-Api-Key] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+    [X-Forwarded-For] => 122.54.183.231
+    [X-Forwarded-Host] => 24e8-122-54-183-231.ngrok-free.app
+    [X-Forwarded-Proto] => https
+    [Accept-Encoding] => gzip
+)
+
+[31-May-2025 01:11:41 Europe/Berlin] All SERVER variables: Array
+(
+    [DOCUMENT_ROOT] => C:\xampp\htdocs\user_auth_api1
+    [REMOTE_ADDR] => ::1
+    [REMOTE_PORT] => 56001
+    [SERVER_SOFTWARE] => PHP 8.0.30 Development Server
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [SERVER_NAME] => localhost
+    [SERVER_PORT] => 3000
+    [REQUEST_URI] => /api/verify-email.php
+    [REQUEST_METHOD] => POST
+    [SCRIPT_NAME] => /api/verify-email.php
+    [SCRIPT_FILENAME] => C:\xampp\htdocs\user_auth_api1\api\verify-email.php
+    [PHP_SELF] => /api/verify-email.php
+    [HTTP_HOST] => 24e8-122-54-183-231.ngrok-free.app
+    [CONTENT_LENGTH] => 50
+    [HTTP_CONTENT_LENGTH] => 50
+    [HTTP_ACCEPT] => application/json
+    [CONTENT_TYPE] => application/json
+    [HTTP_CONTENT_TYPE] => application/json
+    [HTTP_X_API_KEY] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+    [HTTP_X_FORWARDED_FOR] => 122.54.183.231
+    [HTTP_X_FORWARDED_HOST] => 24e8-122-54-183-231.ngrok-free.app
+    [HTTP_X_FORWARDED_PROTO] => https
+    [HTTP_ACCEPT_ENCODING] => gzip
+    [REQUEST_TIME_FLOAT] => 1748646701.2258
+    [REQUEST_TIME] => 1748646701
+)
+
+[31-May-2025 01:11:41 Europe/Berlin] FULL DEBUG INFO: Array
+(
+    [REQUEST_METHOD] => POST
+    [CONTENT_TYPE] => application/json
+    [RAW_HEADERS] => Array
+        (
+            [Host] => 24e8-122-54-183-231.ngrok-free.app
+            [Content-Length] => 50
+            [Accept] => application/json
+            [Content-Type] => application/json
+            [X-Api-Key] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+            [X-Forwarded-For] => 122.54.183.231
+            [X-Forwarded-Host] => 24e8-122-54-183-231.ngrok-free.app
+            [X-Forwarded-Proto] => https
+            [Accept-Encoding] => gzip
+        )
+
+    [SERVER_VARS] => Array
+        (
+            [HTTP_HOST] => 24e8-122-54-183-231.ngrok-free.app
+            [CONTENT_LENGTH] => 50
+            [HTTP_CONTENT_LENGTH] => 50
+            [HTTP_ACCEPT] => application/json
+            [CONTENT_TYPE] => application/json
+            [HTTP_CONTENT_TYPE] => application/json
+            [HTTP_X_API_KEY] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+            [HTTP_X_FORWARDED_FOR] => 122.54.183.231
+            [HTTP_X_FORWARDED_HOST] => 24e8-122-54-183-231.ngrok-free.app
+            [HTTP_X_FORWARDED_PROTO] => https
+            [HTTP_ACCEPT_ENCODING] => gzip
+        )
+
+    [REQUEST_BODY] => {"email":"makiemorales2@gmail.com","otp":"799536"}
+    [POST_DATA] => Array
+        (
+        )
+
+    [NGROK_INFO] => Array
+        (
+            [is_ngrok] => 1
+            [forwarded_for] => 122.54.183.231
+            [forwarded_proto] => https
+        )
+
+)
+
+[31-May-2025 01:11:41 Europe/Berlin] Checking for HTTP_X_API_KEY: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 01:11:41 Europe/Berlin] Found API key in HTTP_X_API_KEY: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 01:11:41 Europe/Berlin] Checking X-Api-Key: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 01:11:41 Europe/Berlin] Checking x-api-key: not set
+[31-May-2025 01:11:41 Europe/Berlin] Final API key value: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 01:21:43 Europe/Berlin] === VERIFY EMAIL ENDPOINT HIT ===
+[31-May-2025 01:21:43 Europe/Berlin] Time: 2025-05-31 01:21:43
+[31-May-2025 01:21:43 Europe/Berlin] All headers received: Array
+(
+    [Host] => 24e8-122-54-183-231.ngrok-free.app
+    [Content-Length] => 50
+    [Accept] => application/json
+    [Content-Type] => application/json
+    [X-Api-Key] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+    [X-Forwarded-For] => 122.54.183.231
+    [X-Forwarded-Host] => 24e8-122-54-183-231.ngrok-free.app
+    [X-Forwarded-Proto] => https
+    [Accept-Encoding] => gzip
+)
+
+[31-May-2025 01:21:43 Europe/Berlin] All SERVER variables: Array
+(
+    [DOCUMENT_ROOT] => C:\xampp\htdocs\user_auth_api1
+    [REMOTE_ADDR] => ::1
+    [REMOTE_PORT] => 56250
+    [SERVER_SOFTWARE] => PHP 8.0.30 Development Server
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [SERVER_NAME] => localhost
+    [SERVER_PORT] => 3000
+    [REQUEST_URI] => /api/verify-email.php
+    [REQUEST_METHOD] => POST
+    [SCRIPT_NAME] => /api/verify-email.php
+    [SCRIPT_FILENAME] => C:\xampp\htdocs\user_auth_api1\api\verify-email.php
+    [PHP_SELF] => /api/verify-email.php
+    [HTTP_HOST] => 24e8-122-54-183-231.ngrok-free.app
+    [CONTENT_LENGTH] => 50
+    [HTTP_CONTENT_LENGTH] => 50
+    [HTTP_ACCEPT] => application/json
+    [CONTENT_TYPE] => application/json
+    [HTTP_CONTENT_TYPE] => application/json
+    [HTTP_X_API_KEY] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+    [HTTP_X_FORWARDED_FOR] => 122.54.183.231
+    [HTTP_X_FORWARDED_HOST] => 24e8-122-54-183-231.ngrok-free.app
+    [HTTP_X_FORWARDED_PROTO] => https
+    [HTTP_ACCEPT_ENCODING] => gzip
+    [REQUEST_TIME_FLOAT] => 1748647303.1441
+    [REQUEST_TIME] => 1748647303
+)
+
+[31-May-2025 01:21:43 Europe/Berlin] FULL DEBUG INFO: Array
+(
+    [REQUEST_METHOD] => POST
+    [CONTENT_TYPE] => application/json
+    [RAW_HEADERS] => Array
+        (
+            [Host] => 24e8-122-54-183-231.ngrok-free.app
+            [Content-Length] => 50
+            [Accept] => application/json
+            [Content-Type] => application/json
+            [X-Api-Key] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+            [X-Forwarded-For] => 122.54.183.231
+            [X-Forwarded-Host] => 24e8-122-54-183-231.ngrok-free.app
+            [X-Forwarded-Proto] => https
+            [Accept-Encoding] => gzip
+        )
+
+    [SERVER_VARS] => Array
+        (
+            [HTTP_HOST] => 24e8-122-54-183-231.ngrok-free.app
+            [CONTENT_LENGTH] => 50
+            [HTTP_CONTENT_LENGTH] => 50
+            [HTTP_ACCEPT] => application/json
+            [CONTENT_TYPE] => application/json
+            [HTTP_CONTENT_TYPE] => application/json
+            [HTTP_X_API_KEY] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+            [HTTP_X_FORWARDED_FOR] => 122.54.183.231
+            [HTTP_X_FORWARDED_HOST] => 24e8-122-54-183-231.ngrok-free.app
+            [HTTP_X_FORWARDED_PROTO] => https
+            [HTTP_ACCEPT_ENCODING] => gzip
+        )
+
+    [REQUEST_BODY] => {"email":"makiemorales2@gmail.com","otp":"647148"}
+    [POST_DATA] => Array
+        (
+        )
+
+    [NGROK_INFO] => Array
+        (
+            [is_ngrok] => 1
+            [forwarded_for] => 122.54.183.231
+            [forwarded_proto] => https
+        )
+
+)
+
+[31-May-2025 01:21:43 Europe/Berlin] Checking for HTTP_X_API_KEY: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 01:21:43 Europe/Berlin] Found API key in HTTP_X_API_KEY: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 01:21:43 Europe/Berlin] Checking X-Api-Key: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 01:21:43 Europe/Berlin] Checking x-api-key: not set
+[31-May-2025 01:21:43 Europe/Berlin] Final API key value: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 08:22:09 Europe/Berlin] === VERIFY EMAIL ENDPOINT HIT ===
+[31-May-2025 08:22:09 Europe/Berlin] Time: 2025-05-31 08:22:09
+[31-May-2025 08:22:09 Europe/Berlin] All headers received: Array
+(
+    [Host] => 7f3b-122-54-183-231.ngrok-free.app
+    [Content-Length] => 50
+    [Accept] => application/json
+    [Content-Type] => application/json
+    [X-Api-Key] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+    [X-Forwarded-For] => 122.54.183.231
+    [X-Forwarded-Host] => 7f3b-122-54-183-231.ngrok-free.app
+    [X-Forwarded-Proto] => https
+    [Accept-Encoding] => gzip
+)
+
+[31-May-2025 08:22:09 Europe/Berlin] All SERVER variables: Array
+(
+    [DOCUMENT_ROOT] => C:\xampp\htdocs\user_auth_api1
+    [REMOTE_ADDR] => ::1
+    [REMOTE_PORT] => 49271
+    [SERVER_SOFTWARE] => PHP 8.0.30 Development Server
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [SERVER_NAME] => localhost
+    [SERVER_PORT] => 3000
+    [REQUEST_URI] => /api/verify-email.php
+    [REQUEST_METHOD] => POST
+    [SCRIPT_NAME] => /api/verify-email.php
+    [SCRIPT_FILENAME] => C:\xampp\htdocs\user_auth_api1\api\verify-email.php
+    [PHP_SELF] => /api/verify-email.php
+    [HTTP_HOST] => 7f3b-122-54-183-231.ngrok-free.app
+    [CONTENT_LENGTH] => 50
+    [HTTP_CONTENT_LENGTH] => 50
+    [HTTP_ACCEPT] => application/json
+    [CONTENT_TYPE] => application/json
+    [HTTP_CONTENT_TYPE] => application/json
+    [HTTP_X_API_KEY] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+    [HTTP_X_FORWARDED_FOR] => 122.54.183.231
+    [HTTP_X_FORWARDED_HOST] => 7f3b-122-54-183-231.ngrok-free.app
+    [HTTP_X_FORWARDED_PROTO] => https
+    [HTTP_ACCEPT_ENCODING] => gzip
+    [REQUEST_TIME_FLOAT] => 1748672529.3908
+    [REQUEST_TIME] => 1748672529
+)
+
+[31-May-2025 08:22:09 Europe/Berlin] FULL DEBUG INFO: Array
+(
+    [REQUEST_METHOD] => POST
+    [CONTENT_TYPE] => application/json
+    [RAW_HEADERS] => Array
+        (
+            [Host] => 7f3b-122-54-183-231.ngrok-free.app
+            [Content-Length] => 50
+            [Accept] => application/json
+            [Content-Type] => application/json
+            [X-Api-Key] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+            [X-Forwarded-For] => 122.54.183.231
+            [X-Forwarded-Host] => 7f3b-122-54-183-231.ngrok-free.app
+            [X-Forwarded-Proto] => https
+            [Accept-Encoding] => gzip
+        )
+
+    [SERVER_VARS] => Array
+        (
+            [HTTP_HOST] => 7f3b-122-54-183-231.ngrok-free.app
+            [CONTENT_LENGTH] => 50
+            [HTTP_CONTENT_LENGTH] => 50
+            [HTTP_ACCEPT] => application/json
+            [CONTENT_TYPE] => application/json
+            [HTTP_CONTENT_TYPE] => application/json
+            [HTTP_X_API_KEY] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+            [HTTP_X_FORWARDED_FOR] => 122.54.183.231
+            [HTTP_X_FORWARDED_HOST] => 7f3b-122-54-183-231.ngrok-free.app
+            [HTTP_X_FORWARDED_PROTO] => https
+            [HTTP_ACCEPT_ENCODING] => gzip
+        )
+
+    [REQUEST_BODY] => {"email":"makiemorales2@gmail.com","otp":"823314"}
+    [POST_DATA] => Array
+        (
+        )
+
+    [NGROK_INFO] => Array
+        (
+            [is_ngrok] => 1
+            [forwarded_for] => 122.54.183.231
+            [forwarded_proto] => https
+        )
+
+)
+
+[31-May-2025 08:22:09 Europe/Berlin] Checking for HTTP_X_API_KEY: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 08:22:09 Europe/Berlin] Found API key in HTTP_X_API_KEY: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 08:22:09 Europe/Berlin] Checking X-Api-Key: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 08:22:09 Europe/Berlin] Checking x-api-key: not set
+[31-May-2025 08:22:09 Europe/Berlin] Final API key value: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 10:01:05 Europe/Berlin] === VERIFY EMAIL ENDPOINT HIT ===
+[31-May-2025 10:01:05 Europe/Berlin] Time: 2025-05-31 10:01:05
+[31-May-2025 10:01:05 Europe/Berlin] All headers received: Array
+(
+    [Host] => 7f3b-122-54-183-231.ngrok-free.app
+    [Content-Length] => 46
+    [Accept] => application/json
+    [Content-Type] => application/json
+    [X-Api-Key] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+    [X-Forwarded-For] => 122.54.183.231
+    [X-Forwarded-Host] => 7f3b-122-54-183-231.ngrok-free.app
+    [X-Forwarded-Proto] => https
+    [Accept-Encoding] => gzip
+)
+
+[31-May-2025 10:01:05 Europe/Berlin] All SERVER variables: Array
+(
+    [DOCUMENT_ROOT] => C:\xampp\htdocs\user_auth_api1
+    [REMOTE_ADDR] => ::1
+    [REMOTE_PORT] => 53072
+    [SERVER_SOFTWARE] => PHP 8.0.30 Development Server
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [SERVER_NAME] => localhost
+    [SERVER_PORT] => 3000
+    [REQUEST_URI] => /api/verify-email.php
+    [REQUEST_METHOD] => POST
+    [SCRIPT_NAME] => /api/verify-email.php
+    [SCRIPT_FILENAME] => C:\xampp\htdocs\user_auth_api1\api\verify-email.php
+    [PHP_SELF] => /api/verify-email.php
+    [HTTP_HOST] => 7f3b-122-54-183-231.ngrok-free.app
+    [CONTENT_LENGTH] => 46
+    [HTTP_CONTENT_LENGTH] => 46
+    [HTTP_ACCEPT] => application/json
+    [CONTENT_TYPE] => application/json
+    [HTTP_CONTENT_TYPE] => application/json
+    [HTTP_X_API_KEY] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+    [HTTP_X_FORWARDED_FOR] => 122.54.183.231
+    [HTTP_X_FORWARDED_HOST] => 7f3b-122-54-183-231.ngrok-free.app
+    [HTTP_X_FORWARDED_PROTO] => https
+    [HTTP_ACCEPT_ENCODING] => gzip
+    [REQUEST_TIME_FLOAT] => 1748678465.0474
+    [REQUEST_TIME] => 1748678465
+)
+
+[31-May-2025 10:01:05 Europe/Berlin] FULL DEBUG INFO: Array
+(
+    [REQUEST_METHOD] => POST
+    [CONTENT_TYPE] => application/json
+    [RAW_HEADERS] => Array
+        (
+            [Host] => 7f3b-122-54-183-231.ngrok-free.app
+            [Content-Length] => 46
+            [Accept] => application/json
+            [Content-Type] => application/json
+            [X-Api-Key] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+            [X-Forwarded-For] => 122.54.183.231
+            [X-Forwarded-Host] => 7f3b-122-54-183-231.ngrok-free.app
+            [X-Forwarded-Proto] => https
+            [Accept-Encoding] => gzip
+        )
+
+    [SERVER_VARS] => Array
+        (
+            [HTTP_HOST] => 7f3b-122-54-183-231.ngrok-free.app
+            [CONTENT_LENGTH] => 46
+            [HTTP_CONTENT_LENGTH] => 46
+            [HTTP_ACCEPT] => application/json
+            [CONTENT_TYPE] => application/json
+            [HTTP_CONTENT_TYPE] => application/json
+            [HTTP_X_API_KEY] => ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+            [HTTP_X_FORWARDED_FOR] => 122.54.183.231
+            [HTTP_X_FORWARDED_HOST] => 7f3b-122-54-183-231.ngrok-free.app
+            [HTTP_X_FORWARDED_PROTO] => https
+            [HTTP_ACCEPT_ENCODING] => gzip
+        )
+
+    [REQUEST_BODY] => {"email":"makiemorales2@gmail.com","otp":null}
+    [POST_DATA] => Array
+        (
+        )
+
+    [NGROK_INFO] => Array
+        (
+            [is_ngrok] => 1
+            [forwarded_for] => 122.54.183.231
+            [forwarded_proto] => https
+        )
+
+)
+
+[31-May-2025 10:01:05 Europe/Berlin] Checking for HTTP_X_API_KEY: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 10:01:05 Europe/Berlin] Found API key in HTTP_X_API_KEY: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 10:01:05 Europe/Berlin] Checking X-Api-Key: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
+[31-May-2025 10:01:05 Europe/Berlin] Checking x-api-key: not set
+[31-May-2025 10:01:05 Europe/Berlin] Final API key value: ak_8a621c62e62fa5b7ad4ce0ddc5cdb4a4
