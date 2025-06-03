@@ -48,9 +48,9 @@ if ($isLoggedIn) {
         }
     </script>
 </head>
-<body class="bg-gray-50 min-h-screen flex flex-col">
+<body class="bg-gray-50 min-h-screen flex flex-col font-['Poppins']">
     <!-- Navigation -->
-    <nav class="bg-primary shadow-lg">
+    <nav class="bg-primary shadow-lg sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex">
@@ -87,7 +87,7 @@ if ($isLoggedIn) {
                 <?php if (!$isLoggedIn): ?>
                 <div class="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
                     <div class="rounded-md shadow">
-                        <a href="dev/register-page.php" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-primary bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10">
+                        <a href="user_authentication_api/dev/register-page.php" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-primary bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10">
                             Get Started
                         </a>
                     </div>
@@ -875,9 +875,222 @@ if ($isLoggedIn) {
                     <div id="integration" class="bg-white rounded-lg shadow-md p-6">
                         <div class="flex items-center mb-4">
                             <i class="fas fa-book text-primary text-2xl mr-3"></i>
-                            <h3 class="text-2xl font-semibold text-gray-900">Integration Guide</h3>
+                            <h3 class="text-2xl font-semibold text-gray-900">Getting Started</h3>
                         </div>
-                        <!-- Integration content... -->
+                        
+                        <!-- Setup Requirements -->
+                        <div class="mb-8">
+                            <h4 class="text-lg font-medium text-gray-900 mb-4">Setup Requirements</h4>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                                    <li>PHP 7.4 or higher</li>
+                                    <li>MySQL 5.7 or higher</li>
+                                    <li>Apache/Nginx web server</li>
+                                    <li>SSL certificate (recommended for production)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Installation Steps -->
+                        <div class="mb-8">
+                            <h4 class="text-lg font-medium text-gray-900 mb-4">Installation Steps</h4>
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium text-gray-900 mb-2">1. Database Setup</h5>
+                                    <p class="text-gray-600 mb-2">Create a new MySQL database and import the provided SQL schema:</p>
+                                    <div class="bg-gray-100 p-3 rounded-md">
+                                        <code class="text-sm font-mono text-gray-800">mysql -u your_username -p your_database < schema.sql</code>
+                                    </div>
+                                </div>
+
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium text-gray-900 mb-2">2. Configuration</h5>
+                                    <p class="text-gray-600 mb-2">Update the database configuration in <code class="text-sm font-mono bg-gray-100 px-1 py-0.5 rounded">config/database.php</code>:</p>
+                                    <div class="bg-gray-100 p-3 rounded-md">
+                                        <pre class="text-sm font-mono text-gray-800">define('DB_HOST', 'localhost');
+define('DB_NAME', 'your_database');
+define('DB_USER', 'your_username');
+define('DB_PASS', 'your_password');</pre>
+                                    </div>
+                                </div>
+
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium text-gray-900 mb-2">3. API Key Setup</h5>
+                                    <p class="text-gray-600 mb-2">Register as a developer to get your API key:</p>
+                                    <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                                        <li>Visit the registration page</li>
+                                        <li>Fill in your details and system information</li>
+                                        <li>Receive your API key</li>
+                                        <li>Store the API key securely</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- API Usage -->
+                        <div class="mb-8">
+                            <h4 class="text-lg font-medium text-gray-900 mb-4">Using the API</h4>
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium text-gray-900 mb-2">Authentication</h5>
+                                    <p class="text-gray-600 mb-2">Include your API key in all requests:</p>
+                                    <div class="bg-gray-100 p-3 rounded-md">
+                                        <code class="text-sm font-mono text-gray-800">X-API-Key: your_api_key</code>
+                                    </div>
+                                </div>
+
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium text-gray-900 mb-2">Available Endpoints</h5>
+                                    <div class="space-y-2">
+                                        <div class="flex items-center">
+                                            <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
+                                            <code class="text-sm font-mono text-gray-800">/api/register.php</code>
+                                            <span class="ml-2 text-gray-600">Register new user</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
+                                            <code class="text-sm font-mono text-gray-800">/api/login.php</code>
+                                            <span class="ml-2 text-gray-600">User login</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
+                                            <code class="text-sm font-mono text-gray-800">/api/request-otp.php</code>
+                                            <span class="ml-2 text-gray-600">Request OTP for verification</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
+                                            <code class="text-sm font-mono text-gray-800">/api/verify-email.php</code>
+                                            <span class="ml-2 text-gray-600">Verify email with OTP</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
+                                            <code class="text-sm font-mono text-gray-800">/api/reset-password.php</code>
+                                            <span class="ml-2 text-gray-600">Reset user password</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
+                                            <code class="text-sm font-mono text-gray-800">/api/refresh-token.php</code>
+                                            <span class="ml-2 text-gray-600">Refresh authentication token</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <span class="bg-red-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
+                                            <code class="text-sm font-mono text-gray-800">/api/delete_user.php</code>
+                                            <span class="ml-2 text-gray-600">Delete user account</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium text-gray-900 mb-2">Security Best Practices</h5>
+                                    <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                                        <li>Always use HTTPS in production</li>
+                                        <li>Store API keys securely</li>
+                                        <li>Implement rate limiting</li>
+                                        <li>Validate all input data</li>
+                                        <li>Use secure password hashing</li>
+                                        <li>Implement proper error handling</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Example Implementation -->
+                        <div>
+                            <h4 class="text-lg font-medium text-gray-900 mb-4">Example Implementation</h4>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <p class="text-gray-600 mb-4">Here's how to make API requests using Postman:</p>
+                                
+                                <!-- Postman Setup -->
+                                <div class="space-y-6">
+                                    <div>
+                                        <h5 class="font-medium text-gray-900 mb-2">1. Create a New Request</h5>
+                                        <div class="bg-gray-100 p-3 rounded-md">
+                                            <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                                                <li>Open Postman and click "New" → "Request"</li>
+                                                <li>Name your request (e.g., "Register User")</li>
+                                                <li>Select "POST" as the request method</li>
+                                                <li>Enter your API endpoint URL: <code class="text-sm font-mono bg-gray-200 px-1 py-0.5 rounded">https://your-domain.com/api/register.php</code></li>
+                                            </ol>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <h5 class="font-medium text-gray-900 mb-2">2. Set Headers</h5>
+                                        <div class="bg-gray-100 p-3 rounded-md">
+                                            <p class="text-gray-600 mb-2">Go to the "Headers" tab and add:</p>
+                                            <div class="space-y-2">
+                                                <div class="flex items-center">
+                                                    <span class="w-32 text-sm font-mono bg-gray-200 px-2 py-1 rounded">Content-Type</span>
+                                                    <span class="mx-2">→</span>
+                                                    <span class="text-sm font-mono bg-gray-200 px-2 py-1 rounded">application/json</span>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <span class="w-32 text-sm font-mono bg-gray-200 px-2 py-1 rounded">X-API-Key</span>
+                                                    <span class="mx-2">→</span>
+                                                    <span class="text-sm font-mono bg-gray-200 px-2 py-1 rounded">your_api_key</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <h5 class="font-medium text-gray-900 mb-2">3. Set Request Body</h5>
+                                        <div class="bg-gray-100 p-3 rounded-md">
+                                            <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                                                <li>Go to the "Body" tab</li>
+                                                <li>Select "raw" and choose "JSON" from the dropdown</li>
+                                                <li>Enter your request body:</li>
+                                            </ol>
+                                            <div class="mt-2 bg-gray-200 p-3 rounded-md">
+                                                <pre class="text-sm font-mono text-gray-800">{
+    "email": "user@example.com",
+    "password": "SecurePass123",
+    "name": "John Doe"
+}</pre>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <h5 class="font-medium text-gray-900 mb-2">4. Send Request</h5>
+                                        <div class="bg-gray-100 p-3 rounded-md">
+                                            <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                                                <li>Click the "Send" button</li>
+                                                <li>View the response in the lower panel</li>
+                                                <li>Check the status code and response body</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <h5 class="font-medium text-gray-900 mb-2">Example Response</h5>
+                                        <div class="bg-gray-100 p-3 rounded-md">
+                                            <pre class="text-sm font-mono text-gray-800">{
+    "success": true,
+    "message": "User registered successfully",
+    "data": {
+        "user_id": 123,
+        "email": "user@example.com"
+    }
+}</pre>
+                                        </div>
+                                    </div>
+
+                                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                                        <div class="flex">
+                                            <div class="flex-shrink-0">
+                                                <i class="fas fa-info-circle text-blue-400"></i>
+                                            </div>
+                                            <div class="ml-3">
+                                                <p class="text-sm text-blue-700">
+                                                    <strong>Tip:</strong> You can save your API key as a Postman environment variable to reuse it across requests. Go to "Environments" → "Create New" and add your API key as a variable.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Security Best Practices Section -->
