@@ -23,47 +23,47 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 $client = verifyApiKey();
 
 // Check for auth token
-$headers = getallheaders();
-$authHeader = null;
+// $headers = getallheaders();
+// $authHeader = null;
 
-// Check for different possible header cases
-foreach ($headers as $key => $value) {
-    if (strtolower($key) === 'authorization') {
-        $authHeader = $value;
-        break;
-    }
-}
+// // Check for different possible header cases
+// foreach ($headers as $key => $value) {
+//     if (strtolower($key) === 'authorization') {
+//         $authHeader = $value;
+//         break;
+//     }
+// }
 
-if (!$authHeader || !preg_match('/^Bearer\s+(.+)$/i', $authHeader, $matches)) {
-    Utils::sendJsonResponse(['error' => 'Authentication required'], 401);
-}
+// if (!$authHeader || !preg_match('/^Bearer\s+(.+)$/i', $authHeader, $matches)) {
+//     Utils::sendJsonResponse(['error' => 'Authentication required'], 401);
+// }
 
-$token = trim($matches[1]);
+// $token = trim($matches[1]);
 
-if (empty($token)) {
-    Utils::sendJsonResponse(['error' => 'Authentication required - Empty token'], 401);
-}
+// if (empty($token)) {
+//     Utils::sendJsonResponse(['error' => 'Authentication required - Empty token'], 401);
+// }
 
-// Verify token and get user info
-$stmt = $pdo->prepare("
-    SELECT 
-        at.user_id,
-        at.expires_at,
-        au.dev_id
-    FROM auth_tokens at
-    JOIN api_users au ON au.id = at.user_id
-    WHERE at.token = ? AND au.dev_id = ?
-    ORDER BY at.created_at DESC
-    LIMIT 1
-");
+// // Verify token and get user info
+// $stmt = $pdo->prepare("
+//     SELECT 
+//         at.user_id,
+//         at.expires_at,
+//         au.dev_id
+//     FROM auth_tokens at
+//     JOIN api_users au ON au.id = at.user_id
+//     WHERE at.token = ? AND au.dev_id = ?
+//     ORDER BY at.created_at DESC
+//     LIMIT 1
+// ");
 
-$stmt->execute([$token, $client['dev_id']]);
-$tokenData = $stmt->fetch();
+// $stmt->execute([$token, $client['dev_id']]);
+// $tokenData = $stmt->fetch();
 
-if (!$tokenData || strtotime($tokenData['expires_at']) < time()) {
-    $pdo->rollBack();
-    Utils::sendJsonResponse(['error' => 'Invalid or expired token'], 401);
-}
+// if (!$tokenData || strtotime($tokenData['expires_at']) < time()) {
+//     $pdo->rollBack();
+//     Utils::sendJsonResponse(['error' => 'Invalid or expired token'], 401);
+// }
 
 // Get and validate input
 $data = json_decode(file_get_contents('php://input'), true);
@@ -103,64 +103,30 @@ try {
     $pdo->beginTransaction();
 
     // Verify token and get user info
-    $stmt = $pdo->prepare("
-        SELECT 
-            at.user_id,
-            at.expires_at,
+    $stmt = $pdo->prepare("SELECT 
+            au.id
             au.dev_id,
             au.email
-        FROM auth_tokens at
-        JOIN api_users au ON au.id = at.user_id
-        WHERE at.token = ? 
-        AND au.dev_id = ?
+        FROM api_users au
+        WHERE au.dev_id = ?
         AND au.email = ?
-        ORDER BY at.created_at DESC
-        LIMIT 1
     ");
     
-    $stmt->execute([$token, $client['dev_id'], $email]);
-    $tokenData = $stmt->fetch();
+    $stmt->execute([$client['dev_id'], $email]);
+    $user = $stmt->fetch();
 
-    if (!$tokenData) {
+    if (!$user) {
         $pdo->rollBack();
         Utils::sendJsonResponse([
             'success' => false,
             'error' => 'Invalid request',
-            'message' => 'No matching user found with the provided email and token'
+            'message' => 'No user found'
         ], 404);
     }
 
-    if (strtotime($tokenData['expires_at']) < time()) {
-        $pdo->rollBack();
-        Utils::sendJsonResponse([
-            'success' => false,
-            'error' => 'Token expired',
-            'message' => 'The authentication token has expired',
-            'expired_at' => $tokenData['expires_at']
-        ], 401);
-    }
-
-    // Delete all auth tokens for the user
-    $stmt = $pdo->prepare("DELETE FROM auth_tokens WHERE user_id = ?");
-    $stmt->execute([$tokenData['user_id']]);
-
-    // Delete all OTPs for the user
-    $stmt = $pdo->prepare("
-        DELETE FROM email_otps 
-        WHERE dev_id = ? AND email = ?
-    ");
-    $stmt->execute([$tokenData['dev_id'], $email]);
-
-    // Delete password reset OTPs
-    $stmt = $pdo->prepare("
-        DELETE FROM password_reset_otps 
-        WHERE api_user_id = ?
-    ");
-    $stmt->execute([$tokenData['user_id']]);
-
     // Delete the user
-    $stmt = $pdo->prepare("DELETE FROM api_users WHERE id = ? AND dev_id = ?");
-    $stmt->execute([$tokenData['user_id'], $tokenData['dev_id']]);
+    $stmt = $pdo->prepare("DELETE FROM api_users WHERE id = ?");
+    $stmt->execute([$user['id']]);
 
     // Commit transaction
     $pdo->commit();
