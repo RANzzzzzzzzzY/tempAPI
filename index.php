@@ -50,7 +50,7 @@ if ($isLoggedIn) {
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col font-['Poppins']">
     <!-- Navigation -->
-    <nav class="bg-primary shadow-lg sticky top-0 z-50">
+    <nav class="bg-primary shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex">
@@ -148,14 +148,30 @@ if ($isLoggedIn) {
                     <div class="sticky top-4 bg-white rounded-lg shadow-md p-6">
                         <h3 class="text-lg font-semibold text-gray-900 mb-4">Table of Contents</h3>
                         <nav class="space-y-2">
-                            <a href="#overview" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">Overview</a>
-                            <a href="#developer-portal" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">Developer Portal</a>
-                            <a href="#authentication" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">Authentication</a>
-                            <a href="#endpoints" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">API Endpoints</a>
-                            <a href="#error-responses" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">Error Responses</a>
-                            <a href="#security" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">Security Best Practices</a>
-                            <a href="#api-usage" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">Using the API</a>
-                            <a href="#integration" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">System Requirements</a>
+                            <a href="#overview" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">
+                                <i class="fas fa-home w-5 mr-2"></i>Overview
+                            </a>
+                            <a href="#developer-portal" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">
+                                <i class="fas fa-laptop-code w-5 mr-2"></i>Developer Portal
+                            </a>
+                            <a href="#authentication" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">
+                                <i class="fas fa-key w-5 mr-2"></i>Authentication
+                            </a>
+                            <a href="#endpoints" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">
+                                <i class="fas fa-code w-5 mr-2"></i>API Endpoints
+                            </a>
+                            <a href="#error-responses" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">
+                                <i class="fas fa-exclamation-circle w-5 mr-2"></i>Error Responses
+                            </a>
+                            <a href="#security" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">
+                                <i class="fas fa-shield-alt w-5 mr-2"></i>Security Best Practices
+                            </a>
+                            <a href="#api-usage" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">
+                                <i class="fas fa-book w-5 mr-2"></i>Using the API
+                            </a>
+                            <a href="#integration" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">
+                                <i class="fas fa-cogs w-5 mr-2"></i>System Requirements
+                            </a>
                         </nav>
                     </div>
                 </div>
@@ -164,7 +180,10 @@ if ($isLoggedIn) {
                 <div class="md:w-3/4 space-y-8">
                     <!-- Overview Section -->
                     <div id="overview" class="bg-white rounded-lg shadow-md p-6">
-                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Overview</h2>
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-home text-primary text-2xl mr-3"></i>
+                            <h2 class="text-3xl font-bold text-gray-900">Overview</h2>
+                        </div>
                         <p class="text-gray-600 mb-6">Welcome to the User Authentication API documentation. This system provides both a developer portal for managing API keys and a complete authentication API that can be integrated into any application.</p>
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
@@ -194,7 +213,10 @@ if ($isLoggedIn) {
 
                     <!-- Developer Portal Section -->
                     <div id="developer-portal" class="bg-white rounded-lg shadow-md p-6">
-                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Developer Portal</h2>
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-laptop-code text-primary text-2xl mr-3"></i>
+                            <h2 class="text-3xl font-bold text-gray-900">Developer Portal</h2>
+                        </div>
                         <p class="text-gray-600 mb-6">The developer portal provides endpoints for managing your developer account and API keys.</p>
 
                         <!-- Register Developer -->
@@ -230,7 +252,10 @@ if ($isLoggedIn) {
 
                     <!-- Authentication Section -->
                     <div id="authentication" class="bg-white rounded-lg shadow-md p-6">
-                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Authentication</h2>
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-key text-primary text-2xl mr-3"></i>
+                            <h2 class="text-3xl font-bold text-gray-900">Authentication</h2>
+                        </div>
                         <p class="text-gray-600 mb-4">All API requests require authentication using your API key in the header:</p>
                         <div class="bg-gray-50 p-4 rounded-lg mb-4">
                             <div class="flex items-center justify-between">
@@ -257,7 +282,10 @@ if ($isLoggedIn) {
 
                     <!-- Endpoints Section -->
                     <div id="endpoints" class="space-y-6">
-                        <h2 class="text-3xl font-bold text-gray-900 mb-6">API Endpoints</h2>
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-code text-primary text-2xl mr-3"></i>
+                            <h2 class="text-3xl font-bold text-gray-900">API Endpoints</h2>
+                        </div>
                         
                         <!-- Register User -->
                         <div class="bg-white rounded-lg shadow-md p-6">
@@ -380,7 +408,10 @@ if ($isLoggedIn) {
 
                     <!-- Error Responses Section -->
                     <div id="error-responses" class="bg-white rounded-lg shadow-md p-6">
-                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Error Responses</h2>
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-exclamation-circle text-primary text-2xl mr-3"></i>
+                            <h2 class="text-3xl font-bold text-gray-900">Error Responses</h2>
+                        </div>
                         <p class="text-gray-600 mb-6">All API endpoints return consistent error responses in the following format:</p>
 
                         <div class="space-y-6">
@@ -489,7 +520,10 @@ if ($isLoggedIn) {
 
                     <!-- Security Section -->
                     <div id="security" class="bg-white rounded-lg shadow-md p-6">
-                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Security Best Practices</h2>
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-shield-alt text-primary text-2xl mr-3"></i>
+                            <h2 class="text-3xl font-bold text-gray-900">Security Best Practices</h2>
+                        </div>
                         <div class="space-y-4">
                             <div class="bg-gray-50 p-4 rounded-lg">
                                 <h3 class="text-lg font-semibold text-gray-900 mb-2">API Key Security</h3>
@@ -592,9 +626,12 @@ composer install</pre>
                             </div>
                         </div>
 
-                        <!-- API Usage -->
-                        <div id="api-usage" class="mb-8">
-                            <h4 class="text-lg font-medium text-gray-900 mb-4">Using the API</h4>
+                        <!-- API Usage Section -->
+                        <div id="api-usage" class="bg-white rounded-lg shadow-md p-6">
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-code text-primary text-2xl mr-3"></i>
+                                <h3 class="text-2xl font-semibold text-gray-900">Using the API</h3>
+                            </div>
                             <div class="space-y-4">
                                 <div class="bg-gray-50 p-4 rounded-lg">
                                     <h5 class="font-medium text-gray-900 mb-2">Authentication</h5>
@@ -930,6 +967,18 @@ Content-Type: application/json</pre>
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium text-gray-900 mb-2">Security Best Practices</h5>
+                                    <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                                        <li>Always use HTTPS in production</li>
+                                        <li>Store API keys securely</li>
+                                        <li>Implement rate limiting</li>
+                                        <li>Validate all input data</li>
+                                        <li>Use secure password hashing</li>
+                                        <li>Implement proper error handling</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1055,7 +1104,7 @@ Content-Type: application/json</pre>
     "success": true,
     "message": "Token refreshed successfully",
     "data": {
-        "token": "new_auth_token",
+        "token": "new_32_character_token",
         "expires_at": "2024-03-22 10:30:00"
     }
 }`;
