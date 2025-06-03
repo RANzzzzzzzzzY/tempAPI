@@ -58,6 +58,27 @@ if (empty($token)) {
     Utils::sendJsonResponse(['error' => 'Authentication required - Empty token'], 401);
 }
 
+// Verify token and get user info
+$stmt = $pdo->prepare("
+    SELECT 
+        at.user_id,
+        at.expires_at,
+        au.dev_id
+    FROM auth_tokens at
+    JOIN api_users au ON au.id = at.user_id
+    WHERE at.token = ? AND au.dev_id = ?
+    ORDER BY at.created_at DESC
+    LIMIT 1
+");
+
+$stmt->execute([$token, $client['dev_id']]);
+$tokenData = $stmt->fetch();
+
+if (!$tokenData || strtotime($tokenData['expires_at']) < time()) {
+    $pdo->rollBack();
+    Utils::sendJsonResponse(['error' => 'Invalid or expired token'], 401);
+}
+
 // Debug log
 error_log("Processing token: " . $token);
 
