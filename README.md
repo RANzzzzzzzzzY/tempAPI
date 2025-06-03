@@ -13,8 +13,8 @@ A secure, modular, and scalable authentication API built with pure PHP and MySQL
 
 ### Authentication API
 - User registration with email verification
-- JWT-based authentication
-- Password reset via email
+- Secure token-based authentication
+- Password reset functionality
 - Password change functionality
 - Secure token management
 - Rate limiting and API key validation
@@ -41,7 +41,7 @@ mysql -u root -p < database/schema.sql
    - Copy `.env.example` to `.env`
    - Update database credentials
    - Configure SMTP settings for email
-   - Set JWT secret key
+   - Set security keys
 
 5. Configure your web server:
    - Point document root to the project directory
@@ -65,17 +65,6 @@ Content-Type: application/json
 }
 ```
 
-#### Verify Developer Email
-```http
-POST /dev/verify-email.php
-Content-Type: application/json
-
-{
-    "email": "dev@example.com",
-    "otp": "123456"
-}
-```
-
 #### Developer Login
 ```http
 POST /dev/login.php
@@ -84,6 +73,20 @@ Content-Type: application/json
 {
     "email": "dev@example.com",
     "password": "SecurePass123"
+}
+
+Response:
+{
+    "success": true,
+    "message": "Login successful",
+    "data": {
+        "id": "dev_id",
+        "email": "dev@example.com",
+        "full_name": "John Doe",
+        "is_email_verified": true,
+        "api_key": "your_api_key",
+        "system_name": "My App"
+    }
 }
 ```
 
@@ -101,9 +104,50 @@ Content-Type: application/json
     "email": "user@example.com",
     "password": "SecurePass123"
 }
+
+Response:
+{
+    "success": true,
+    "message": "User registered successfully",
+    "data": {
+        "user_id": "user_id",
+        "email": "user@example.com",
+        "auth_token": "32_character_token",
+        "expires_at": "token_expiry_timestamp",
+        "is_verified": false,
+        "otp": "verification_code"
+    }
+}
 ```
 
-#### Verify User Email
+#### Request OTP
+```http
+POST /api/request-otp.php
+X-API-Key: your-api-key
+Content-Type: application/json
+
+{
+    "email": "user@example.com",
+    "purpose": "email-verification" // or "password-reset"
+}
+
+Response:
+{
+    "success": true,
+    "message": "OTP generated successfully",
+    "data": {
+        "user_id": "user_id",
+        "email": "user@example.com",
+        "purpose": "email-verification",
+        "otp": "6_digit_code",
+        "otp_expires_at": "otp_expiry_timestamp",
+        "auth_token": "32_character_token",
+        "token_expires_at": "token_expiry_timestamp"
+    }
+}
+```
+
+#### Verify Email
 ```http
 POST /api/verify-email.php
 X-API-Key: your-api-key
@@ -112,6 +156,18 @@ Content-Type: application/json
 {
     "email": "user@example.com",
     "otp": "123456"
+}
+
+Response:
+{
+    "success": true,
+    "message": "Email verified successfully",
+    "data": {
+        "user_id": "user_id",
+        "email": "user@example.com",
+        "auth_token": "32_character_token",
+        "expires_at": "token_expiry_timestamp"
+    }
 }
 ```
 
@@ -125,56 +181,125 @@ Content-Type: application/json
     "email": "user@example.com",
     "password": "SecurePass123"
 }
+
+Response:
+{
+    "success": true,
+    "message": "Login successful",
+    "data": {
+        "user_id": "user_id",
+        "email": "user@example.com",
+        "auth_token": "32_character_token",
+        "expires_at": "token_expiry_timestamp"
+    }
+}
 ```
 
-#### Request Password Reset
+#### Reset Password
 ```http
 POST /api/reset-password.php
+X-API-Key: your-api-key
+Authorization: Bearer auth_token
+Content-Type: application/json
+
+{
+    "otp": "123456",
+    "new_password": "NewSecurePass123"
+}
+
+Response:
+{
+    "success": true,
+    "message": "Password reset successfully",
+    "data": {
+        "email": "user@example.com",
+        "token_expires_at": "token_expiry_timestamp"
+    }
+}
+```
+
+#### Change Password
+```http
+POST /api/change-password.php
+X-API-Key: your-api-key
+Authorization: Bearer auth_token
+Content-Type: application/json
+
+{
+    "old_password": "CurrentPass123",
+    "new_password": "NewSecurePass123",
+    "confirm_password": "NewSecurePass123"
+}
+
+Response:
+{
+    "success": true,
+    "message": "Password changed successfully"
+}
+```
+
+#### Logout
+```http
+POST /api/logout.php
+X-API-Key: your-api-key
+Authorization: Bearer auth_token
+Content-Type: application/json
+
+Response:
+{
+    "success": true,
+    "message": "Successfully logged out"
+}
+```
+
+#### Refresh Token
+```http
+POST /api/refresh-token.php
+X-API-Key: your-api-key
+Authorization: Bearer auth_token
+Content-Type: application/json
+
+Response:
+{
+    "success": true,
+    "message": "Token refreshed successfully",
+    "data": {
+        "token": "new_32_character_token",
+        "expires_at": "token_expiry_timestamp"
+    }
+}
+```
+
+#### Delete User
+```http
+POST /api/delete-user.php
 X-API-Key: your-api-key
 Content-Type: application/json
 
 {
     "email": "user@example.com"
 }
-```
 
-#### Complete Password Reset
-```http
-POST /api/reset-password.php
-X-API-Key: your-api-key
-Content-Type: application/json
-
+Response:
 {
-    "email": "user@example.com",
-    "otp": "123456",
-    "new_password": "NewSecurePass123"
-}
-```
-
-#### Change Password (Authenticated)
-```http
-POST /api/change-password.php
-X-API-Key: your-api-key
-Authorization: Bearer user-jwt-token
-Content-Type: application/json
-
-{
-    "current_password": "CurrentPass123",
-    "new_password": "NewSecurePass123"
+    "success": true,
+    "message": "User account deleted successfully",
+    "data": {
+        "email": "user@example.com"
+    }
 }
 ```
 
 ## Security Features
 
 - Password hashing using PHP's native `password_hash()`
-- JWT tokens for authentication
+- Secure token-based authentication
 - API key validation
 - Email verification
 - OTP for password reset
 - Input sanitization
 - SQL injection prevention using prepared statements
 - XSS protection
-- CSRF protection (for web forms)
 - Rate limiting
 - Secure session management
 
@@ -184,7 +309,7 @@ The system uses the following tables:
 
 - `dev_accounts`: Stores developer users
 - `api_clients`: Links developers to their API keys
-- `email_otps`: Manages email verification and reset codes
+- `email_otps`: Manages email verification codes
 - `api_users`: Stores end-users of client applications
 - `auth_tokens`: Manages authentication tokens
 - `password_reset_otps`: Handles password reset flow
