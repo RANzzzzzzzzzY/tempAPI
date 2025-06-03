@@ -68,8 +68,8 @@ if ($isLoggedIn) {
                     <?php if ($isLoggedIn): ?>
                     <a href="dev/logout.php" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Logout</a>
                     <?php else: ?>
-                    <a href="dev/login-page.php" class="ml-4 bg-secondary hover:bg-sky-400 text-white px-4 py-2 rounded-md text-sm font-medium">Login</a>
-                    <a href="dev/register-page.php" class="ml-4 bg-secondary hover:bg-sky-400 text-white px-4 py-2 rounded-md text-sm font-medium">Register</a>
+                    <a href="dev/login-page.php" class="ml-4 bg-white hover:bg-gray-100 text-primary px-4 py-2 rounded-md text-sm font-medium">Login</a>
+                    <a href="dev/register-page.php" class="ml-4 bg-white hover:bg-gray-100 text-primary px-4 py-2 rounded-md text-sm font-medium">Register</a>
                     <?php endif; ?>
                 </div>
             </div>
@@ -87,7 +87,7 @@ if ($isLoggedIn) {
                 <?php if (!$isLoggedIn): ?>
                 <div class="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
                     <div class="rounded-md shadow">
-                        <a href="user_authentication_api/dev/register-page.php" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-primary bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10">
+                        <a href="/dev/register-page.php" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-primary bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10">
                             Get Started
                         </a>
                     </div>
