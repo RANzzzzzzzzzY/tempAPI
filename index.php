@@ -376,6 +376,115 @@ if ($isLoggedIn) {
                         </div>
                     </div>
 
+                    <!-- Error Responses Section -->
+                    <div id="error-responses" class="bg-white rounded-lg shadow-md p-6">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Error Responses</h2>
+                        <p class="text-gray-600 mb-6">All API endpoints return consistent error responses in the following format:</p>
+
+                        <div class="space-y-6">
+                            <!-- General Error Format -->
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">General Error Format</h3>
+                                <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
+    <span class="text-blue-600">"success"</span>: <span class="text-orange-600">false</span>,
+    <span class="text-blue-600">"error"</span>: <span class="text-green-600">"error_type"</span>,
+    <span class="text-blue-600">"message"</span>: <span class="text-green-600">"Human-readable error message"</span>
+<span class="text-purple-600">}</span></pre>
+                            </div>
+
+                            <!-- Common Error Types -->
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Common Error Types</h3>
+                                <div class="overflow-x-auto">
+                                    <table class="min-w-full divide-y divide-gray-200">
+                                        <thead class="bg-gray-50">
+                                            <tr>
+                                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status Code</th>
+                                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Error Type</th>
+                                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="bg-white divide-y divide-gray-200">
+                                            <tr>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">400</td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Invalid request</td>
+                                                <td class="px-6 py-4 text-sm text-gray-500">Missing or invalid parameters</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">401</td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Unauthorized</td>
+                                                <td class="px-6 py-4 text-sm text-gray-500">Invalid or missing API key</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">403</td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Forbidden</td>
+                                                <td class="px-6 py-4 text-sm text-gray-500">Invalid authentication token</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">404</td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Not found</td>
+                                                <td class="px-6 py-4 text-sm text-gray-500">Resource not found</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">429</td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Too many requests</td>
+                                                <td class="px-6 py-4 text-sm text-gray-500">Rate limit exceeded</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">500</td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Server error</td>
+                                                <td class="px-6 py-4 text-sm text-gray-500">Internal server error</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Example Error Responses -->
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Example Error Responses</h3>
+                                
+                                <!-- Invalid Request -->
+                                <div class="mb-6">
+                                    <h4 class="text-md font-medium text-gray-900 mb-2">Invalid Request</h4>
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
+    <span class="text-blue-600">"success"</span>: <span class="text-orange-600">false</span>,
+    <span class="text-blue-600">"error"</span>: <span class="text-green-600">"Invalid request"</span>,
+    <span class="text-blue-600">"message"</span>: <span class="text-green-600">"No matching user found with the provided email and token"</span>
+<span class="text-purple-600">}</span></pre>
+                                    </div>
+                                </div>
+
+                                <!-- Token Expired -->
+                                <div class="mb-6">
+                                    <h4 class="text-md font-medium text-gray-900 mb-2">Token Expired</h4>
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
+    <span class="text-blue-600">"success"</span>: <span class="text-orange-600">false</span>,
+    <span class="text-blue-600">"error"</span>: <span class="text-green-600">"Token expired"</span>,
+    <span class="text-blue-600">"message"</span>: <span class="text-green-600">"The authentication token has expired"</span>,
+    <span class="text-blue-600">"expired_at"</span>: <span class="text-green-600">"2024-03-21 12:34:56"</span>
+<span class="text-purple-600">}</span></pre>
+                                    </div>
+                                </div>
+
+                                <!-- Rate Limit Exceeded -->
+                                <div>
+                                    <h4 class="text-md font-medium text-gray-900 mb-2">Rate Limit Exceeded</h4>
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
+    <span class="text-blue-600">"success"</span>: <span class="text-orange-600">false</span>,
+    <span class="text-blue-600">"error"</span>: <span class="text-green-600">"Rate limit exceeded"</span>,
+    <span class="text-blue-600">"message"</span>: <span class="text-green-600">"Too many requests. Please try again later."</span>,
+    <span class="text-blue-600">"retry_after"</span>: <span class="text-orange-600">60</span>
+<span class="text-purple-600">}</span></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Security Section -->
                     <div id="security" class="bg-white rounded-lg shadow-md p-6">
                         <h2 class="text-3xl font-bold text-gray-900 mb-4">Security Best Practices</h2>
