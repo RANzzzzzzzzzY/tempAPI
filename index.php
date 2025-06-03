@@ -148,10 +148,11 @@ if ($isLoggedIn) {
                     <div class="sticky top-4 bg-white rounded-lg shadow-md p-6">
                         <h3 class="text-lg font-semibold text-gray-900 mb-4">Table of Contents</h3>
                         <nav class="space-y-2">
+                            <a href="#overview" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">Overview</a>
+                            <a href="#developer-portal" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">Developer Portal</a>
                             <a href="#authentication" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">Authentication</a>
                             <a href="#endpoints" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">API Endpoints</a>
                             <a href="#error-responses" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">Error Responses</a>
-                            <a href="#integration" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">Integration Guide</a>
                             <a href="#security" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">Security Best Practices</a>
                         </nav>
                     </div>
@@ -159,17 +160,75 @@ if ($isLoggedIn) {
 
                 <!-- Main Documentation Content -->
                 <div class="md:w-3/4 space-y-8">
-                    <div class="bg-white rounded-lg shadow-md p-6">
-                        <h2 class="text-3xl font-bold text-gray-900 mb-8">API Documentation</h2>
-                        <p class="text-gray-600 mb-6">Welcome to the User Authentication API documentation. This guide will help you integrate our authentication system into your application.</p>
+                    <!-- Overview Section -->
+                    <div id="overview" class="bg-white rounded-lg shadow-md p-6">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Overview</h2>
+                        <p class="text-gray-600 mb-6">Welcome to the User Authentication API documentation. This system provides both a developer portal for managing API keys and a complete authentication API that can be integrated into any application.</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">Developer Portal Features</h3>
+                                <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                    <li>Developer registration with email verification</li>
+                                    <li>Secure login system</li>
+                                    <li>API key management</li>
+                                    <li>Interactive documentation</li>
+                                    <li>Modern UI with Tailwind CSS</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">API Features</h3>
+                                <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                    <li>User registration with email verification</li>
+                                    <li>Secure token-based authentication</li>
+                                    <li>Password reset functionality</li>
+                                    <li>Password change functionality</li>
+                                    <li>Secure token management</li>
+                                    <li>Rate limiting and API key validation</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    
+
+                    <!-- Developer Portal Section -->
+                    <div id="developer-portal" class="bg-white rounded-lg shadow-md p-6">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Developer Portal</h2>
+                        <p class="text-gray-600 mb-6">The developer portal provides endpoints for managing your developer account and API keys.</p>
+
+                        <!-- Register Developer -->
+                        <div class="mb-8">
+                            <div class="flex items-center mb-4">
+                                <span class="bg-green-500 text-white px-3 py-1 rounded-md text-sm font-medium mr-3">POST</span>
+                                <h4 class="text-xl font-semibold text-gray-900">/dev/register.php</h4>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
+    <span class="text-blue-600">"email"</span>: <span class="text-green-600">"dev@example.com"</span>,
+    <span class="text-blue-600">"password"</span>: <span class="text-green-600">"SecurePass123"</span>,
+    <span class="text-blue-600">"fullName"</span>: <span class="text-green-600">"John Doe"</span>,
+    <span class="text-blue-600">"systemName"</span>: <span class="text-green-600">"My App"</span>
+<span class="text-purple-600">}</span></pre>
+                            </div>
+                        </div>
+
+                        <!-- Developer Login -->
+                        <div class="mb-8">
+                            <div class="flex items-center mb-4">
+                                <span class="bg-green-500 text-white px-3 py-1 rounded-md text-sm font-medium mr-3">POST</span>
+                                <h4 class="text-xl font-semibold text-gray-900">/dev/login.php</h4>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
+    <span class="text-blue-600">"email"</span>: <span class="text-green-600">"dev@example.com"</span>,
+    <span class="text-blue-600">"password"</span>: <span class="text-green-600">"SecurePass123"</span>
+<span class="text-purple-600">}</span></pre>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Authentication Section -->
                     <div id="authentication" class="bg-white rounded-lg shadow-md p-6">
-                        <div class="flex items-center mb-4">
-                            <i class="fas fa-key text-primary text-2xl mr-3"></i>
-                            <h3 class="text-2xl font-semibold text-gray-900">Authentication</h3>
-                        </div>
+                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Authentication</h2>
                         <p class="text-gray-600 mb-4">All API requests require authentication using your API key in the header:</p>
                         <div class="bg-gray-50 p-4 rounded-lg mb-4">
                             <div class="flex items-center justify-between">
@@ -196,7 +255,7 @@ if ($isLoggedIn) {
 
                     <!-- Endpoints Section -->
                     <div id="endpoints" class="space-y-6">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-6">API Endpoints</h3>
+                        <h2 class="text-3xl font-bold text-gray-900 mb-6">API Endpoints</h2>
                         
                         <!-- Register User -->
                         <div class="bg-white rounded-lg shadow-md p-6">
@@ -207,85 +266,11 @@ if ($isLoggedIn) {
                             <p class="text-gray-600 mb-4">Register a new user account.</p>
                             
                             <div class="space-y-4">
-                                <!-- Headers Section -->
-                                <div>
-                                    <h5 class="text-lg font-medium text-gray-900 mb-2 flex items-center">
-                                        <i class="fas fa-heading text-primary mr-2"></i>
-                                        Headers
-                                    </h5>
-                                    <div class="bg-gray-50 p-4 rounded-lg">
-                                        <div class="flex items-center justify-between">
-                                            <div class="space-y-2">
-                                                <div class="flex items-center">
-                                                    <span class="text-green-600 font-semibold mr-2">Content-Type:</span>
-                                                    <code class="text-sm font-mono text-gray-800">application/json</code>
-                                                </div>
-                                                <div class="flex items-center">
-                                                    <span class="text-green-600 font-semibold mr-2">X-API-Key:</span>
-                                                    <code class="text-sm font-mono text-gray-800">your_api_key</code>
-                                                </div>
-                                            </div>
-                                            <button onclick="copyToClipboard('Content-Type: application/json\nX-API-Key: your_api_key')" 
-                                                    class="text-gray-500 hover:text-gray-700 transition-colors duration-200">
-                                                <i class="fas fa-copy"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Request Body Section -->
-                                <div>
-                                    <h5 class="text-lg font-medium text-gray-900 mb-2 flex items-center">
-                                        <i class="fas fa-code text-primary mr-2"></i>
-                                        Request Body
-                                    </h5>
-                                    <div class="bg-gray-50 p-4 rounded-lg">
-                                        <div class="flex items-center justify-between">
-                                            <div class="w-full">
-                                                <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
     <span class="text-blue-600">"email"</span>: <span class="text-green-600">"user@example.com"</span>,
-    <span class="text-blue-600">"password"</span>: <span class="text-green-600">"SecurePass123"</span>,
-    <span class="text-blue-600">"name"</span>: <span class="text-green-600">"John Doe"</span>
+    <span class="text-blue-600">"password"</span>: <span class="text-green-600">"SecurePass123"</span>
 <span class="text-purple-600">}</span></pre>
-                                            </div>
-                                            <button onclick="copyToClipboard(registerRequest)" class="text-gray-500 hover:text-gray-700 transition-colors duration-200 ml-4">
-                                                <i class="fas fa-copy"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Response Section -->
-                                <div>
-                                    <h5 class="text-lg font-medium text-gray-900 mb-2 flex items-center">
-                                        <i class="fas fa-reply text-primary mr-2"></i>
-                                        Response
-                                    </h5>
-                                    <div class="bg-gray-50 p-4 rounded-lg">
-                                        <div class="flex items-center justify-between">
-                                            <div class="w-full">
-                                                <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
-    <span class="text-blue-600">"success"</span>: <span class="text-orange-600">true</span>,
-    <span class="text-blue-600">"message"</span>: <span class="text-green-600">"User registered successfully"</span>,
-    <span class="text-blue-600">"data"</span>: <span class="text-purple-600">{</span>
-        <span class="text-blue-600">"user_id"</span>: <span class="text-orange-600">123</span>,
-        <span class="text-blue-600">"email"</span>: <span class="text-green-600">"user@example.com"</span>
-    <span class="text-purple-600">}</span>
-<span class="text-purple-600">}</span></pre>
-                                            </div>
-                                            <button onclick="copyToClipboard(registerResponse)" class="text-gray-500 hover:text-gray-700 transition-colors duration-200 ml-4">
-                                                <i class="fas fa-copy"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Response Status -->
-                                <div class="mt-4">
-                                    <div class="flex items-center space-x-2">
-                                        <span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded">Status: 200 OK</span>
-                                        <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded">Content-Type: application/json</span>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -299,103 +284,11 @@ if ($isLoggedIn) {
                             <p class="text-gray-600 mb-4">Request an OTP for email verification or password reset.</p>
                             
                             <div class="space-y-4">
-                                <!-- Headers Section -->
-                                <div>
-                                    <h5 class="text-lg font-medium text-gray-900 mb-2 flex items-center">
-                                        <i class="fas fa-heading text-primary mr-2"></i>
-                                        Headers
-                                    </h5>
-                                    <div class="bg-gray-50 p-4 rounded-lg">
-                                        <div class="flex items-center justify-between">
-                                            <div class="space-y-2">
-                                                <div class="flex items-center">
-                                                    <span class="text-green-600 font-semibold mr-2">Content-Type:</span>
-                                                    <code class="text-sm font-mono text-gray-800">application/json</code>
-                                                </div>
-                                                <div class="flex items-center">
-                                                    <span class="text-green-600 font-semibold mr-2">X-API-Key:</span>
-                                                    <code class="text-sm font-mono text-gray-800">your_api_key</code>
-                                                </div>
-                                            </div>
-                                            <button onclick="copyToClipboard('Content-Type: application/json\nX-API-Key: your_api_key')" 
-                                                    class="text-gray-500 hover:text-gray-700 transition-colors duration-200">
-                                                <i class="fas fa-copy"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Request Body Section -->
-                                <div>
-                                    <h5 class="text-lg font-medium text-gray-900 mb-2 flex items-center">
-                                        <i class="fas fa-code text-primary mr-2"></i>
-                                        Request Body
-                                    </h5>
-                                    <div class="bg-gray-50 p-4 rounded-lg">
-                                        <div class="flex items-center justify-between">
-                                            <div class="w-full">
-                                                <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
     <span class="text-blue-600">"email"</span>: <span class="text-green-600">"user@example.com"</span>,
-    <span class="text-blue-600">"purpose"</span>: <span class="text-green-600">"email-verification"</span> <span class="text-gray-500">// or "password-reset"</span>
+    <span class="text-blue-600">"purpose"</span>: <span class="text-green-600">"email-verification"</span>
 <span class="text-purple-600">}</span></pre>
-                                            </div>
-                                            <button onclick="copyToClipboard(otpRequest)" class="text-gray-500 hover:text-gray-700 transition-colors duration-200 ml-4">
-                                                <i class="fas fa-copy"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Response Section -->
-                                <div>
-                                    <h5 class="text-lg font-medium text-gray-900 mb-2 flex items-center">
-                                        <i class="fas fa-reply text-primary mr-2"></i>
-                                        Response
-                                    </h5>
-                                    <div class="bg-gray-50 p-4 rounded-lg">
-                                        <div class="flex items-center justify-between">
-                                            <div class="w-full">
-                                                <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
-    <span class="text-blue-600">"success"</span>: <span class="text-orange-600">true</span>,
-    <span class="text-blue-600">"message"</span>: <span class="text-green-600">"OTP generated successfully"</span>,
-    <span class="text-blue-600">"data"</span>: <span class="text-purple-600">{</span>
-        <span class="text-blue-600">"user_id"</span>: <span class="text-orange-600">123</span>,
-        <span class="text-blue-600">"email"</span>: <span class="text-green-600">"user@example.com"</span>,
-        <span class="text-blue-600">"purpose"</span>: <span class="text-green-600">"email-verification"</span>,
-        <span class="text-blue-600">"otp"</span>: <span class="text-green-600">"123456"</span>,
-        <span class="text-blue-600">"otp_expires_at"</span>: <span class="text-green-600">"2024-03-21 12:34:56"</span>,
-        <span class="text-blue-600">"auth_token"</span>: <span class="text-green-600">"your_auth_token"</span>,
-        <span class="text-blue-600">"token_expires_at"</span>: <span class="text-green-600">"2024-03-22 10:30:00"</span>
-    <span class="text-purple-600">}</span>
-<span class="text-purple-600">}</span></pre>
-                                            </div>
-                                            <button onclick="copyToClipboard(otpResponse)" class="text-gray-500 hover:text-gray-700 transition-colors duration-200 ml-4">
-                                                <i class="fas fa-copy"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Response Status -->
-                                <div class="mt-4">
-                                    <div class="flex items-center space-x-2">
-                                        <span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded">Status: 200 OK</span>
-                                        <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded">Content-Type: application/json</span>
-                                    </div>
-                                </div>
-
-                                <!-- Rate Limiting Note -->
-                                <div class="mt-4 bg-yellow-50 border-l-4 border-yellow-400 p-4">
-                                    <div class="flex">
-                                        <div class="flex-shrink-0">
-                                            <i class="fas fa-exclamation-triangle text-yellow-400"></i>
-                                        </div>
-                                        <div class="ml-3">
-                                            <p class="text-sm text-yellow-700">
-                                                <strong>Rate Limiting:</strong> OTP requests are limited to one per minute per email address.
-                                            </p>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -406,93 +299,32 @@ if ($isLoggedIn) {
                                 <span class="bg-green-500 text-white px-3 py-1 rounded-md text-sm font-medium mr-3">POST</span>
                                 <h4 class="text-xl font-semibold text-gray-900">/api/verify-email.php</h4>
                             </div>
-                            <p class="text-gray-600 mb-4">Verify user's email address using OTP.</p>
+                            <p class="text-gray-600 mb-4">Verify user's email using OTP.</p>
                             
                             <div class="space-y-4">
-                                <!-- Headers Section -->
-                                <div>
-                                    <h5 class="text-lg font-medium text-gray-900 mb-2 flex items-center">
-                                        <i class="fas fa-heading text-primary mr-2"></i>
-                                        Headers
-                                    </h5>
-                                    <div class="bg-gray-50 p-4 rounded-lg">
-                                        <div class="flex items-center justify-between">
-                                            <div class="space-y-2">
-                                                <div class="flex items-center">
-                                                    <span class="text-green-600 font-semibold mr-2">Content-Type:</span>
-                                                    <code class="text-sm font-mono text-gray-800">application/json</code>
-                                                </div>
-                                                <div class="flex items-center">
-                                                    <span class="text-green-600 font-semibold mr-2">X-API-Key:</span>
-                                                    <code class="text-sm font-mono text-gray-800">your_api_key</code>
-                                                </div>
-                                                <div class="flex items-center">
-                                                    <span class="text-green-600 font-semibold mr-2">Authorization:</span>
-                                                    <code class="text-sm font-mono text-gray-800">Bearer auth_token</code>
-                                                </div>
-                                            </div>
-                                            <button onclick="copyToClipboard('Content-Type: application/json\nX-API-Key: your_api_key\nAuthorization: Bearer auth_token')" 
-                                                    class="text-gray-500 hover:text-gray-700 transition-colors duration-200">
-                                                <i class="fas fa-copy"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Request Body Section -->
-                                <div>
-                                    <h5 class="text-lg font-medium text-gray-900 mb-2 flex items-center">
-                                        <i class="fas fa-code text-primary mr-2"></i>
-                                        Request Body
-                                    </h5>
-                                    <div class="bg-gray-50 p-4 rounded-lg">
-                                        <div class="flex items-center justify-between">
-                                            <div class="w-full">
-                                                <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
     <span class="text-blue-600">"email"</span>: <span class="text-green-600">"user@example.com"</span>,
     <span class="text-blue-600">"otp"</span>: <span class="text-green-600">"123456"</span>
 <span class="text-purple-600">}</span></pre>
-                                            </div>
-                                            <button onclick="copyToClipboard(verifyEmailRequest)" class="text-gray-500 hover:text-gray-700 transition-colors duration-200 ml-4">
-                                                <i class="fas fa-copy"></i>
-                                            </button>
-                                        </div>
-                                    </div>
                                 </div>
+                            </div>
+                        </div>
 
-                                <!-- Response Section -->
-                                <div>
-                                    <h5 class="text-lg font-medium text-gray-900 mb-2 flex items-center">
-                                        <i class="fas fa-reply text-primary mr-2"></i>
-                                        Response
-                                    </h5>
-                                    <div class="bg-gray-50 p-4 rounded-lg">
-                                        <div class="flex items-center justify-between">
-                                            <div class="w-full">
-                                                <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
-    <span class="text-blue-600">"success"</span>: <span class="text-orange-600">true</span>,
-    <span class="text-blue-600">"message"</span>: <span class="text-green-600">"Email verified successfully"</span>,
-    <span class="text-blue-600">"data"</span>: <span class="text-purple-600">{</span>
-        <span class="text-blue-600">"user_id"</span>: <span class="text-orange-600">123</span>,
-        <span class="text-blue-600">"email"</span>: <span class="text-green-600">"user@example.com"</span>,
-        <span class="text-blue-600">"auth_token"</span>: <span class="text-green-600">"new_auth_token"</span>,
-        <span class="text-blue-600">"expires_at"</span>: <span class="text-green-600">"2024-03-22 10:30:00"</span>
-    <span class="text-purple-600">}</span>
+                        <!-- User Login -->
+                        <div class="bg-white rounded-lg shadow-md p-6">
+                            <div class="flex items-center mb-4">
+                                <span class="bg-green-500 text-white px-3 py-1 rounded-md text-sm font-medium mr-3">POST</span>
+                                <h4 class="text-xl font-semibold text-gray-900">/api/login.php</h4>
+                            </div>
+                            <p class="text-gray-600 mb-4">Authenticate a user and get an access token.</p>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
+    <span class="text-blue-600">"email"</span>: <span class="text-green-600">"user@example.com"</span>,
+    <span class="text-blue-600">"password"</span>: <span class="text-green-600">"SecurePass123"</span>
 <span class="text-purple-600">}</span></pre>
-                                            </div>
-                                            <button onclick="copyToClipboard(verifyEmailResponse)" class="text-gray-500 hover:text-gray-700 transition-colors duration-200 ml-4">
-                                                <i class="fas fa-copy"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Response Status -->
-                                <div class="mt-4">
-                                    <div class="flex items-center space-x-2">
-                                        <span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded">Status: 200 OK</span>
-                                        <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded">Content-Type: application/json</span>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -506,600 +338,67 @@ if ($isLoggedIn) {
                             <p class="text-gray-600 mb-4">Reset user's password using OTP.</p>
                             
                             <div class="space-y-4">
-                                <!-- Headers Section -->
-                                <div>
-                                    <h5 class="text-lg font-medium text-gray-900 mb-2 flex items-center">
-                                        <i class="fas fa-heading text-primary mr-2"></i>
-                                        Headers
-                                    </h5>
-                                    <div class="bg-gray-50 p-4 rounded-lg">
-                                        <div class="flex items-center justify-between">
-                                            <div class="space-y-2">
-                                                <div class="flex items-center">
-                                                    <span class="text-green-600 font-semibold mr-2">Content-Type:</span>
-                                                    <code class="text-sm font-mono text-gray-800">application/json</code>
-                                                </div>
-                                                <div class="flex items-center">
-                                                    <span class="text-green-600 font-semibold mr-2">X-API-Key:</span>
-                                                    <code class="text-sm font-mono text-gray-800">your_api_key</code>
-                                                </div>
-                                                <div class="flex items-center">
-                                                    <span class="text-green-600 font-semibold mr-2">Authorization:</span>
-                                                    <code class="text-sm font-mono text-gray-800">Bearer auth_token</code>
-                                                </div>
-                                            </div>
-                                            <button onclick="copyToClipboard('Content-Type: application/json\nX-API-Key: your_api_key\nAuthorization: Bearer auth_token')" 
-                                                    class="text-gray-500 hover:text-gray-700 transition-colors duration-200">
-                                                <i class="fas fa-copy"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Request Body Section -->
-                                <div>
-                                    <h5 class="text-lg font-medium text-gray-900 mb-2 flex items-center">
-                                        <i class="fas fa-code text-primary mr-2"></i>
-                                        Request Body
-                                    </h5>
-                                    <div class="bg-gray-50 p-4 rounded-lg">
-                                        <div class="flex items-center justify-between">
-                                            <div class="w-full">
-                                                <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
     <span class="text-blue-600">"otp"</span>: <span class="text-green-600">"123456"</span>,
     <span class="text-blue-600">"new_password"</span>: <span class="text-green-600">"NewSecurePass123"</span>
 <span class="text-purple-600">}</span></pre>
-                                            </div>
-                                            <button onclick="copyToClipboard(resetPasswordRequest)" class="text-gray-500 hover:text-gray-700 transition-colors duration-200 ml-4">
-                                                <i class="fas fa-copy"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Response Section -->
-                                <div>
-                                    <h5 class="text-lg font-medium text-gray-900 mb-2 flex items-center">
-                                        <i class="fas fa-reply text-primary mr-2"></i>
-                                        Response
-                                    </h5>
-                                    <div class="bg-gray-50 p-4 rounded-lg">
-                                        <div class="flex items-center justify-between">
-                                            <div class="w-full">
-                                                <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
-    <span class="text-blue-600">"success"</span>: <span class="text-orange-600">true</span>,
-    <span class="text-blue-600">"message"</span>: <span class="text-green-600">"Password reset successfully"</span>,
-    <span class="text-blue-600">"data"</span>: <span class="text-purple-600">{</span>
-        <span class="text-blue-600">"email"</span>: <span class="text-green-600">"user@example.com"</span>,
-        <span class="text-blue-600">"token_expires_at"</span>: <span class="text-green-600">"2024-03-22 10:30:00"</span>
-    <span class="text-purple-600">}</span>
-<span class="text-purple-600">}</span></pre>
-                                            </div>
-                                            <button onclick="copyToClipboard(resetPasswordResponse)" class="text-gray-500 hover:text-gray-700 transition-colors duration-200 ml-4">
-                                                <i class="fas fa-copy"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Response Status -->
-                                <div class="mt-4">
-                                    <div class="flex items-center space-x-2">
-                                        <span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded">Status: 200 OK</span>
-                                        <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded">Content-Type: application/json</span>
-                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Refresh Token -->
+                        <!-- Change Password -->
                         <div class="bg-white rounded-lg shadow-md p-6">
                             <div class="flex items-center mb-4">
                                 <span class="bg-green-500 text-white px-3 py-1 rounded-md text-sm font-medium mr-3">POST</span>
-                                <h4 class="text-xl font-semibold text-gray-900">/api/refresh-token.php</h4>
+                                <h4 class="text-xl font-semibold text-gray-900">/api/change-password.php</h4>
                             </div>
-                            <p class="text-gray-600 mb-4">Refresh an authentication token before it expires.</p>
+                            <p class="text-gray-600 mb-4">Change user's password (requires authentication).</p>
                             
                             <div class="space-y-4">
-                                <!-- Headers Section -->
-                                <div>
-                                    <h5 class="text-lg font-medium text-gray-900 mb-2 flex items-center">
-                                        <i class="fas fa-heading text-primary mr-2"></i>
-                                        Headers
-                                    </h5>
-                                    <div class="bg-gray-50 p-4 rounded-lg">
-                                        <div class="flex items-center justify-between">
-                                            <div class="space-y-2">
-                                                <div class="flex items-center">
-                                                    <span class="text-green-600 font-semibold mr-2">Content-Type:</span>
-                                                    <code class="text-sm font-mono text-gray-800">application/json</code>
-                                                </div>
-                                                <div class="flex items-center">
-                                                    <span class="text-green-600 font-semibold mr-2">X-API-Key:</span>
-                                                    <code class="text-sm font-mono text-gray-800">your_api_key</code>
-                                                </div>
-                                                <div class="flex items-center">
-                                                    <span class="text-green-600 font-semibold mr-2">Authorization:</span>
-                                                    <code class="text-sm font-mono text-gray-800">Bearer current_auth_token</code>
-                                                </div>
-                                            </div>
-                                            <button onclick="copyToClipboard('Content-Type: application/json\nX-API-Key: your_api_key\nAuthorization: Bearer current_auth_token')" 
-                                                    class="text-gray-500 hover:text-gray-700 transition-colors duration-200">
-                                                <i class="fas fa-copy"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Response Section -->
-                                <div>
-                                    <h5 class="text-lg font-medium text-gray-900 mb-2 flex items-center">
-                                        <i class="fas fa-reply text-primary mr-2"></i>
-                                        Response
-                                    </h5>
-                                    <div class="bg-gray-50 p-4 rounded-lg">
-                                        <div class="flex items-center justify-between">
-                                            <div class="w-full">
-                                                <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
-    <span class="text-blue-600">"success"</span>: <span class="text-orange-600">true</span>,
-    <span class="text-blue-600">"message"</span>: <span class="text-green-600">"Token refreshed successfully"</span>,
-    <span class="text-blue-600">"data"</span>: <span class="text-purple-600">{</span>
-        <span class="text-blue-600">"token"</span>: <span class="text-green-600">"new_auth_token"</span>,
-        <span class="text-blue-600">"expires_at"</span>: <span class="text-green-600">"2024-03-22 10:30:00"</span>
-    <span class="text-purple-600">}</span>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
+    <span class="text-blue-600">"old_password"</span>: <span class="text-green-600">"CurrentPass123"</span>,
+    <span class="text-blue-600">"new_password"</span>: <span class="text-green-600">"NewSecurePass123"</span>,
+    <span class="text-blue-600">"confirm_password"</span>: <span class="text-green-600">"NewSecurePass123"</span>
 <span class="text-purple-600">}</span></pre>
-                                            </div>
-                                            <button onclick="copyToClipboard(refreshTokenResponse)" class="text-gray-500 hover:text-gray-700 transition-colors duration-200 ml-4">
-                                                <i class="fas fa-copy"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Response Status -->
-                                <div class="mt-4">
-                                    <div class="flex items-center space-x-2">
-                                        <span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded">Status: 200 OK</span>
-                                        <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded">Content-Type: application/json</span>
-                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Delete User -->
+                        <!-- Logout -->
                         <div class="bg-white rounded-lg shadow-md p-6">
                             <div class="flex items-center mb-4">
-                                <span class="bg-red-500 text-white px-3 py-1 rounded-md text-sm font-medium mr-3">POST</span>
-                                <h4 class="text-xl font-semibold text-gray-900">/api/delete-user.php</h4>
+                                <span class="bg-green-500 text-white px-3 py-1 rounded-md text-sm font-medium mr-3">POST</span>
+                                <h4 class="text-xl font-semibold text-gray-900">/api/logout.php</h4>
                             </div>
-                            <p class="text-gray-600 mb-4">Delete a user account and all associated data. This endpoint requires both authentication token and email verification for enhanced security.</p>
-                            
-                            <div class="space-y-4">
-                                <!-- Headers Section -->
-                                <div>
-                                    <h5 class="text-lg font-medium text-gray-900 mb-2 flex items-center">
-                                        <i class="fas fa-heading text-primary mr-2"></i>
-                                        Headers
-                                    </h5>
-                                    <div class="bg-gray-50 p-4 rounded-lg">
-                                        <div class="flex items-center justify-between">
-                                            <div class="space-y-2">
-                                                <div class="flex items-center">
-                                                    <span class="text-green-600 font-semibold mr-2">Content-Type:</span>
-                                                    <code class="text-sm font-mono text-gray-800">application/json</code>
-                                                </div>
-                                                <div class="flex items-center">
-                                                    <span class="text-green-600 font-semibold mr-2">X-API-Key:</span>
-                                                    <code class="text-sm font-mono text-gray-800">your_api_key</code>
-                                                </div>
-                                                <div class="flex items-center">
-                                                    <span class="text-green-600 font-semibold mr-2">Authorization:</span>
-                                                    <code class="text-sm font-mono text-gray-800">Bearer auth_token</code>
-                                                </div>
-                                            </div>
-                                            <button onclick="copyToClipboard('Content-Type: application/json\nX-API-Key: your_api_key\nAuthorization: Bearer auth_token')" 
-                                                    class="text-gray-500 hover:text-gray-700 transition-colors duration-200">
-                                                <i class="fas fa-copy"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Request Body Section -->
-                                <div>
-                                    <h5 class="text-lg font-medium text-gray-900 mb-2 flex items-center">
-                                        <i class="fas fa-code text-primary mr-2"></i>
-                                        Request Body
-                                    </h5>
-                                    <div class="bg-gray-50 p-4 rounded-lg">
-                                        <div class="flex items-center justify-between">
-                                            <div class="w-full">
-                                                <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
-    <span class="text-blue-600">"email"</span>: <span class="text-green-600">"user@example.com"</span>
-<span class="text-purple-600">}</span></pre>
-                                            </div>
-                                            <button onclick="copyToClipboard(deleteUserRequest)" class="text-gray-500 hover:text-gray-700 transition-colors duration-200 ml-4">
-                                                <i class="fas fa-copy"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Response Section -->
-                                <div>
-                                    <h5 class="text-lg font-medium text-gray-900 mb-2 flex items-center">
-                                        <i class="fas fa-reply text-primary mr-2"></i>
-                                        Response
-                                    </h5>
-                                    <div class="bg-gray-50 p-4 rounded-lg">
-                                        <div class="flex items-center justify-between">
-                                            <div class="w-full">
-                                                <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
-    <span class="text-blue-600">"success"</span>: <span class="text-orange-600">true</span>,
-    <span class="text-blue-600">"message"</span>: <span class="text-green-600">"User account deleted successfully"</span>,
-    <span class="text-blue-600">"data"</span>: <span class="text-purple-600">{</span>
-        <span class="text-blue-600">"email"</span>: <span class="text-green-600">"user@example.com"</span>
-    <span class="text-purple-600">}</span>
-<span class="text-purple-600">}</span></pre>
-                                            </div>
-                                            <button onclick="copyToClipboard(deleteUserResponse)" class="text-gray-500 hover:text-gray-700 transition-colors duration-200 ml-4">
-                                                <i class="fas fa-copy"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Response Status -->
-                                <div class="mt-4">
-                                    <div class="flex items-center space-x-2">
-                                        <span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded">Status: 200 OK</span>
-                                        <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded">Content-Type: application/json</span>
-                                    </div>
-                                </div>
-
-                                <!-- Error Responses -->
-                                <div>
-                                    <h5 class="text-lg font-medium text-gray-900 mb-2 flex items-center">
-                                        <i class="fas fa-exclamation-circle text-red-500 mr-2"></i>
-                                        Error Responses
-                                    </h5>
-                                    <div class="space-y-4">
-                                        <div class="bg-gray-50 p-4 rounded-lg">
-                                            <div class="flex items-center justify-between">
-                                                <div class="w-full">
-                                                    <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
-    <span class="text-blue-600">"success"</span>: <span class="text-orange-600">false</span>,
-    <span class="text-blue-600">"error"</span>: <span class="text-green-600">"Invalid request"</span>,
-    <span class="text-blue-600">"message"</span>: <span class="text-green-600">"No matching user found with the provided email and token"</span>
-<span class="text-purple-600">}</span></pre>
-                                                </div>
-                                                <button onclick="copyToClipboard(invalidRequestError)" class="text-gray-500 hover:text-gray-700 transition-colors duration-200 ml-4">
-                                                    <i class="fas fa-copy"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-
-                                        <div class="bg-gray-50 p-4 rounded-lg">
-                                            <div class="flex items-center justify-between">
-                                                <div class="w-full">
-                                                    <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
-    <span class="text-blue-600">"success"</span>: <span class="text-orange-600">false</span>,
-    <span class="text-blue-600">"error"</span>: <span class="text-green-600">"Token expired"</span>,
-    <span class="text-blue-600">"message"</span>: <span class="text-green-600">"The authentication token has expired"</span>,
-    <span class="text-blue-600">"expired_at"</span>: <span class="text-green-600">"2024-03-21 12:34:56"</span>
-<span class="text-purple-600">}</span></pre>
-                                                </div>
-                                                <button onclick="copyToClipboard(tokenExpiredError)" class="text-gray-500 hover:text-gray-700 transition-colors duration-200 ml-4">
-                                                    <i class="fas fa-copy"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Security Notes -->
-                                <div class="mt-4 bg-yellow-50 border-l-4 border-yellow-400 p-4">
-                                    <div class="flex">
-                                        <div class="flex-shrink-0">
-                                            <i class="fas fa-exclamation-triangle text-yellow-400"></i>
-                                        </div>
-                                        <div class="ml-3">
-                                            <p class="text-sm text-yellow-700">
-                                                <strong>Security Notes:</strong>
-                                                <ul class="list-disc pl-6">
-                                                    <li>Requires valid API key in X-API-Key header</li>
-                                                    <li>Requires valid auth token in Authorization header</li>
-                                                    <li>Email must match the user associated with the auth token</li>
-                                                    <li>Uses database transactions to ensure data consistency</li>
-                                                    <li>Deletes all associated data:
-                                                        <ul class="list-disc pl-6">
-                                                            <li>Authentication tokens</li>
-                                                            <li>Email verification OTPs</li>
-                                                            <li>Password reset OTPs</li>
-                                                            <li>User account data</li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                                <strong>Warning:</strong> This action is irreversible. All user data will be permanently deleted.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <p class="text-gray-600 mb-4">Invalidate the current authentication token.</p>
                         </div>
                     </div>
 
-                    <!-- Error Responses Section -->
-                    <div id="error-responses" class="bg-white rounded-lg shadow-md p-6">
-                        <div class="flex items-center mb-4">
-                            <i class="fas fa-exclamation-circle text-red-500 text-2xl mr-3"></i>
-                            <h3 class="text-2xl font-semibold text-gray-900">Error Responses</h3>
-                        </div>
-                        <p class="text-gray-600 mb-4">All endpoints return consistent error responses in the following format:</p>
-                        <div class="bg-gray-50 p-4 rounded-lg mb-6">
-                            <div class="flex items-center justify-between">
-                                <code class="text-sm font-mono text-gray-800">{
-    "success": false,
-    "error": "error_type",
-    "message": "Human-readable error message"
-}</code>
-                                <button onclick="copyToClipboard(errorResponse)" class="text-gray-500 hover:text-gray-700">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <h4 class="text-lg font-medium text-gray-900 mb-4">Common Error Types</h4>
-                        <div class="overflow-x-auto">
-                            <table class="min-w-full divide-y divide-gray-200">
-                                <thead class="bg-gray-50">
-                                    <tr>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status Code</th>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Error Type</th>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="bg-white divide-y divide-gray-200">
-                                    <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">400</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Invalid request</td>
-                                        <td class="px-6 py-4 text-sm text-gray-500">Missing or invalid parameters</td>
-                                    </tr>
-                                    <!-- Add other error types... -->
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <!-- Integration Guide Section -->
-                    <div id="integration" class="bg-white rounded-lg shadow-md p-6">
-                        <div class="flex items-center mb-4">
-                            <i class="fas fa-book text-primary text-2xl mr-3"></i>
-                            <h3 class="text-2xl font-semibold text-gray-900">Getting Started</h3>
-                        </div>
-                        
-                        <!-- Setup Requirements -->
-                        <div class="mb-8">
-                            <h4 class="text-lg font-medium text-gray-900 mb-4">Setup Requirements</h4>
+                    <!-- Security Section -->
+                    <div id="security" class="bg-white rounded-lg shadow-md p-6">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Security Best Practices</h2>
+                        <div class="space-y-4">
                             <div class="bg-gray-50 p-4 rounded-lg">
-                                <ul class="list-disc pl-6 space-y-2 text-gray-600">
-                                    <li>PHP 7.4 or higher</li>
-                                    <li>MySQL 5.7 or higher</li>
-                                    <li>Apache/Nginx web server</li>
-                                    <li>SSL certificate (recommended for production)</li>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">API Key Security</h3>
+                                <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                    <li>Never expose your API key in client-side code</li>
+                                    <li>Store API keys securely in environment variables</li>
+                                    <li>Rotate API keys periodically</li>
+                                    <li>Use HTTPS for all API requests</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">Password Security</h3>
+                                <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                    <li>Use strong passwords (minimum 8 characters, mix of letters, numbers, and symbols)</li>
+                                    <li>Implement rate limiting for login attempts</li>
+                                    <li>Use secure password reset flows with time-limited tokens</li>
+                                    <li>Enable two-factor authentication when available</li>
                                 </ul>
                             </div>
                         </div>
-
-                        <!-- Installation Steps -->
-                        <div class="mb-8">
-                            <h4 class="text-lg font-medium text-gray-900 mb-4">Installation Steps</h4>
-                            <div class="space-y-4">
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium text-gray-900 mb-2">1. Database Setup</h5>
-                                    <p class="text-gray-600 mb-2">Create a new MySQL database and import the provided SQL schema:</p>
-                                    <div class="bg-gray-100 p-3 rounded-md">
-                                        <code class="text-sm font-mono text-gray-800">mysql -u your_username -p your_database < schema.sql</code>
-                                    </div>
-                                </div>
-
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium text-gray-900 mb-2">2. Configuration</h5>
-                                    <p class="text-gray-600 mb-2">Update the database configuration in <code class="text-sm font-mono bg-gray-100 px-1 py-0.5 rounded">config/database.php</code>:</p>
-                                    <div class="bg-gray-100 p-3 rounded-md">
-                                        <pre class="text-sm font-mono text-gray-800">define('DB_HOST', 'localhost');
-define('DB_NAME', 'your_database');
-define('DB_USER', 'your_username');
-define('DB_PASS', 'your_password');</pre>
-                                    </div>
-                                </div>
-
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium text-gray-900 mb-2">3. API Key Setup</h5>
-                                    <p class="text-gray-600 mb-2">Register as a developer to get your API key:</p>
-                                    <ol class="list-decimal pl-6 space-y-2 text-gray-600">
-                                        <li>Visit the registration page</li>
-                                        <li>Fill in your details and system information</li>
-                                        <li>Receive your API key</li>
-                                        <li>Store the API key securely</li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- API Usage -->
-                        <div class="mb-8">
-                            <h4 class="text-lg font-medium text-gray-900 mb-4">Using the API</h4>
-                            <div class="space-y-4">
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium text-gray-900 mb-2">Authentication</h5>
-                                    <p class="text-gray-600 mb-2">Include your API key in all requests:</p>
-                                    <div class="bg-gray-100 p-3 rounded-md">
-                                        <code class="text-sm font-mono text-gray-800">X-API-Key: your_api_key</code>
-                                    </div>
-                                </div>
-
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium text-gray-900 mb-2">Available Endpoints</h5>
-                                    <div class="space-y-2">
-                                        <div class="flex items-center">
-                                            <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
-                                            <code class="text-sm font-mono text-gray-800">/api/register.php</code>
-                                            <span class="ml-2 text-gray-600">Register new user</span>
-                                        </div>
-                                        <div class="flex items-center">
-                                            <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
-                                            <code class="text-sm font-mono text-gray-800">/api/login.php</code>
-                                            <span class="ml-2 text-gray-600">User login</span>
-                                        </div>
-                                        <div class="flex items-center">
-                                            <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
-                                            <code class="text-sm font-mono text-gray-800">/api/request-otp.php</code>
-                                            <span class="ml-2 text-gray-600">Request OTP for verification</span>
-                                        </div>
-                                        <div class="flex items-center">
-                                            <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
-                                            <code class="text-sm font-mono text-gray-800">/api/verify-email.php</code>
-                                            <span class="ml-2 text-gray-600">Verify email with OTP</span>
-                                        </div>
-                                        <div class="flex items-center">
-                                            <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
-                                            <code class="text-sm font-mono text-gray-800">/api/reset-password.php</code>
-                                            <span class="ml-2 text-gray-600">Reset user password</span>
-                                        </div>
-                                        <div class="flex items-center">
-                                            <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
-                                            <code class="text-sm font-mono text-gray-800">/api/refresh-token.php</code>
-                                            <span class="ml-2 text-gray-600">Refresh authentication token</span>
-                                        </div>
-                                        <div class="flex items-center">
-                                            <span class="bg-red-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
-                                            <code class="text-sm font-mono text-gray-800">/api/delete_user.php</code>
-                                            <span class="ml-2 text-gray-600">Delete user account</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium text-gray-900 mb-2">Security Best Practices</h5>
-                                    <ul class="list-disc pl-6 space-y-2 text-gray-600">
-                                        <li>Always use HTTPS in production</li>
-                                        <li>Store API keys securely</li>
-                                        <li>Implement rate limiting</li>
-                                        <li>Validate all input data</li>
-                                        <li>Use secure password hashing</li>
-                                        <li>Implement proper error handling</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Example Implementation -->
-                        <div>
-                            <h4 class="text-lg font-medium text-gray-900 mb-4">Example Implementation</h4>
-                            <div class="bg-gray-50 p-4 rounded-lg">
-                                <p class="text-gray-600 mb-4">Here's how to make API requests using Postman:</p>
-                                
-                                <!-- Postman Setup -->
-                                <div class="space-y-6">
-                                    <div>
-                                        <h5 class="font-medium text-gray-900 mb-2">1. Create a New Request</h5>
-                                        <div class="bg-gray-100 p-3 rounded-md">
-                                            <ol class="list-decimal pl-6 space-y-2 text-gray-600">
-                                                <li>Open Postman and click "New" → "Request"</li>
-                                                <li>Name your request (e.g., "Register User")</li>
-                                                <li>Select "POST" as the request method</li>
-                                                <li>Enter your API endpoint URL: <code class="text-sm font-mono bg-gray-200 px-1 py-0.5 rounded">https://your-domain.com/api/register.php</code></li>
-                                            </ol>
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <h5 class="font-medium text-gray-900 mb-2">2. Set Headers</h5>
-                                        <div class="bg-gray-100 p-3 rounded-md">
-                                            <p class="text-gray-600 mb-2">Go to the "Headers" tab and add:</p>
-                                            <div class="space-y-2">
-                                                <div class="flex items-center">
-                                                    <span class="w-32 text-sm font-mono bg-gray-200 px-2 py-1 rounded">Content-Type</span>
-                                                    <span class="mx-2">→</span>
-                                                    <span class="text-sm font-mono bg-gray-200 px-2 py-1 rounded">application/json</span>
-                                                </div>
-                                                <div class="flex items-center">
-                                                    <span class="w-32 text-sm font-mono bg-gray-200 px-2 py-1 rounded">X-API-Key</span>
-                                                    <span class="mx-2">→</span>
-                                                    <span class="text-sm font-mono bg-gray-200 px-2 py-1 rounded">your_api_key</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <h5 class="font-medium text-gray-900 mb-2">3. Set Request Body</h5>
-                                        <div class="bg-gray-100 p-3 rounded-md">
-                                            <ol class="list-decimal pl-6 space-y-2 text-gray-600">
-                                                <li>Go to the "Body" tab</li>
-                                                <li>Select "raw" and choose "JSON" from the dropdown</li>
-                                                <li>Enter your request body:</li>
-                                            </ol>
-                                            <div class="mt-2 bg-gray-200 p-3 rounded-md">
-                                                <pre class="text-sm font-mono text-gray-800">{
-    "email": "user@example.com",
-    "password": "SecurePass123",
-    "name": "John Doe"
-}</pre>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <h5 class="font-medium text-gray-900 mb-2">4. Send Request</h5>
-                                        <div class="bg-gray-100 p-3 rounded-md">
-                                            <ol class="list-decimal pl-6 space-y-2 text-gray-600">
-                                                <li>Click the "Send" button</li>
-                                                <li>View the response in the lower panel</li>
-                                                <li>Check the status code and response body</li>
-                                            </ol>
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <h5 class="font-medium text-gray-900 mb-2">Example Response</h5>
-                                        <div class="bg-gray-100 p-3 rounded-md">
-                                            <pre class="text-sm font-mono text-gray-800">{
-    "success": true,
-    "message": "User registered successfully",
-    "data": {
-        "user_id": 123,
-        "email": "user@example.com"
-    }
-}</pre>
-                                        </div>
-                                    </div>
-
-                                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
-                                        <div class="flex">
-                                            <div class="flex-shrink-0">
-                                                <i class="fas fa-info-circle text-blue-400"></i>
-                                            </div>
-                                            <div class="ml-3">
-                                                <p class="text-sm text-blue-700">
-                                                    <strong>Tip:</strong> You can save your API key as a Postman environment variable to reuse it across requests. Go to "Environments" → "Create New" and add your API key as a variable.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Security Best Practices Section -->
-                    <div id="security" class="bg-white rounded-lg shadow-md p-6">
-                        <div class="flex items-center mb-4">
-                            <i class="fas fa-shield-alt text-primary text-2xl mr-3"></i>
-                            <h3 class="text-2xl font-semibold text-gray-900">Security Best Practices</h3>
-                        </div>
-                        <!-- Security content... -->
                     </div>
                 </div>
             </div>
