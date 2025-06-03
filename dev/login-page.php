@@ -20,7 +20,7 @@
         }
     </script>
 </head>
-<body class="bg-gradient-to-r from-primary to-secondary min-h-screen flex items-center justify-center p-4">
+<body class="bg-gradient-to-r from-primary to-secondary min-h-screen flex items-center justify-center p-4 font-['Poppins']">
     <div class="w-full max-w-sm">
         <div class="bg-white rounded-lg shadow-xl p-6">
             <!-- Logo Section -->
