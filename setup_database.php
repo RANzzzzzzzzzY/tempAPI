@@ -8,7 +8,7 @@ header('Access-Control-Allow-Origin: *');
 try {
     require_once 'config/database.php';
 
-    // Drop existing tables if they exist
+    // Drop existing tables if they exists
     $pdo->exec("DROP TABLE IF EXISTS api_clients");
     $pdo->exec("DROP TABLE IF EXISTS dev_accounts");
 

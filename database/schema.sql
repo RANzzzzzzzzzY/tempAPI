@@ -73,4 +73,25 @@ CREATE TABLE IF NOT EXISTS password_reset_otps (
 -- Create indexes for better performance
 CREATE INDEX idx_dev_email ON dev_accounts(email);
 CREATE INDEX idx_api_key ON api_clients(api_key);
-CREATE INDEX idx_api_user_email ON api_users(email); 
+CREATE INDEX idx_api_user_email ON api_users(email);
+
+-- Trigger to delete old email OTPs when new one is inserted
+DELIMITER //
+CREATE TRIGGER IF NOT EXISTS delete_old_email_otps
+BEFORE INSERT ON email_otps
+FOR EACH ROW
+BEGIN
+    DELETE FROM email_otps 
+    WHERE email = NEW.email 
+    AND dev_id = NEW.dev_id;
+END//
+
+-- Trigger to delete old password reset OTPs when new one is inserted
+CREATE TRIGGER IF NOT EXISTS delete_old_password_reset_otps
+BEFORE INSERT ON password_reset_otps
+FOR EACH ROW
+BEGIN
+    DELETE FROM password_reset_otps 
+    WHERE api_user_id = NEW.api_user_id;
+END//
+DELIMITER ; 

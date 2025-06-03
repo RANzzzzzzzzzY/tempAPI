@@ -129,7 +129,7 @@ try {
             WHERE eo.email = ? 
             AND eo.dev_id = ?
             AND ac.api_key = ?
-            AND eo.expires_at > NOW()
+            AND eo.created_at > DATE_SUB(NOW(), INTERVAL 60 SECOND)
             ORDER BY eo.created_at DESC 
             LIMIT 1
         ");
@@ -138,7 +138,7 @@ try {
             SELECT created_at, expires_at 
             FROM password_reset_otps 
             WHERE api_user_id = ? 
-            AND expires_at > NOW()
+            AND created_at > DATE_SUB(NOW(), INTERVAL 60 SECOND)
             ORDER BY created_at DESC 
             LIMIT 1
         ");
@@ -153,17 +153,15 @@ try {
     if ($existingOtp) {
         $lastRequestTime = strtotime($existingOtp['created_at']);
         $timeElapsed = time() - $lastRequestTime;
+        $waitTime = 60 - $timeElapsed;
         
-        if ($timeElapsed < 60) {
-            $waitTime = 60 - $timeElapsed;
-            Utils::sendJsonResponse([
-                'success' => false,
-                'error' => 'Rate limit exceeded',
-                'message' => "Please wait {$waitTime} seconds before requesting a new OTP",
-                'wait_time' => $waitTime,
-                'retry_after' => date('Y-m-d H:i:s', time() + $waitTime)
-            ], 429);
-        }
+        Utils::sendJsonResponse([
+            'success' => false,
+            'error' => 'Rate limit exceeded',
+            'message' => "Please wait {$waitTime} seconds before requesting a new OTP",
+            'wait_time' => $waitTime,
+            'retry_after' => date('Y-m-d H:i:s', time() + $waitTime)
+        ], 429);
     }
 
     // Begin transaction
@@ -175,28 +173,30 @@ try {
         $expiresAt = date('Y-m-d H:i:s', strtotime('+15 minutes'));
 
         if ($purpose === 'email-verification') {
-            // Delete any existing email verification OTPs
+            // Delete any existing email verification OTPs - more comprehensive deletion
             $stmt = $pdo->prepare("
-                DELETE FROM email_otps 
-                WHERE email = ? AND dev_id = ?
+                DELETE eo FROM email_otps eo
+                JOIN api_clients ac ON eo.dev_id = ac.dev_id
+                WHERE eo.email = ?
+                AND ac.api_key = ?
             ");
-            $stmt->execute([$email, $client['dev_id']]);
+            $stmt->execute([$email, $apiKey]);
 
             // Store new email verification OTP
             $stmt = $pdo->prepare("
-                INSERT INTO email_otps (dev_id, email, otp, expires_at)
-                VALUES (:dev_id, :email, :otp, :expires_at)
+                INSERT INTO email_otps (dev_id, email, otp, purpose, expires_at)
+                VALUES (:dev_id, :email, :otp, :purpose, :expires_at)
             ");
             
             $stmt->execute([
                 ':dev_id' => $client['dev_id'],
                 ':email' => $email,
                 ':otp' => $otp,
+                ':purpose' => 'verification',
                 ':expires_at' => $expiresAt
             ]);
         } else {
-            // For password reset
-            // Delete any existing password reset OTPs
+            // For password reset - delete any existing OTPs
             $stmt = $pdo->prepare("
                 DELETE FROM password_reset_otps 
                 WHERE api_user_id = ?
