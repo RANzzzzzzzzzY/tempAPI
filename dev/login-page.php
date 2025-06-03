@@ -20,7 +20,7 @@
         }
     </script>
 </head>
-<body class="bg-gradient-to-r from-primary to-secondary min-h-screen flex items-center justify-center p-4 font-['Poppins']">
+<body class="bg-gradient-to-r from-primary to-secondary min-h-screen flex items-center justify-center p-4">
     <div class="w-full max-w-sm">
         <div class="bg-white rounded-lg shadow-xl p-6">
             <!-- Logo Section -->
@@ -88,7 +88,7 @@
                 <!-- Submit Button -->
                 <div class="pt-2">
                     <button type="submit" id="submitBtn"
-                            class="w-full flex justify-center py-1.5 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-secondary hover:bg-blue-600 focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-secondary disabled:opacity-50 disabled:cursor-not-allowed">
+                            class="w-full flex justify-center py-1.5 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-secondary focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-secondary disabled:opacity-50 disabled:cursor-not-allowed">
                         <span id="submitText">Login</span>
                         <span id="submitSpinner" class="hidden">
                             <i class="fas fa-circle-notch fa-spin ml-2"></i>
