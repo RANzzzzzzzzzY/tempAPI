@@ -499,7 +499,7 @@ Content-Type: application/json</pre>
                                                         <i class="fas fa-copy"></i>
                                                     </button>
                                                     <pre class="text-sm font-mono text-gray-800">X-API-Key: your-api-key
-Authorization: Bearer auth_token
+Authorization: auth_token
 Content-Type: application/json</pre>
                                                 </div>
                                             </div>
@@ -549,7 +549,7 @@ Content-Type: application/json</pre>
                                                         <i class="fas fa-copy"></i>
                                                     </button>
                                                     <pre class="text-sm font-mono text-gray-800">X-API-Key: your-api-key
-Authorization: Bearer auth_token
+Authorization: auth_token
 Content-Type: application/json</pre>
                                                 </div>
                                             </div>
