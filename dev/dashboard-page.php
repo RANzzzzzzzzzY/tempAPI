@@ -498,7 +498,7 @@ Content-Type: application/json</pre>
                                                         <h6 class="text-sm font-medium text-gray-900 mb-2">Headers</h6>
                                                         <div class="bg-gray-100 p-3 rounded-md">
                                                             <pre class="text-sm font-mono text-gray-800">X-API-Key: your-api-key
-Authorization: Bearer auth_token
+Authorization: auth_token
 Content-Type: application/json</pre>
                                                         </div>
                                                     </div>
@@ -539,7 +539,7 @@ Content-Type: application/json</pre>
                                                         <h6 class="text-sm font-medium text-gray-900 mb-2">Headers</h6>
                                                         <div class="bg-gray-100 p-3 rounded-md">
                                                             <pre class="text-sm font-mono text-gray-800">X-API-Key: your-api-key
-Authorization: Bearer auth_token
+Authorization: auth_token
 Content-Type: application/json</pre>
                                                         </div>
                                                     </div>
