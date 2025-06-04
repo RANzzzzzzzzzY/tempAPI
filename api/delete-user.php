@@ -104,7 +104,7 @@ try {
 
     // Verify token and get user info
     $stmt = $pdo->prepare("SELECT 
-            au.id
+            au.id,
             au.dev_id,
             au.email
         FROM api_users au
