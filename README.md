@@ -199,7 +199,7 @@ Response:
 ```http
 POST /api/reset-password.php
 X-API-Key: your-api-key
-Authorization: Bearer auth_token
+Authorization: auth_token
 Content-Type: application/json
 
 {
@@ -222,7 +222,7 @@ Response:
 ```http
 POST /api/change-password.php
 X-API-Key: your-api-key
-Authorization: Bearer auth_token
+Authorization: auth_token
 Content-Type: application/json
 
 {

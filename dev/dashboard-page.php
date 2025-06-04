@@ -208,20 +208,20 @@
                             <div class="sticky top-4 bg-white rounded-lg shadow-md p-6">
                                 <h3 class="text-lg font-semibold text-gray-900 mb-4">Table of Contents</h3>
                                 <nav class="space-y-2">
+                                    <a href="#Overview" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">
+                                        <i class="fas fa-home w-5 mr-2"></i>Overview
+                                    </a>
                                     <a href="#authentication" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">
                                         <i class="fas fa-key w-5 mr-2"></i>Authentication
                                     </a>
-                                    <a href="#endpoints" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">
-                                        <i class="fas fa-code w-5 mr-2"></i>API Endpoints
+                                    <a href="#api-usage" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">
+                                        <i class="fas fa-book w-5 mr-2"></i>Using the API
                                     </a>
                                     <a href="#error-responses" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">
                                         <i class="fas fa-exclamation-circle w-5 mr-2"></i>Error Responses
                                     </a>
                                     <a href="#security" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">
                                         <i class="fas fa-shield-alt w-5 mr-2"></i>Security Best Practices
-                                    </a>
-                                    <a href="#api-usage" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">
-                                        <i class="fas fa-book w-5 mr-2"></i>Using the API
                                     </a>
                                     <a href="#integration" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">
                                         <i class="fas fa-cogs w-5 mr-2"></i>System Requirements
@@ -232,22 +232,50 @@
 
                         <!-- Main Documentation Content -->
                         <div class="md:w-3/4 space-y-8">
-                            <div class="bg-white rounded-lg shadow-md p-6">
-                                <h2 class="text-3xl font-bold text-gray-900 mb-8">API Documentation</h2>
-                                <p class="text-gray-600 mb-6">Welcome to the User Authentication API documentation. This guide will help you integrate our authentication system into your application.</p>
+                            <!-- Overview Section -->
+                            <div id="Overview" class="bg-white rounded-lg shadow-md p-6">
+                                <div class="flex items-center mb-4">
+                                    <i class="fas fa-home text-primary text-2xl mr-3"></i>
+                                    <h2 class="text-3xl font-bold text-gray-900">Overview</h2>
+                                </div>
+                                <p class="text-gray-600 mb-6">Welcome to the User Authentication API documentation. This system provides both a developer portal for managing API keys and a complete authentication API that can be integrated into any application.</p>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Developer Portal Features</h3>
+                                        <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                            <li>Developer registration with email verification</li>
+                                            <li>Secure login system</li>
+                                            <li>API key management</li>
+                                            <li>Interactive documentation</li>
+                                            <li>Modern UI with Tailwind CSS</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-2">API Features</h3>
+                                        <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                            <li>User registration with email verification</li>
+                                            <li>Secure token-based authentication</li>
+                                            <li>Password reset functionality</li>
+                                            <li>Password change functionality</li>
+                                            <li>Secure token management</li>
+                                            <li>Rate limiting and API key validation</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                            
+
                             <!-- Authentication Section -->
                             <div id="authentication" class="bg-white rounded-lg shadow-md p-6">
                                 <div class="flex items-center mb-4">
                                     <i class="fas fa-key text-primary text-2xl mr-3"></i>
-                                    <h3 class="text-2xl font-semibold text-gray-900">Authentication</h3>
+                                    <h2 class="text-3xl font-bold text-gray-900">Authentication</h2>
                                 </div>
                                 <p class="text-gray-600 mb-4">All API requests require authentication using your API key in the header:</p>
                                 <div class="bg-gray-50 p-4 rounded-lg mb-4">
                                     <div class="flex items-center justify-between">
                                         <code class="text-sm font-mono text-gray-800">X-API-Key: your_api_key</code>
-                                        <button onclick="copyToClipboard('X-API-Key: your_api_key')" class="text-gray-500 hover:text-gray-700">
+                                        <button onclick="copyToClipboard(this)" data-copy-text="X-API-Key: your_api_key" class="text-gray-500 hover:text-gray-700">
                                             <i class="fas fa-copy"></i>
                                         </button>
                                     </div>
@@ -267,277 +295,11 @@
                                 </div>
                             </div>
 
-                            <!-- Endpoints Section -->
-                            <div id="endpoints" class="space-y-6">
-                                <div class="flex items-center mb-4">
-                                    <i class="fas fa-code text-primary text-2xl mr-3"></i>
-                                    <h3 class="text-2xl font-semibold text-gray-900">API Endpoints</h3>
-                                </div>
-                                
-                                <!-- Register User -->
-                                <div class="bg-white rounded-lg shadow-md p-6">
-                                    <div class="flex items-center mb-4">
-                                        <span class="bg-green-500 text-white px-3 py-1 rounded-md text-sm font-medium mr-3">POST</span>
-                                        <h4 class="text-xl font-semibold text-gray-900">/api/register.php</h4>
-                                    </div>
-                                    <p class="text-gray-600 mb-4">Register a new user account.</p>
-                                    
-                                    <div class="space-y-4">
-                                        <div class="bg-gray-50 p-4 rounded-lg">
-                                            <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
-    <span class="text-blue-600">"email"</span>: <span class="text-green-600">"user@example.com"</span>,
-    <span class="text-blue-600">"password"</span>: <span class="text-green-600">"SecurePass123"</span>
-<span class="text-purple-600">}</span></pre>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Request OTP -->
-                                <div class="bg-white rounded-lg shadow-md p-6">
-                                    <div class="flex items-center mb-4">
-                                        <span class="bg-green-500 text-white px-3 py-1 rounded-md text-sm font-medium mr-3">POST</span>
-                                        <h4 class="text-xl font-semibold text-gray-900">/api/request-otp.php</h4>
-                                    </div>
-                                    <p class="text-gray-600 mb-4">Request an OTP for email verification or password reset.</p>
-                                    
-                                    <div class="space-y-4">
-                                        <div class="bg-gray-50 p-4 rounded-lg">
-                                            <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
-    <span class="text-blue-600">"email"</span>: <span class="text-green-600">"user@example.com"</span>,
-    <span class="text-blue-600">"purpose"</span>: <span class="text-green-600">"email-verification"</span>
-<span class="text-purple-600">}</span></pre>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Verify Email -->
-                                <div class="bg-white rounded-lg shadow-md p-6">
-                                    <div class="flex items-center mb-4">
-                                        <span class="bg-green-500 text-white px-3 py-1 rounded-md text-sm font-medium mr-3">POST</span>
-                                        <h4 class="text-xl font-semibold text-gray-900">/api/verify-email.php</h4>
-                                    </div>
-                                    <p class="text-gray-600 mb-4">Verify user's email using OTP.</p>
-                                    
-                                    <div class="space-y-4">
-                                        <div class="bg-gray-50 p-4 rounded-lg">
-                                            <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
-    <span class="text-blue-600">"email"</span>: <span class="text-green-600">"user@example.com"</span>,
-    <span class="text-blue-600">"otp"</span>: <span class="text-green-600">"123456"</span>
-<span class="text-purple-600">}</span></pre>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- User Login -->
-                                <div class="bg-white rounded-lg shadow-md p-6">
-                                    <div class="flex items-center mb-4">
-                                        <span class="bg-green-500 text-white px-3 py-1 rounded-md text-sm font-medium mr-3">POST</span>
-                                        <h4 class="text-xl font-semibold text-gray-900">/api/login.php</h4>
-                                    </div>
-                                    <p class="text-gray-600 mb-4">Authenticate a user and get an access token.</p>
-                                    
-                                    <div class="space-y-4">
-                                        <div class="bg-gray-50 p-4 rounded-lg">
-                                            <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
-    <span class="text-blue-600">"email"</span>: <span class="text-green-600">"user@example.com"</span>,
-    <span class="text-blue-600">"password"</span>: <span class="text-green-600">"SecurePass123"</span>
-<span class="text-purple-600">}</span></pre>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Reset Password -->
-                                <div class="bg-white rounded-lg shadow-md p-6">
-                                    <div class="flex items-center mb-4">
-                                        <span class="bg-green-500 text-white px-3 py-1 rounded-md text-sm font-medium mr-3">POST</span>
-                                        <h4 class="text-xl font-semibold text-gray-900">/api/reset-password.php</h4>
-                                    </div>
-                                    <p class="text-gray-600 mb-4">Reset user's password using OTP.</p>
-                                    
-                                    <div class="space-y-4">
-                                        <div class="bg-gray-50 p-4 rounded-lg">
-                                            <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
-    <span class="text-blue-600">"otp"</span>: <span class="text-green-600">"123456"</span>,
-    <span class="text-blue-600">"new_password"</span>: <span class="text-green-600">"NewSecurePass123"</span>
-<span class="text-purple-600">}</span></pre>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Change Password -->
-                                <div class="bg-white rounded-lg shadow-md p-6">
-                                    <div class="flex items-center mb-4">
-                                        <span class="bg-green-500 text-white px-3 py-1 rounded-md text-sm font-medium mr-3">POST</span>
-                                        <h4 class="text-xl font-semibold text-gray-900">/api/change-password.php</h4>
-                                    </div>
-                                    <p class="text-gray-600 mb-4">Change user's password (requires authentication).</p>
-                                    
-                                    <div class="space-y-4">
-                                        <div class="bg-gray-50 p-4 rounded-lg">
-                                            <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
-    <span class="text-blue-600">"old_password"</span>: <span class="text-green-600">"CurrentPass123"</span>,
-    <span class="text-blue-600">"new_password"</span>: <span class="text-green-600">"NewSecurePass123"</span>,
-    <span class="text-blue-600">"confirm_password"</span>: <span class="text-green-600">"NewSecurePass123"</span>
-<span class="text-purple-600">}</span></pre>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Logout -->
-                                <div class="bg-white rounded-lg shadow-md p-6">
-                                    <div class="flex items-center mb-4">
-                                        <span class="bg-green-500 text-white px-3 py-1 rounded-md text-sm font-medium mr-3">POST</span>
-                                        <h4 class="text-xl font-semibold text-gray-900">/api/logout.php</h4>
-                                    </div>
-                                    <p class="text-gray-600 mb-4">Invalidate the current authentication token.</p>
-                                </div>
-                            </div>
-
-                            <!-- Error Responses Section -->
-                            <div id="error-responses" class="bg-white rounded-lg shadow-md p-6">
-                                <div class="flex items-center mb-4">
-                                    <i class="fas fa-exclamation-circle text-primary text-2xl mr-3"></i>
-                                    <h3 class="text-2xl font-semibold text-gray-900">Error Responses</h3>
-                                </div>
-                                <p class="text-gray-600 mb-6">All API endpoints return consistent error responses in the following format:</p>
-
-                                <div class="space-y-6">
-                                    <!-- General Error Format -->
-                                    <div class="bg-gray-50 p-4 rounded-lg">
-                                        <h3 class="text-lg font-semibold text-gray-900 mb-2">General Error Format</h3>
-                                        <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
-    <span class="text-blue-600">"success"</span>: <span class="text-orange-600">false</span>,
-    <span class="text-blue-600">"error"</span>: <span class="text-green-600">"error_type"</span>,
-    <span class="text-blue-600">"message"</span>: <span class="text-green-600">"Human-readable error message"</span>
-<span class="text-purple-600">}</span></pre>
-                                    </div>
-
-                                    <!-- Common Error Types -->
-                                    <div>
-                                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Common Error Types</h3>
-                                        <div class="overflow-x-auto">
-                                            <table class="min-w-full divide-y divide-gray-200">
-                                                <thead class="bg-gray-50">
-                                                    <tr>
-                                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status Code</th>
-                                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Error Type</th>
-                                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody class="bg-white divide-y divide-gray-200">
-                                                    <tr>
-                                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">400</td>
-                                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Invalid request</td>
-                                                        <td class="px-6 py-4 text-sm text-gray-500">Missing or invalid parameters</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">401</td>
-                                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Unauthorized</td>
-                                                        <td class="px-6 py-4 text-sm text-gray-500">Invalid or missing API key</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">403</td>
-                                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Forbidden</td>
-                                                        <td class="px-6 py-4 text-sm text-gray-500">Invalid authentication token</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">404</td>
-                                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Not found</td>
-                                                        <td class="px-6 py-4 text-sm text-gray-500">Resource not found</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">429</td>
-                                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Too many requests</td>
-                                                        <td class="px-6 py-4 text-sm text-gray-500">Rate limit exceeded</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">500</td>
-                                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Server error</td>
-                                                        <td class="px-6 py-4 text-sm text-gray-500">Internal server error</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-
-                                    <!-- Example Error Responses -->
-                                    <div>
-                                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Example Error Responses</h3>
-                                        
-                                        <!-- Invalid Request -->
-                                        <div class="mb-6">
-                                            <h4 class="text-md font-medium text-gray-900 mb-2">Invalid Request</h4>
-                                            <div class="bg-gray-50 p-4 rounded-lg">
-                                                <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
-    <span class="text-blue-600">"success"</span>: <span class="text-orange-600">false</span>,
-    <span class="text-blue-600">"error"</span>: <span class="text-green-600">"Invalid request"</span>,
-    <span class="text-blue-600">"message"</span>: <span class="text-green-600">"No matching user found with the provided email and token"</span>
-<span class="text-purple-600">}</span></pre>
-                                            </div>
-                                        </div>
-
-                                        <!-- Token Expired -->
-                                        <div class="mb-6">
-                                            <h4 class="text-md font-medium text-gray-900 mb-2">Token Expired</h4>
-                                            <div class="bg-gray-50 p-4 rounded-lg">
-                                                <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
-    <span class="text-blue-600">"success"</span>: <span class="text-orange-600">false</span>,
-    <span class="text-blue-600">"error"</span>: <span class="text-green-600">"Token expired"</span>,
-    <span class="text-blue-600">"message"</span>: <span class="text-green-600">"The authentication token has expired"</span>,
-    <span class="text-blue-600">"expired_at"</span>: <span class="text-green-600">"2024-03-21 12:34:56"</span>
-<span class="text-purple-600">}</span></pre>
-                                            </div>
-                                        </div>
-
-                                        <!-- Rate Limit Exceeded -->
-                                        <div>
-                                            <h4 class="text-md font-medium text-gray-900 mb-2">Rate Limit Exceeded</h4>
-                                            <div class="bg-gray-50 p-4 rounded-lg">
-                                                <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
-    <span class="text-blue-600">"success"</span>: <span class="text-orange-600">false</span>,
-    <span class="text-blue-600">"error"</span>: <span class="text-green-600">"Rate limit exceeded"</span>,
-    <span class="text-blue-600">"message"</span>: <span class="text-green-600">"Too many requests. Please try again later."</span>,
-    <span class="text-blue-600">"retry_after"</span>: <span class="text-orange-600">60</span>
-<span class="text-purple-600">}</span></pre>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Security Section -->
-                            <div id="security" class="bg-white rounded-lg shadow-md p-6">
-                                <div class="flex items-center mb-4">
-                                    <i class="fas fa-shield-alt text-primary text-2xl mr-3"></i>
-                                    <h3 class="text-2xl font-semibold text-gray-900">Security Best Practices</h3>
-                                </div>
-                                <div class="space-y-4">
-                                    <div class="bg-gray-50 p-4 rounded-lg">
-                                        <h3 class="text-lg font-semibold text-gray-900 mb-2">API Key Security</h3>
-                                        <ul class="list-disc list-inside text-gray-600 space-y-2">
-                                            <li>Never expose your API key in client-side code</li>
-                                            <li>Store API keys securely in environment variables</li>
-                                            <li>Rotate API keys periodically</li>
-                                            <li>Use HTTPS for all API requests</li>
-                                        </ul>
-                                    </div>
-                                    <div class="bg-gray-50 p-4 rounded-lg">
-                                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Password Security</h3>
-                                        <ul class="list-disc list-inside text-gray-600 space-y-2">
-                                            <li>Use strong passwords (minimum 8 characters, mix of letters, numbers, and symbols)</li>
-                                            <li>Implement rate limiting for login attempts</li>
-                                            <li>Use secure password reset flows with time-limited tokens</li>
-                                            <li>Enable two-factor authentication when available</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
                             <!-- API Usage Section -->
                             <div id="api-usage" class="bg-white rounded-lg shadow-md p-6">
                                 <div class="flex items-center mb-4">
                                     <i class="fas fa-book text-primary text-2xl mr-3"></i>
-                                    <h3 class="text-2xl font-semibold text-gray-900">Using the API</h3>
+                                    <h2 class="text-3xl font-bold text-gray-900">Using the API</h2>
                                 </div>
                                 <div class="space-y-4">
                                     <div class="bg-gray-50 p-4 rounded-lg">
@@ -736,7 +498,7 @@ Content-Type: application/json</pre>
                                                         <h6 class="text-sm font-medium text-gray-900 mb-2">Headers</h6>
                                                         <div class="bg-gray-100 p-3 rounded-md">
                                                             <pre class="text-sm font-mono text-gray-800">X-API-Key: your-api-key
-Authorization: Bearer auth_token
+Authorization: auth_token
 Content-Type: application/json</pre>
                                                         </div>
                                                     </div>
@@ -777,7 +539,7 @@ Content-Type: application/json</pre>
                                                         <h6 class="text-sm font-medium text-gray-900 mb-2">Headers</h6>
                                                         <div class="bg-gray-100 p-3 rounded-md">
                                                             <pre class="text-sm font-mono text-gray-800">X-API-Key: your-api-key
-Authorization: Bearer auth_token
+Authorization: auth_token
 Content-Type: application/json</pre>
                                                         </div>
                                                     </div>
@@ -889,11 +651,151 @@ Content-Type: application/json</pre>
                                 </div>
                             </div>
 
+                            <!-- Error Responses Section -->
+                            <div id="error-responses" class="bg-white rounded-lg shadow-md p-6">
+                                <div class="flex items-center mb-4">
+                                    <i class="fas fa-exclamation-circle text-primary text-2xl mr-3"></i>
+                                    <h2 class="text-3xl font-bold text-gray-900">Error Responses</h2>
+                                </div>
+                                <p class="text-gray-600 mb-6">All API endpoints return consistent error responses in the following format:</p>
+
+                                <div class="space-y-6">
+                                    <!-- General Error Format -->
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-2">General Error Format</h3>
+                                        <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
+    <span class="text-blue-600">"success"</span>: <span class="text-orange-600">false</span>,
+    <span class="text-blue-600">"error"</span>: <span class="text-green-600">"error_type"</span>,
+    <span class="text-blue-600">"message"</span>: <span class="text-green-600">"Human-readable error message"</span>
+<span class="text-purple-600">}</span></pre>
+                                    </div>
+
+                                    <!-- Common Error Types -->
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Common Error Types</h3>
+                                        <div class="overflow-x-auto">
+                                            <table class="min-w-full divide-y divide-gray-200">
+                                                <thead class="bg-gray-50">
+                                                    <tr>
+                                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status Code</th>
+                                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Error Type</th>
+                                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="bg-white divide-y divide-gray-200">
+                                                    <tr>
+                                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">400</td>
+                                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Invalid request</td>
+                                                        <td class="px-6 py-4 text-sm text-gray-500">Missing or invalid parameters</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">401</td>
+                                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Unauthorized</td>
+                                                        <td class="px-6 py-4 text-sm text-gray-500">Invalid or missing API key</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">403</td>
+                                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Forbidden</td>
+                                                        <td class="px-6 py-4 text-sm text-gray-500">Invalid authentication token</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">404</td>
+                                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Not found</td>
+                                                        <td class="px-6 py-4 text-sm text-gray-500">Resource not found</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">429</td>
+                                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Too many requests</td>
+                                                        <td class="px-6 py-4 text-sm text-gray-500">Rate limit exceeded</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">500</td>
+                                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Server error</td>
+                                                        <td class="px-6 py-4 text-sm text-gray-500">Internal server error</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <!-- Example Error Responses -->
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Example Error Responses</h3>
+                                        
+                                        <!-- Invalid Request -->
+                                        <div class="mb-6">
+                                            <h4 class="text-md font-medium text-gray-900 mb-2">Invalid Request</h4>
+                                            <div class="bg-gray-50 p-4 rounded-lg">
+                                                <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
+    <span class="text-blue-600">"success"</span>: <span class="text-orange-600">false</span>,
+    <span class="text-blue-600">"error"</span>: <span class="text-green-600">"Invalid request"</span>,
+    <span class="text-blue-600">"message"</span>: <span class="text-green-600">"No matching user found with the provided email and token"</span>
+<span class="text-purple-600">}</span></pre>
+                                            </div>
+                                        </div>
+
+                                        <!-- Token Expired -->
+                                        <div class="mb-6">
+                                            <h4 class="text-md font-medium text-gray-900 mb-2">Token Expired</h4>
+                                            <div class="bg-gray-50 p-4 rounded-lg">
+                                                <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
+    <span class="text-blue-600">"success"</span>: <span class="text-orange-600">false</span>,
+    <span class="text-blue-600">"error"</span>: <span class="text-green-600">"Token expired"</span>,
+    <span class="text-blue-600">"message"</span>: <span class="text-green-600">"The authentication token has expired"</span>,
+    <span class="text-blue-600">"expired_at"</span>: <span class="text-green-600">"2024-03-21 12:34:56"</span>
+<span class="text-purple-600">}</span></pre>
+                                            </div>
+                                        </div>
+
+                                        <!-- Rate Limit Exceeded -->
+                                        <div>
+                                            <h4 class="text-md font-medium text-gray-900 mb-2">Rate Limit Exceeded</h4>
+                                            <div class="bg-gray-50 p-4 rounded-lg">
+                                                <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
+    <span class="text-blue-600">"success"</span>: <span class="text-orange-600">false</span>,
+    <span class="text-blue-600">"error"</span>: <span class="text-green-600">"Rate limit exceeded"</span>,
+    <span class="text-blue-600">"message"</span>: <span class="text-green-600">"Too many requests. Please try again later."</span>,
+    <span class="text-blue-600">"retry_after"</span>: <span class="text-orange-600">60</span>
+<span class="text-purple-600">}</span></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Security Section -->
+                            <div id="security" class="bg-white rounded-lg shadow-md p-6">
+                                <div class="flex items-center mb-4">
+                                    <i class="fas fa-shield-alt text-primary text-2xl mr-3"></i>
+                                    <h2 class="text-3xl font-bold text-gray-900">Security Best Practices</h2>
+                                </div>
+                                <div class="space-y-4">
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-2">API Key Security</h3>
+                                        <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                            <li>Never expose your API key in client-side code</li>
+                                            <li>Store API keys securely in environment variables</li>
+                                            <li>Rotate API keys periodically</li>
+                                            <li>Use HTTPS for all API requests</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Password Security</h3>
+                                        <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                            <li>Use strong passwords (minimum 8 characters, mix of letters, numbers, and symbols)</li>
+                                            <li>Implement rate limiting for login attempts</li>
+                                            <li>Use secure password reset flows with time-limited tokens</li>
+                                            <li>Enable two-factor authentication when available</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
                             <!-- Integration Guide Section -->
                             <div id="integration" class="bg-white rounded-lg shadow-md p-6">
                                 <div class="flex items-center mb-4">
                                     <i class="fas fa-book text-primary text-2xl mr-3"></i>
-                                    <h3 class="text-2xl font-semibold text-gray-900">System Requirements</h3>
+                                    <h2 class="text-3xl font-bold text-gray-900">System Requirements</h2>
                                 </div>
                                 
                                 <!-- Setup Requirements -->
