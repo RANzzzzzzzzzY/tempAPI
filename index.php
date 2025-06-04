@@ -47,6 +47,28 @@ if ($isLoggedIn) {
             }
         }
     </script>
+    <style>
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #2c3e50;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 1000;
+        }
+        .back-to-top.visible {
+            opacity: 1;
+        }
+    </style>
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col font-['Poppins']">
     <!-- Navigation -->
@@ -151,23 +173,17 @@ if ($isLoggedIn) {
                             <a href="#overview" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">
                                 <i class="fas fa-home w-5 mr-2"></i>Overview
                             </a>
-                            <a href="#developer-portal" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">
-                                <i class="fas fa-laptop-code w-5 mr-2"></i>Developer Portal
-                            </a>
                             <a href="#authentication" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">
                                 <i class="fas fa-key w-5 mr-2"></i>Authentication
                             </a>
-                            <a href="#endpoints" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">
-                                <i class="fas fa-code w-5 mr-2"></i>API Endpoints
+                            <a href="#api-usage" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">
+                                <i class="fas fa-book w-5 mr-2"></i>Using the API
                             </a>
                             <a href="#error-responses" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">
                                 <i class="fas fa-exclamation-circle w-5 mr-2"></i>Error Responses
                             </a>
                             <a href="#security" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">
                                 <i class="fas fa-shield-alt w-5 mr-2"></i>Security Best Practices
-                            </a>
-                            <a href="#api-usage" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">
-                                <i class="fas fa-book w-5 mr-2"></i>Using the API
                             </a>
                             <a href="#integration" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">
                                 <i class="fas fa-cogs w-5 mr-2"></i>System Requirements
@@ -211,45 +227,6 @@ if ($isLoggedIn) {
                         </div>
                     </div>
 
-                    <!-- Developer Portal Section -->
-                    <div id="developer-portal" class="bg-white rounded-lg shadow-md p-6">
-                        <div class="flex items-center mb-4">
-                            <i class="fas fa-laptop-code text-primary text-2xl mr-3"></i>
-                            <h2 class="text-3xl font-bold text-gray-900">Developer Portal</h2>
-                        </div>
-                        <p class="text-gray-600 mb-6">The developer portal provides endpoints for managing your developer account and API keys.</p>
-
-                        <!-- Register Developer -->
-                        <div class="mb-8">
-                            <div class="flex items-center mb-4">
-                                <span class="bg-green-500 text-white px-3 py-1 rounded-md text-sm font-medium mr-3">POST</span>
-                                <h4 class="text-xl font-semibold text-gray-900">/dev/register.php</h4>
-                            </div>
-                            <div class="bg-gray-50 p-4 rounded-lg">
-                                <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
-    <span class="text-blue-600">"email"</span>: <span class="text-green-600">"dev@example.com"</span>,
-    <span class="text-blue-600">"password"</span>: <span class="text-green-600">"SecurePass123"</span>,
-    <span class="text-blue-600">"fullName"</span>: <span class="text-green-600">"John Doe"</span>,
-    <span class="text-blue-600">"systemName"</span>: <span class="text-green-600">"My App"</span>
-<span class="text-purple-600">}</span></pre>
-                            </div>
-                        </div>
-
-                        <!-- Developer Login -->
-                        <div class="mb-8">
-                            <div class="flex items-center mb-4">
-                                <span class="bg-green-500 text-white px-3 py-1 rounded-md text-sm font-medium mr-3">POST</span>
-                                <h4 class="text-xl font-semibold text-gray-900">/dev/login.php</h4>
-                            </div>
-                            <div class="bg-gray-50 p-4 rounded-lg">
-                                <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
-    <span class="text-blue-600">"email"</span>: <span class="text-green-600">"dev@example.com"</span>,
-    <span class="text-blue-600">"password"</span>: <span class="text-green-600">"SecurePass123"</span>
-<span class="text-purple-600">}</span></pre>
-                            </div>
-                        </div>
-                    </div>
-
                     <!-- Authentication Section -->
                     <div id="authentication" class="bg-white rounded-lg shadow-md p-6">
                         <div class="flex items-center mb-4">
@@ -280,129 +257,416 @@ if ($isLoggedIn) {
                         </div>
                     </div>
 
-                    <!-- Endpoints Section -->
-                    <div id="endpoints" class="space-y-6">
+                    <!-- API Usage Section -->
+                    <div id="api-usage" class="bg-white rounded-lg shadow-md p-6">
                         <div class="flex items-center mb-4">
                             <i class="fas fa-code text-primary text-2xl mr-3"></i>
-                            <h2 class="text-3xl font-bold text-gray-900">API Endpoints</h2>
+                            <h3 class="text-2xl font-semibold text-gray-900">Using the API</h3>
                         </div>
-                        
-                        <!-- Register User -->
-                        <div class="bg-white rounded-lg shadow-md p-6">
-                            <div class="flex items-center mb-4">
-                                <span class="bg-green-500 text-white px-3 py-1 rounded-md text-sm font-medium mr-3">POST</span>
-                                <h4 class="text-xl font-semibold text-gray-900">/api/register.php</h4>
-                            </div>
-                            <p class="text-gray-600 mb-4">Register a new user account.</p>
-                            
-                            <div class="space-y-4">
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
-    <span class="text-blue-600">"email"</span>: <span class="text-green-600">"user@example.com"</span>,
-    <span class="text-blue-600">"password"</span>: <span class="text-green-600">"SecurePass123"</span>
-<span class="text-purple-600">}</span></pre>
+                        <div class="space-y-4">
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h5 class="font-medium text-gray-900 mb-2">Authentication</h5>
+                                <p class="text-gray-600 mb-2">Include your API key in all requests:</p>
+                                <div class="bg-gray-100 p-3 rounded-md">
+                                    <code class="text-sm font-mono text-gray-800">X-API-Key: your_api_key</code>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- Request OTP -->
-                        <div class="bg-white rounded-lg shadow-md p-6">
-                            <div class="flex items-center mb-4">
-                                <span class="bg-green-500 text-white px-3 py-1 rounded-md text-sm font-medium mr-3">POST</span>
-                                <h4 class="text-xl font-semibold text-gray-900">/api/request-otp.php</h4>
-                            </div>
-                            <p class="text-gray-600 mb-4">Request an OTP for email verification or password reset.</p>
-                            
-                            <div class="space-y-4">
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
-    <span class="text-blue-600">"email"</span>: <span class="text-green-600">"user@example.com"</span>,
-    <span class="text-blue-600">"purpose"</span>: <span class="text-green-600">"email-verification"</span>
-<span class="text-purple-600">}</span></pre>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h5 class="font-medium text-gray-900 mb-2">Available Endpoints</h5>
+                                <div class="space-y-8">
+                                    <!-- Register User -->
+                                    <div class="border-b border-gray-200 pb-6">
+                                        <div class="flex items-center mb-4">
+                                            <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
+                                            <code class="text-sm font-mono text-gray-800">/api/register.php</code>
+                                            <span class="ml-2 text-gray-600">Register new user</span>
+                                        </div>
+                                        <div class="space-y-4">
+                                            <div>
+                                                <h6 class="text-sm font-medium text-gray-900 mb-2">Headers</h6>
+                                                <div class="bg-gray-100 p-3 rounded-md relative group">
+                                                    <button onclick="copyToClipboard(this, 'X-API-Key: your-api-key\nContent-Type: application/json')" class="absolute top-2 right-2 p-1 text-gray-500 hover:text-gray-700 transition-colors">
+                                                        <i class="fas fa-copy"></i>
+                                                    </button>
+                                                    <pre class="text-sm font-mono text-gray-800">X-API-Key: your-api-key
+Content-Type: application/json</pre>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h6 class="text-sm font-medium text-gray-900 mb-2">Request Body</h6>
+                                                <div class="bg-gray-100 p-3 rounded-md relative group">
+                                                    <button onclick="copyToClipboard(this, '{\n    \"email\": \"user@example.com\",\n    \"password\": \"SecurePass123\"\n}')" class="absolute top-2 right-2 p-1 text-gray-500 hover:text-gray-700 transition-colors">
+                                                        <i class="fas fa-copy"></i>
+                                                    </button>
+                                                    <pre class="text-sm font-mono text-gray-800">{
+    "email": "user@example.com",
+    "password": "SecurePass123"
+}</pre>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h6 class="text-sm font-medium text-gray-900 mb-2">Response</h6>
+                                                <div class="bg-gray-100 p-3 rounded-md relative group">
+                                                    <button onclick="copyToClipboard(this, '{\n    \"success\": true,\n    \"message\": \"User registered successfully\",\n    \"data\": {\n        \"user_id\": \"user_id\",\n        \"email\": \"user@example.com\",\n        \"auth_token\": \"32_character_token\",\n        \"expires_at\": \"token_expiry_timestamp\",\n        \"is_verified\": false,\n        \"otp\": \"verification_code\"\n    }\n}')" class="absolute top-2 right-2 p-1 text-gray-500 hover:text-gray-700 transition-colors">
+                                                        <i class="fas fa-copy"></i>
+                                                    </button>
+                                                    <pre class="text-sm font-mono text-gray-800">{
+    "success": true,
+    "message": "User registered successfully",
+    "data": {
+        "user_id": "user_id",
+        "email": "user@example.com",
+        "auth_token": "32_character_token",
+        "expires_at": "token_expiry_timestamp",
+        "is_verified": false,
+        "otp": "verification_code"
+    }
+}</pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Request OTP -->
+                                    <div class="border-b border-gray-200 pb-6">
+                                        <div class="flex items-center mb-4">
+                                            <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
+                                            <code class="text-sm font-mono text-gray-800">/api/request-otp.php</code>
+                                            <span class="ml-2 text-gray-600">Request OTP for verification</span>
+                                        </div>
+                                        <div class="space-y-4">
+                                            <div>
+                                                <h6 class="text-sm font-medium text-gray-900 mb-2">Headers</h6>
+                                                <div class="bg-gray-100 p-3 rounded-md relative group">
+                                                    <button onclick="copyToClipboard(this, 'X-API-Key: your-api-key\nContent-Type: application/json')" class="absolute top-2 right-2 p-1 text-gray-500 hover:text-gray-700 transition-colors">
+                                                        <i class="fas fa-copy"></i>
+                                                    </button>
+                                                    <pre class="text-sm font-mono text-gray-800">X-API-Key: your-api-key
+Content-Type: application/json</pre>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h6 class="text-sm font-medium text-gray-900 mb-2">Request Body</h6>
+                                                <div class="bg-gray-100 p-3 rounded-md relative group">
+                                                    <button onclick="copyToClipboard(this, '{\n    \"email\": \"user@example.com\",\n    \"purpose\": \"email-verification\"\n}')" class="absolute top-2 right-2 p-1 text-gray-500 hover:text-gray-700 transition-colors">
+                                                        <i class="fas fa-copy"></i>
+                                                    </button>
+                                                    <pre class="text-sm font-mono text-gray-800">{
+    "email": "user@example.com",
+    "purpose": "email-verification"
+}</pre>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h6 class="text-sm font-medium text-gray-900 mb-2">Response</h6>
+                                                <div class="bg-gray-100 p-3 rounded-md relative group">
+                                                    <button onclick="copyToClipboard(this, '{\n    \"success\": true,\n    \"message\": \"OTP generated successfully\",\n    \"data\": {\n        \"user_id\": \"user_id\",\n        \"email\": \"user@example.com\",\n        \"purpose\": \"email-verification\",\n        \"otp\": \"6_digit_code\",\n        \"otp_expires_at\": \"otp_expiry_timestamp\",\n        \"auth_token\": \"32_character_token\",\n        \"token_expires_at\": \"token_expiry_timestamp\"\n    }\n}')" class="absolute top-2 right-2 p-1 text-gray-500 hover:text-gray-700 transition-colors">
+                                                        <i class="fas fa-copy"></i>
+                                                    </button>
+                                                    <pre class="text-sm font-mono text-gray-800">{
+    "success": true,
+    "message": "OTP generated successfully",
+    "data": {
+        "user_id": "user_id",
+        "email": "user@example.com",
+        "purpose": "email-verification",
+        "otp": "6_digit_code",
+        "otp_expires_at": "otp_expiry_timestamp",
+        "auth_token": "32_character_token",
+        "token_expires_at": "token_expiry_timestamp"
+    }
+}</pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Verify Email -->
+                                    <div class="border-b border-gray-200 pb-6">
+                                        <div class="flex items-center mb-4">
+                                            <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
+                                            <code class="text-sm font-mono text-gray-800">/api/verify-email.php</code>
+                                            <span class="ml-2 text-gray-600">Verify email with OTP</span>
+                                        </div>
+                                        <div class="space-y-4">
+                                            <div>
+                                                <h6 class="text-sm font-medium text-gray-900 mb-2">Headers</h6>
+                                                <div class="bg-gray-100 p-3 rounded-md relative group">
+                                                    <button onclick="copyToClipboard(this, 'X-API-Key: your-api-key\nContent-Type: application/json')" class="absolute top-2 right-2 p-1 text-gray-500 hover:text-gray-700 transition-colors">
+                                                        <i class="fas fa-copy"></i>
+                                                    </button>
+                                                    <pre class="text-sm font-mono text-gray-800">X-API-Key: your-api-key
+Content-Type: application/json</pre>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h6 class="text-sm font-medium text-gray-900 mb-2">Request Body</h6>
+                                                <div class="bg-gray-100 p-3 rounded-md relative group">
+                                                    <button onclick="copyToClipboard(this, '{\n    \"email\": \"user@example.com\",\n    \"otp\": \"123456\"\n}')" class="absolute top-2 right-2 p-1 text-gray-500 hover:text-gray-700 transition-colors">
+                                                        <i class="fas fa-copy"></i>
+                                                    </button>
+                                                    <pre class="text-sm font-mono text-gray-800">{
+    "email": "user@example.com",
+    "otp": "123456"
+}</pre>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h6 class="text-sm font-medium text-gray-900 mb-2">Response</h6>
+                                                <div class="bg-gray-100 p-3 rounded-md relative group">
+                                                    <button onclick="copyToClipboard(this, '{\n    \"success\": true,\n    \"message\": \"Email verified successfully\",\n    \"data\": {\n        \"user_id\": \"user_id\",\n        \"email\": \"user@example.com\",\n        \"auth_token\": \"32_character_token\",\n        \"expires_at\": \"token_expiry_timestamp\"\n    }\n}')" class="absolute top-2 right-2 p-1 text-gray-500 hover:text-gray-700 transition-colors">
+                                                        <i class="fas fa-copy"></i>
+                                                    </button>
+                                                    <pre class="text-sm font-mono text-gray-800">{
+    "success": true,
+    "message": "Email verified successfully",
+    "data": {
+        "user_id": "user_id",
+        "email": "user@example.com",
+        "auth_token": "32_character_token",
+        "expires_at": "token_expiry_timestamp"
+    }
+}</pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- User Login -->
+                                    <div class="border-b border-gray-200 pb-6">
+                                        <div class="flex items-center mb-4">
+                                            <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
+                                            <code class="text-sm font-mono text-gray-800">/api/login.php</code>
+                                            <span class="ml-2 text-gray-600">User login</span>
+                                        </div>
+                                        <div class="space-y-4">
+                                            <div>
+                                                <h6 class="text-sm font-medium text-gray-900 mb-2">Headers</h6>
+                                                <div class="bg-gray-100 p-3 rounded-md relative group">
+                                                    <button onclick="copyToClipboard(this, 'X-API-Key: your-api-key\nContent-Type: application/json')" class="absolute top-2 right-2 p-1 text-gray-500 hover:text-gray-700 transition-colors">
+                                                        <i class="fas fa-copy"></i>
+                                                    </button>
+                                                    <pre class="text-sm font-mono text-gray-800">X-API-Key: your-api-key
+Content-Type: application/json</pre>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h6 class="text-sm font-medium text-gray-900 mb-2">Request Body</h6>
+                                                <div class="bg-gray-100 p-3 rounded-md relative group">
+                                                    <button onclick="copyToClipboard(this, '{\n    \"email\": \"user@example.com\",\n    \"password\": \"SecurePass123\"\n}')" class="absolute top-2 right-2 p-1 text-gray-500 hover:text-gray-700 transition-colors">
+                                                        <i class="fas fa-copy"></i>
+                                                    </button>
+                                                    <pre class="text-sm font-mono text-gray-800">{
+    "email": "user@example.com",
+    "password": "SecurePass123"
+}</pre>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h6 class="text-sm font-medium text-gray-900 mb-2">Response</h6>
+                                                <div class="bg-gray-100 p-3 rounded-md relative group">
+                                                    <button onclick="copyToClipboard(this, '{\n    \"success\": true,\n    \"message\": \"Login successful\",\n    \"data\": {\n        \"user_id\": \"user_id\",\n        \"email\": \"user@example.com\",\n        \"auth_token\": \"32_character_token\",\n        \"expires_at\": \"token_expiry_timestamp\"\n    }\n}')" class="absolute top-2 right-2 p-1 text-gray-500 hover:text-gray-700 transition-colors">
+                                                        <i class="fas fa-copy"></i>
+                                                    </button>
+                                                    <pre class="text-sm font-mono text-gray-800">{
+    "success": true,
+    "message": "Login successful",
+    "data": {
+        "user_id": "user_id",
+        "email": "user@example.com",
+        "auth_token": "32_character_token",
+        "expires_at": "token_expiry_timestamp"
+    }
+}</pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Reset Password -->
+                                    <div class="border-b border-gray-200 pb-6">
+                                        <div class="flex items-center mb-4">
+                                            <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
+                                            <code class="text-sm font-mono text-gray-800">/api/reset-password.php</code>
+                                            <span class="ml-2 text-gray-600">Reset user password</span>
+                                        </div>
+                                        <div class="space-y-4">
+                                            <div>
+                                                <h6 class="text-sm font-medium text-gray-900 mb-2">Headers</h6>
+                                                <div class="bg-gray-100 p-3 rounded-md relative group">
+                                                    <button onclick="copyToClipboard(this, 'X-API-Key: your-api-key\nAuthorization: Bearer auth_token\nContent-Type: application/json')" class="absolute top-2 right-2 p-1 text-gray-500 hover:text-gray-700 transition-colors">
+                                                        <i class="fas fa-copy"></i>
+                                                    </button>
+                                                    <pre class="text-sm font-mono text-gray-800">X-API-Key: your-api-key
+Authorization: Bearer auth_token
+Content-Type: application/json</pre>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h6 class="text-sm font-medium text-gray-900 mb-2">Request Body</h6>
+                                                <div class="bg-gray-100 p-3 rounded-md relative group">
+                                                    <button onclick="copyToClipboard(this, '{\n    \"otp\": \"123456\",\n    \"new_password\": \"NewSecurePass123\"\n}')" class="absolute top-2 right-2 p-1 text-gray-500 hover:text-gray-700 transition-colors">
+                                                        <i class="fas fa-copy"></i>
+                                                    </button>
+                                                    <pre class="text-sm font-mono text-gray-800">{
+    "otp": "123456",
+    "new_password": "NewSecurePass123"
+}</pre>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h6 class="text-sm font-medium text-gray-900 mb-2">Response</h6>
+                                                <div class="bg-gray-100 p-3 rounded-md relative group">
+                                                    <button onclick="copyToClipboard(this, '{\n    \"success\": true,\n    \"message\": \"Password reset successfully\",\n    \"data\": {\n        \"email\": \"user@example.com\",\n        \"token_expires_at\": \"2024-03-22 10:30:00\"\n    }\n}')" class="absolute top-2 right-2 p-1 text-gray-500 hover:text-gray-700 transition-colors">
+                                                        <i class="fas fa-copy"></i>
+                                                    </button>
+                                                    <pre class="text-sm font-mono text-gray-800">{
+    "success": true,
+    "message": "Password reset successfully",
+    "data": {
+        "email": "user@example.com",
+        "token_expires_at": "2024-03-22 10:30:00"
+    }
+}</pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Change Password -->
+                                    <div class="border-b border-gray-200 pb-6">
+                                        <div class="flex items-center mb-4">
+                                            <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
+                                            <code class="text-sm font-mono text-gray-800">/api/change-password.php</code>
+                                            <span class="ml-2 text-gray-600">Change user password</span>
+                                        </div>
+                                        <div class="space-y-4">
+                                            <div>
+                                                <h6 class="text-sm font-medium text-gray-900 mb-2">Headers</h6>
+                                                <div class="bg-gray-100 p-3 rounded-md relative group">
+                                                    <button onclick="copyToClipboard(this, 'X-API-Key: your-api-key\nAuthorization: Bearer auth_token\nContent-Type: application/json')" class="absolute top-2 right-2 p-1 text-gray-500 hover:text-gray-700 transition-colors">
+                                                        <i class="fas fa-copy"></i>
+                                                    </button>
+                                                    <pre class="text-sm font-mono text-gray-800">X-API-Key: your-api-key
+Authorization: Bearer auth_token
+Content-Type: application/json</pre>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h6 class="text-sm font-medium text-gray-900 mb-2">Request Body</h6>
+                                                <div class="bg-gray-100 p-3 rounded-md relative group">
+                                                    <button onclick="copyToClipboard(this, '{\n    \"old_password\": \"CurrentPass123\",\n    \"new_password\": \"NewSecurePass123\",\n    \"confirm_password\": \"NewSecurePass123\"\n}')" class="absolute top-2 right-2 p-1 text-gray-500 hover:text-gray-700 transition-colors">
+                                                        <i class="fas fa-copy"></i>
+                                                    </button>
+                                                    <pre class="text-sm font-mono text-gray-800">{
+    "old_password": "CurrentPass123",
+    "new_password": "NewSecurePass123",
+    "confirm_password": "NewSecurePass123"
+}</pre>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h6 class="text-sm font-medium text-gray-900 mb-2">Response</h6>
+                                                <div class="bg-gray-100 p-3 rounded-md relative group">
+                                                    <button onclick="copyToClipboard(this, '{\n    \"success\": true,\n    \"message\": \"Password changed successfully\"\n}')" class="absolute top-2 right-2 p-1 text-gray-500 hover:text-gray-700 transition-colors">
+                                                        <i class="fas fa-copy"></i>
+                                                    </button>
+                                                    <pre class="text-sm font-mono text-gray-800">{
+    "success": true,
+    "message": "Password changed successfully"
+}</pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Refresh Token -->
+                                    <div class="border-b border-gray-200 pb-6">
+                                        <div class="flex items-center mb-4">
+                                            <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
+                                            <code class="text-sm font-mono text-gray-800">/api/refresh-token.php</code>
+                                            <span class="ml-2 text-gray-600">Refresh authentication token</span>
+                                        </div>
+                                        <div class="space-y-4">
+                                            <div>
+                                                <h6 class="text-sm font-medium text-gray-900 mb-2">Headers</h6>
+                                                <div class="bg-gray-100 p-3 rounded-md relative group">
+                                                    <button onclick="copyToClipboard(this, 'X-API-Key: your-api-key\nAuthorization: Bearer auth_token\nContent-Type: application/json')" class="absolute top-2 right-2 p-1 text-gray-500 hover:text-gray-700 transition-colors">
+                                                        <i class="fas fa-copy"></i>
+                                                    </button>
+                                                    <pre class="text-sm font-mono text-gray-800">X-API-Key: your-api-key
+Authorization: Bearer auth_token
+Content-Type: application/json</pre>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h6 class="text-sm font-medium text-gray-900 mb-2">Response</h6>
+                                                <div class="bg-gray-100 p-3 rounded-md relative group">
+                                                    <button onclick="copyToClipboard(this, '{\n    \"success\": true,\n    \"message\": \"Token refreshed successfully\",\n    \"data\": {\n        \"token\": \"new_32_character_token\",\n        \"expires_at\": \"2024-03-22 10:30:00\"\n    }\n}')" class="absolute top-2 right-2 p-1 text-gray-500 hover:text-gray-700 transition-colors">
+                                                        <i class="fas fa-copy"></i>
+                                                    </button>
+                                                    <pre class="text-sm font-mono text-gray-800">{
+    "success": true,
+    "message": "Token refreshed successfully",
+    "data": {
+        "token": "new_32_character_token",
+        "expires_at": "2024-03-22 10:30:00"
+    }
+}</pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Delete User -->
+                                    <div class="border-b border-gray-200 pb-6">
+                                        <div class="flex items-center mb-4">
+                                            <span class="bg-red-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
+                                            <code class="text-sm font-mono text-gray-800">/api/delete-user.php</code>
+                                            <span class="ml-2 text-gray-600">Delete user account</span>
+                                        </div>
+                                        <div class="space-y-4">
+                                            <div>
+                                                <h6 class="text-sm font-medium text-gray-900 mb-2">Headers</h6>
+                                                <div class="bg-gray-100 p-3 rounded-md relative group">
+                                                    <button onclick="copyToClipboard(this, 'X-API-Key: your-api-key\nContent-Type: application/json')" class="absolute top-2 right-2 p-1 text-gray-500 hover:text-gray-700 transition-colors">
+                                                        <i class="fas fa-copy"></i>
+                                                    </button>
+                                                    <pre class="text-sm font-mono text-gray-800">X-API-Key: your-api-key
+Content-Type: application/json</pre>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h6 class="text-sm font-medium text-gray-900 mb-2">Request Body</h6>
+                                                <div class="bg-gray-100 p-3 rounded-md relative group">
+                                                    <button onclick="copyToClipboard(this, '{\n    \"email\": \"user@example.com\"\n}')" class="absolute top-2 right-2 p-1 text-gray-500 hover:text-gray-700 transition-colors">
+                                                        <i class="fas fa-copy"></i>
+                                                    </button>
+                                                    <pre class="text-sm font-mono text-gray-800">{
+    "email": "user@example.com"
+}</pre>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h6 class="text-sm font-medium text-gray-900 mb-2">Response</h6>
+                                                <div class="bg-gray-100 p-3 rounded-md relative group">
+                                                    <button onclick="copyToClipboard(this, '{\n    \"success\": true,\n    \"message\": \"User account deleted successfully\",\n    \"data\": {\n        \"email\": \"user@example.com\"\n    }\n}')" class="absolute top-2 right-2 p-1 text-gray-500 hover:text-gray-700 transition-colors">
+                                                        <i class="fas fa-copy"></i>
+                                                    </button>
+                                                    <pre class="text-sm font-mono text-gray-800">{
+    "success": true,
+    "message": "User account deleted successfully",
+    "data": {
+        "email": "user@example.com"
+    }
+}</pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Verify Email -->
-                        <div class="bg-white rounded-lg shadow-md p-6">
-                            <div class="flex items-center mb-4">
-                                <span class="bg-green-500 text-white px-3 py-1 rounded-md text-sm font-medium mr-3">POST</span>
-                                <h4 class="text-xl font-semibold text-gray-900">/api/verify-email.php</h4>
-                            </div>
-                            <p class="text-gray-600 mb-4">Verify user's email using OTP.</p>
-                            
-                            <div class="space-y-4">
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
-    <span class="text-blue-600">"email"</span>: <span class="text-green-600">"user@example.com"</span>,
-    <span class="text-blue-600">"otp"</span>: <span class="text-green-600">"123456"</span>
-<span class="text-purple-600">}</span></pre>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- User Login -->
-                        <div class="bg-white rounded-lg shadow-md p-6">
-                            <div class="flex items-center mb-4">
-                                <span class="bg-green-500 text-white px-3 py-1 rounded-md text-sm font-medium mr-3">POST</span>
-                                <h4 class="text-xl font-semibold text-gray-900">/api/login.php</h4>
-                            </div>
-                            <p class="text-gray-600 mb-4">Authenticate a user and get an access token.</p>
-                            
-                            <div class="space-y-4">
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
-    <span class="text-blue-600">"email"</span>: <span class="text-green-600">"user@example.com"</span>,
-    <span class="text-blue-600">"password"</span>: <span class="text-green-600">"SecurePass123"</span>
-<span class="text-purple-600">}</span></pre>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Reset Password -->
-                        <div class="bg-white rounded-lg shadow-md p-6">
-                            <div class="flex items-center mb-4">
-                                <span class="bg-green-500 text-white px-3 py-1 rounded-md text-sm font-medium mr-3">POST</span>
-                                <h4 class="text-xl font-semibold text-gray-900">/api/reset-password.php</h4>
-                            </div>
-                            <p class="text-gray-600 mb-4">Reset user's password using OTP.</p>
-                            
-                            <div class="space-y-4">
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
-    <span class="text-blue-600">"otp"</span>: <span class="text-green-600">"123456"</span>,
-    <span class="text-blue-600">"new_password"</span>: <span class="text-green-600">"NewSecurePass123"</span>
-<span class="text-purple-600">}</span></pre>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Change Password -->
-                        <div class="bg-white rounded-lg shadow-md p-6">
-                            <div class="flex items-center mb-4">
-                                <span class="bg-green-500 text-white px-3 py-1 rounded-md text-sm font-medium mr-3">POST</span>
-                                <h4 class="text-xl font-semibold text-gray-900">/api/change-password.php</h4>
-                            </div>
-                            <p class="text-gray-600 mb-4">Change user's password (requires authentication).</p>
-                            
-                            <div class="space-y-4">
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <pre class="text-sm font-mono text-gray-800"><span class="text-purple-600">{</span>
-    <span class="text-blue-600">"old_password"</span>: <span class="text-green-600">"CurrentPass123"</span>,
-    <span class="text-blue-600">"new_password"</span>: <span class="text-green-600">"NewSecurePass123"</span>,
-    <span class="text-blue-600">"confirm_password"</span>: <span class="text-green-600">"NewSecurePass123"</span>
-<span class="text-purple-600">}</span></pre>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Logout -->
-                        <div class="bg-white rounded-lg shadow-md p-6">
-                            <div class="flex items-center mb-4">
-                                <span class="bg-green-500 text-white px-3 py-1 rounded-md text-sm font-medium mr-3">POST</span>
-                                <h4 class="text-xl font-semibold text-gray-900">/api/logout.php</h4>
-                            </div>
-                            <p class="text-gray-600 mb-4">Invalidate the current authentication token.</p>
                         </div>
                     </div>
 
@@ -626,360 +890,16 @@ composer install</pre>
                             </div>
                         </div>
 
-                        <!-- API Usage Section -->
-                        <div id="api-usage" class="bg-white rounded-lg shadow-md p-6">
-                            <div class="flex items-center mb-4">
-                                <i class="fas fa-code text-primary text-2xl mr-3"></i>
-                                <h3 class="text-2xl font-semibold text-gray-900">Using the API</h3>
-                            </div>
-                            <div class="space-y-4">
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium text-gray-900 mb-2">Authentication</h5>
-                                    <p class="text-gray-600 mb-2">Include your API key in all requests:</p>
-                                    <div class="bg-gray-100 p-3 rounded-md">
-                                        <code class="text-sm font-mono text-gray-800">X-API-Key: your_api_key</code>
-                                    </div>
-                                </div>
-
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium text-gray-900 mb-2">Available Endpoints</h5>
-                                    <div class="space-y-8">
-                                        <!-- Register User -->
-                                        <div class="border-b border-gray-200 pb-6">
-                                            <div class="flex items-center mb-4">
-                                                <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
-                                                <code class="text-sm font-mono text-gray-800">/api/register.php</code>
-                                                <span class="ml-2 text-gray-600">Register new user</span>
-                                            </div>
-                                            <div class="space-y-4">
-                                                <div>
-                                                    <h6 class="text-sm font-medium text-gray-900 mb-2">Headers</h6>
-                                                    <div class="bg-gray-100 p-3 rounded-md">
-                                                        <pre class="text-sm font-mono text-gray-800">X-API-Key: your-api-key
-Content-Type: application/json</pre>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <h6 class="text-sm font-medium text-gray-900 mb-2">Request Body</h6>
-                                                    <div class="bg-gray-100 p-3 rounded-md">
-                                                        <pre class="text-sm font-mono text-gray-800">{
-    "email": "user@example.com",
-    "password": "SecurePass123"
-}</pre>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <h6 class="text-sm font-medium text-gray-900 mb-2">Response</h6>
-                                                    <div class="bg-gray-100 p-3 rounded-md">
-                                                        <pre class="text-sm font-mono text-gray-800">{
-    "success": true,
-    "message": "User registered successfully",
-    "data": {
-        "user_id": "user_id",
-        "email": "user@example.com",
-        "auth_token": "32_character_token",
-        "expires_at": "token_expiry_timestamp",
-        "is_verified": false,
-        "otp": "verification_code"
-    }
-}</pre>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Request OTP -->
-                                        <div class="border-b border-gray-200 pb-6">
-                                            <div class="flex items-center mb-4">
-                                                <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
-                                                <code class="text-sm font-mono text-gray-800">/api/request-otp.php</code>
-                                                <span class="ml-2 text-gray-600">Request OTP for verification</span>
-                                            </div>
-                                            <div class="space-y-4">
-                                                <div>
-                                                    <h6 class="text-sm font-medium text-gray-900 mb-2">Headers</h6>
-                                                    <div class="bg-gray-100 p-3 rounded-md">
-                                                        <pre class="text-sm font-mono text-gray-800">X-API-Key: your-api-key
-Content-Type: application/json</pre>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <h6 class="text-sm font-medium text-gray-900 mb-2">Request Body</h6>
-                                                    <div class="bg-gray-100 p-3 rounded-md">
-                                                        <pre class="text-sm font-mono text-gray-800">{
-    "email": "user@example.com",
-    "purpose": "email-verification"
-}</pre>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <h6 class="text-sm font-medium text-gray-900 mb-2">Response</h6>
-                                                    <div class="bg-gray-100 p-3 rounded-md">
-                                                        <pre class="text-sm font-mono text-gray-800">{
-    "success": true,
-    "message": "OTP generated successfully",
-    "data": {
-        "user_id": "user_id",
-        "email": "user@example.com",
-        "purpose": "email-verification",
-        "otp": "6_digit_code",
-        "otp_expires_at": "otp_expiry_timestamp",
-        "auth_token": "32_character_token",
-        "token_expires_at": "token_expiry_timestamp"
-    }
-}</pre>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Verify Email -->
-                                        <div class="border-b border-gray-200 pb-6">
-                                            <div class="flex items-center mb-4">
-                                                <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
-                                                <code class="text-sm font-mono text-gray-800">/api/verify-email.php</code>
-                                                <span class="ml-2 text-gray-600">Verify email with OTP</span>
-                                            </div>
-                                            <div class="space-y-4">
-                                                <div>
-                                                    <h6 class="text-sm font-medium text-gray-900 mb-2">Headers</h6>
-                                                    <div class="bg-gray-100 p-3 rounded-md">
-                                                        <pre class="text-sm font-mono text-gray-800">X-API-Key: your-api-key
-Content-Type: application/json</pre>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <h6 class="text-sm font-medium text-gray-900 mb-2">Request Body</h6>
-                                                    <div class="bg-gray-100 p-3 rounded-md">
-                                                        <pre class="text-sm font-mono text-gray-800">{
-    "email": "user@example.com",
-    "otp": "123456"
-}</pre>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <h6 class="text-sm font-medium text-gray-900 mb-2">Response</h6>
-                                                    <div class="bg-gray-100 p-3 rounded-md">
-                                                        <pre class="text-sm font-mono text-gray-800">{
-    "success": true,
-    "message": "Email verified successfully",
-    "data": {
-        "user_id": "user_id",
-        "email": "user@example.com",
-        "auth_token": "32_character_token",
-        "expires_at": "token_expiry_timestamp"
-    }
-}</pre>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- User Login -->
-                                        <div class="border-b border-gray-200 pb-6">
-                                            <div class="flex items-center mb-4">
-                                                <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
-                                                <code class="text-sm font-mono text-gray-800">/api/login.php</code>
-                                                <span class="ml-2 text-gray-600">User login</span>
-                                            </div>
-                                            <div class="space-y-4">
-                                                <div>
-                                                    <h6 class="text-sm font-medium text-gray-900 mb-2">Headers</h6>
-                                                    <div class="bg-gray-100 p-3 rounded-md">
-                                                        <pre class="text-sm font-mono text-gray-800">X-API-Key: your-api-key
-Content-Type: application/json</pre>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <h6 class="text-sm font-medium text-gray-900 mb-2">Request Body</h6>
-                                                    <div class="bg-gray-100 p-3 rounded-md">
-                                                        <pre class="text-sm font-mono text-gray-800">{
-    "email": "user@example.com",
-    "password": "SecurePass123"
-}</pre>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <h6 class="text-sm font-medium text-gray-900 mb-2">Response</h6>
-                                                    <div class="bg-gray-100 p-3 rounded-md">
-                                                        <pre class="text-sm font-mono text-gray-800">{
-    "success": true,
-    "message": "Login successful",
-    "data": {
-        "user_id": "user_id",
-        "email": "user@example.com",
-        "auth_token": "32_character_token",
-        "expires_at": "token_expiry_timestamp"
-    }
-}</pre>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Reset Password -->
-                                        <div class="border-b border-gray-200 pb-6">
-                                            <div class="flex items-center mb-4">
-                                                <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
-                                                <code class="text-sm font-mono text-gray-800">/api/reset-password.php</code>
-                                                <span class="ml-2 text-gray-600">Reset user password</span>
-                                            </div>
-                                            <div class="space-y-4">
-                                                <div>
-                                                    <h6 class="text-sm font-medium text-gray-900 mb-2">Headers</h6>
-                                                    <div class="bg-gray-100 p-3 rounded-md">
-                                                        <pre class="text-sm font-mono text-gray-800">X-API-Key: your-api-key
-Authorization: Bearer auth_token
-Content-Type: application/json</pre>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <h6 class="text-sm font-medium text-gray-900 mb-2">Request Body</h6>
-                                                    <div class="bg-gray-100 p-3 rounded-md">
-                                                        <pre class="text-sm font-mono text-gray-800">{
-    "otp": "123456",
-    "new_password": "NewSecurePass123"
-}</pre>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <h6 class="text-sm font-medium text-gray-900 mb-2">Response</h6>
-                                                    <div class="bg-gray-100 p-3 rounded-md">
-                                                        <pre class="text-sm font-mono text-gray-800">{
-    "success": true,
-    "message": "Password reset successfully",
-    "data": {
-        "email": "user@example.com",
-        "token_expires_at": "2024-03-22 10:30:00"
-    }
-}</pre>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Change Password -->
-                                        <div class="border-b border-gray-200 pb-6">
-                                            <div class="flex items-center mb-4">
-                                                <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
-                                                <code class="text-sm font-mono text-gray-800">/api/change-password.php</code>
-                                                <span class="ml-2 text-gray-600">Change user password</span>
-                                            </div>
-                                            <div class="space-y-4">
-                                                <div>
-                                                    <h6 class="text-sm font-medium text-gray-900 mb-2">Headers</h6>
-                                                    <div class="bg-gray-100 p-3 rounded-md">
-                                                        <pre class="text-sm font-mono text-gray-800">X-API-Key: your-api-key
-Authorization: Bearer auth_token
-Content-Type: application/json</pre>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <h6 class="text-sm font-medium text-gray-900 mb-2">Request Body</h6>
-                                                    <div class="bg-gray-100 p-3 rounded-md">
-                                                        <pre class="text-sm font-mono text-gray-800">{
-    "old_password": "CurrentPass123",
-    "new_password": "NewSecurePass123",
-    "confirm_password": "NewSecurePass123"
-}</pre>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <h6 class="text-sm font-medium text-gray-900 mb-2">Response</h6>
-                                                    <div class="bg-gray-100 p-3 rounded-md">
-                                                        <pre class="text-sm font-mono text-gray-800">{
-    "success": true,
-    "message": "Password changed successfully"
-}</pre>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Refresh Token -->
-                                        <div class="border-b border-gray-200 pb-6">
-                                            <div class="flex items-center mb-4">
-                                                <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
-                                                <code class="text-sm font-mono text-gray-800">/api/refresh-token.php</code>
-                                                <span class="ml-2 text-gray-600">Refresh authentication token</span>
-                                            </div>
-                                            <div class="space-y-4">
-                                                <div>
-                                                    <h6 class="text-sm font-medium text-gray-900 mb-2">Headers</h6>
-                                                    <div class="bg-gray-100 p-3 rounded-md">
-                                                        <pre class="text-sm font-mono text-gray-800">X-API-Key: your-api-key
-Authorization: Bearer auth_token
-Content-Type: application/json</pre>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <h6 class="text-sm font-medium text-gray-900 mb-2">Response</h6>
-                                                    <div class="bg-gray-100 p-3 rounded-md">
-                                                        <pre class="text-sm font-mono text-gray-800">{
-    "success": true,
-    "message": "Token refreshed successfully",
-    "data": {
-        "token": "new_32_character_token",
-        "expires_at": "2024-03-22 10:30:00"
-    }
-}</pre>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Delete User -->
-                                        <div class="border-b border-gray-200 pb-6">
-                                            <div class="flex items-center mb-4">
-                                                <span class="bg-red-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
-                                                <code class="text-sm font-mono text-gray-800">/api/delete-user.php</code>
-                                                <span class="ml-2 text-gray-600">Delete user account</span>
-                                            </div>
-                                            <div class="space-y-4">
-                                                <div>
-                                                    <h6 class="text-sm font-medium text-gray-900 mb-2">Headers</h6>
-                                                    <div class="bg-gray-100 p-3 rounded-md">
-                                                        <pre class="text-sm font-mono text-gray-800">X-API-Key: your-api-key
-Content-Type: application/json</pre>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <h6 class="text-sm font-medium text-gray-900 mb-2">Request Body</h6>
-                                                    <div class="bg-gray-100 p-3 rounded-md">
-                                                        <pre class="text-sm font-mono text-gray-800">{
-    "email": "user@example.com"
-}</pre>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <h6 class="text-sm font-medium text-gray-900 mb-2">Response</h6>
-                                                    <div class="bg-gray-100 p-3 rounded-md">
-                                                        <pre class="text-sm font-mono text-gray-800">{
-    "success": true,
-    "message": "User account deleted successfully",
-    "data": {
-        "email": "user@example.com"
-    }
-}</pre>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h5 class="font-medium text-gray-900 mb-2">Security Best Practices</h5>
-                                    <ul class="list-disc pl-6 space-y-2 text-gray-600">
-                                        <li>Always use HTTPS in production</li>
-                                        <li>Store API keys securely</li>
-                                        <li>Implement rate limiting</li>
-                                        <li>Validate all input data</li>
-                                        <li>Use secure password hashing</li>
-                                        <li>Implement proper error handling</li>
-                                    </ul>
-                                </div>
-                            </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h5 class="font-medium text-gray-900 mb-2">Security Best Practices</h5>
+                            <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                                <li>Always use HTTPS in production</li>
+                                <li>Store API keys securely</li>
+                                <li>Implement rate limiting</li>
+                                <li>Validate all input data</li>
+                                <li>Use secure password hashing</li>
+                                <li>Implement proper error handling</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -1002,6 +922,11 @@ Content-Type: application/json</pre>
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
     <script>
         function copyApiKey() {
             const apiKey = document.getElementById('apiKey');
@@ -1014,137 +939,45 @@ Content-Type: application/json</pre>
                 });
         }
 
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text)
-                .then(() => {
-                    const button = event.currentTarget;
-                    const originalIcon = button.innerHTML;
-                    button.innerHTML = '<i class="fas fa-check text-green-500"></i>';
-                    setTimeout(() => {
-                        button.innerHTML = originalIcon;
-                    }, 2000);
-                })
-                .catch(err => {
-                    console.error('Failed to copy text:', err);
-                    const button = event.currentTarget;
-                    const originalIcon = button.innerHTML;
-                    button.innerHTML = '<i class="fas fa-times text-red-500"></i>';
-                    setTimeout(() => {
-                        button.innerHTML = originalIcon;
-                    }, 2000);
-                });
+        function copyToClipboard(button, text) {
+            navigator.clipboard.writeText(text).then(() => {
+                const icon = button.querySelector('i');
+                icon.classList.remove('fa-copy');
+                icon.classList.add('fa-check');
+                button.classList.remove('text-gray-500', 'hover:text-gray-700');
+                button.classList.add('text-green-500');
+                
+                setTimeout(() => {
+                    icon.classList.remove('fa-check');
+                    icon.classList.add('fa-copy');
+                    button.classList.remove('text-green-500');
+                    button.classList.add('text-gray-500', 'hover:text-gray-700');
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy text:', err);
+                const icon = button.querySelector('i');
+                icon.classList.remove('fa-copy');
+                icon.classList.add('fa-times');
+                button.classList.remove('text-gray-500', 'hover:text-gray-700');
+                button.classList.add('text-red-500');
+                
+                setTimeout(() => {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-copy');
+                    button.classList.remove('text-red-500');
+                    button.classList.add('text-gray-500', 'hover:text-gray-700');
+                }, 2000);
+            });
         }
 
-        // Store JSON strings in variables using template literals
-        const registerRequest = `{
-    "email": "user@example.com",
-    "password": "SecurePass123",
-    "name": "John Doe"
-}`;
-
-        const registerResponse = `{
-    "success": true,
-    "message": "User registered successfully",
-    "data": {
-        "user_id": 123,
-        "email": "user@example.com"
-    }
-}`;
-
-        const otpRequest = `{
-    "email": "user@example.com",
-    "purpose": "email-verification"
-}`;
-
-        const otpResponse = `{
-    "success": true,
-    "message": "OTP generated successfully",
-    "data": {
-        "user_id": 123,
-        "email": "user@example.com",
-        "purpose": "email-verification",
-        "otp": "123456",
-        "otp_expires_at": "2024-03-21 12:34:56",
-        "auth_token": "your_auth_token",
-        "token_expires_at": "2024-03-22 10:30:00"
-    }
-}`;
-
-        const verifyEmailRequest = `{
-    "email": "user@example.com",
-    "otp": "123456"
-}`;
-
-        const verifyEmailResponse = `{
-    "success": true,
-    "message": "Email verified successfully",
-    "data": {
-        "user_id": 123,
-        "email": "user@example.com",
-        "auth_token": "new_auth_token",
-        "expires_at": "2024-03-22 10:30:00"
-    }
-}`;
-
-        const resetPasswordRequest = `{
-    "otp": "123456",
-    "new_password": "NewSecurePass123"
-}`;
-
-        const resetPasswordResponse = `{
-    "success": true,
-    "message": "Password reset successfully",
-    "data": {
-        "email": "user@example.com",
-        "token_expires_at": "2024-03-22 10:30:00"
-    }
-}`;
-
-        const refreshTokenResponse = `{
-    "success": true,
-    "message": "Token refreshed successfully",
-    "data": {
-        "token": "new_32_character_token",
-        "expires_at": "2024-03-22 10:30:00"
-    }
-}`;
-
-        const deleteUserRequest = `{
-    "email": "user@example.com"
-}`;
-
-        const deleteUserResponse = `{
-    "success": true,
-    "message": "User account deleted successfully",
-    "data": {
-        "email": "user@example.com"
-    }
-}`;
-
-        const invalidRequestError = `{
-    "success": false,
-    "error": "Invalid request",
-    "message": "No matching user found with the provided email and token"
-}`;
-
-        const tokenExpiredError = `{
-    "success": false,
-    "error": "Token expired",
-    "message": "The authentication token has expired",
-    "expired_at": "2024-03-21 12:34:56"
-}`;
-
-        const errorResponse = `{
-    "success": false,
-    "error": "error_type",
-    "message": "Human-readable error message"
-}`;
-
-        // Store header strings
-        const headers = {
-            basic: "Content-Type: application/json\nX-API-Key: your_api_key",
-            withAuth: "Content-Type: application/json\nX-API-Key: your_api_key\nAuthorization: Bearer auth_token",
-            withCurrentAuth: "Content-Type: application/json\nX-API-Key: your_api_key\nAuthorization: Bearer current_auth_token"
+        // Back to top button functionality
+        window.onscroll = function() {
+            const button = document.querySelector('.back-to-top');
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                button.classList.add('visible');
+            } else {
+                button.classList.remove('visible');
+            }
         };
     </script>
 </body>
