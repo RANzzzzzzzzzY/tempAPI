@@ -208,7 +208,7 @@
                             <div class="sticky top-4 bg-white rounded-lg shadow-md p-6">
                                 <h3 class="text-lg font-semibold text-gray-900 mb-4">Table of Contents</h3>
                                 <nav class="space-y-2">
-                                    <a href="#overview" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">
+                                    <a href="#Overview" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">
                                         <i class="fas fa-home w-5 mr-2"></i>Overview
                                     </a>
                                     <a href="#authentication" class="block text-gray-600 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md">
@@ -233,7 +233,7 @@
                         <!-- Main Documentation Content -->
                         <div class="md:w-3/4 space-y-8">
                             <!-- Overview Section -->
-                            <div id="overview" class="bg-white rounded-lg shadow-md p-6">
+                            <div id="Overview" class="bg-white rounded-lg shadow-md p-6">
                                 <div class="flex items-center mb-4">
                                     <i class="fas fa-home text-primary text-2xl mr-3"></i>
                                     <h2 class="text-3xl font-bold text-gray-900">Overview</h2>
