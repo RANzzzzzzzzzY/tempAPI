@@ -153,7 +153,7 @@ try {
     if ($existingOtp) {
         $lastRequestTime = strtotime($existingOtp['created_at']);
         $timeElapsed = time() - $lastRequestTime;
-        $waitTime = 60 - $timeElapsed;
+        $waitTime = 30 - $timeElapsed;
         
         Utils::sendJsonResponse([
             'success' => false,
