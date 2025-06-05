@@ -263,30 +263,6 @@ if ($isLoggedIn) {
                             <i class="fas fa-code text-primary text-2xl mr-3"></i>
                             <h2 class="text-3xl font-bold text-gray-900">Using the API</h2>
                         </div>
-                        
-                        <!-- Authentication -->
-                        <div class="bg-gray-50 p-4 rounded-lg mb-6">
-                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Authentication</h3>
-                            <p class="text-gray-600 mb-2">All API requests require authentication using your API key in the header:</p>
-                            <div class="bg-gray-100 p-3 rounded-md relative group">
-                                <button onclick="copyToClipboard(this)" data-copy-text="X-API-Key: your-api-key" class="absolute top-2 right-2 p-1 text-gray-500 hover:text-gray-700 transition-colors">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                                <pre class="text-sm font-mono text-gray-800">X-API-Key: your-api-key</pre>
-                            </div>
-                            <div class="mt-4 bg-yellow-50 border-l-4 border-yellow-400 p-4">
-                                <div class="flex">
-                                    <div class="flex-shrink-0">
-                                        <i class="fas fa-exclamation-triangle text-yellow-400"></i>
-                                    </div>
-                                    <div class="ml-3">
-                                        <p class="text-sm text-yellow-700">
-                                            <strong>Note:</strong> Keep your API key secure and never expose it in client-side code.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
                         <!-- Available Endpoints -->
                         <div class="space-y-8">
@@ -294,7 +270,7 @@ if ($isLoggedIn) {
                             <div class="border-b border-gray-200 pb-6">
                                 <div class="flex items-center mb-4">
                                     <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
-                                    <code class="text-sm font-mono text-gray-800">/api/register.php</code>
+                                    <code class="text-sm font-mono text-gray-800 font-bold">/api/register.php</code>
                                     <span class="ml-2 text-gray-600">Register new user</span>
                                 </div>
                                 <div class="space-y-4">
@@ -347,7 +323,7 @@ Content-Type: application/json</pre>
                             <div class="border-b border-gray-200 pb-6">
                                 <div class="flex items-center mb-4">
                                     <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
-                                    <code class="text-sm font-mono text-gray-800">/api/request-otp.php</code>
+                                    <code class="text-sm font-mono text-gray-800 font-bold">/api/request-otp.php</code>
                                     <span class="ml-2 text-gray-600">Request OTP for verification</span>
                                 </div>
                                 <div class="space-y-4">
@@ -401,7 +377,7 @@ Content-Type: application/json</pre>
                             <div class="border-b border-gray-200 pb-6">
                                 <div class="flex items-center mb-4">
                                     <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
-                                    <code class="text-sm font-mono text-gray-800">/api/verify-email.php</code>
+                                    <code class="text-sm font-mono text-gray-800 font-bold">/api/verify-email.php</code>
                                     <span class="ml-2 text-gray-600">Verify email with OTP</span>
                                 </div>
                                 <div class="space-y-4">
@@ -452,7 +428,7 @@ Content-Type: application/json</pre>
                             <div class="border-b border-gray-200 pb-6">
                                 <div class="flex items-center mb-4">
                                     <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
-                                    <code class="text-sm font-mono text-gray-800">/api/login.php</code>
+                                    <code class="text-sm font-mono text-gray-800 font-bold">/api/login.php</code>
                                     <span class="ml-2 text-gray-600">User login</span>
                                 </div>
                                 <div class="space-y-4">
@@ -503,7 +479,7 @@ Content-Type: application/json</pre>
                             <div class="border-b border-gray-200 pb-6">
                                 <div class="flex items-center mb-4">
                                     <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
-                                    <code class="text-sm font-mono text-gray-800">/api/logout.php</code>
+                                    <code class="text-sm font-mono text-gray-800 font-bold">/api/logout.php</code>
                                     <span class="ml-2 text-gray-600">Logout user</span>
                                 </div>
                                 <div class="space-y-4">
@@ -537,7 +513,7 @@ Content-Type: application/json</pre>
                             <div class="border-b border-gray-200 pb-6">
                                 <div class="flex items-center mb-4">
                                     <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
-                                    <code class="text-sm font-mono text-gray-800">/api/reset-password.php</code>
+                                    <code class="text-sm font-mono text-gray-800 font-bold">/api/reset-password.php</code>
                                     <span class="ml-2 text-gray-600">Reset user password</span>
                                 </div>
                                 <div class="space-y-4">
@@ -587,7 +563,7 @@ Content-Type: application/json</pre>
                             <div class="border-b border-gray-200 pb-6">
                                 <div class="flex items-center mb-4">
                                     <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
-                                    <code class="text-sm font-mono text-gray-800">/api/change-password.php</code>
+                                    <code class="text-sm font-mono text-gray-800 font-bold">/api/change-password.php</code>
                                     <span class="ml-2 text-gray-600">Change user password</span>
                                 </div>
                                 <div class="space-y-4">
@@ -634,7 +610,7 @@ Content-Type: application/json</pre>
                             <div class="border-b border-gray-200 pb-6">
                                 <div class="flex items-center mb-4">
                                     <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
-                                    <code class="text-sm font-mono text-gray-800">/api/refresh-token.php</code>
+                                    <code class="text-sm font-mono text-gray-800 font-bold">/api/refresh-token.php</code>
                                     <span class="ml-2 text-gray-600">Refresh authentication token</span>
                                 </div>
                                 <div class="space-y-4">
@@ -672,7 +648,7 @@ Content-Type: application/json</pre>
                             <div class="border-b border-gray-200 pb-6">
                                 <div class="flex items-center mb-4">
                                     <span class="bg-red-500 text-white px-2 py-1 rounded text-xs font-medium mr-2">POST</span>
-                                    <code class="text-sm font-mono text-gray-800">/api/delete-user.php</code>
+                                    <code class="text-sm font-mono text-gray-800 font-bold">/api/delete-user.php</code>
                                     <span class="ml-2 text-gray-600">Delete user account</span>
                                 </div>
                                 <div class="space-y-4">
