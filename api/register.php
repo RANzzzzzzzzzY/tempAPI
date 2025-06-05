@@ -180,7 +180,9 @@ try {
     
     if ($existingUser && $existingUser['is_email_verified']) {
         throw new Exception("Email already registered and verified");
-    } else if ($existingUser) {
+    } 
+    
+    if ($existingUser) {
         // If email exists but not verified, delete the existing user record
         $stmt = $pdo->prepare("DELETE FROM api_users WHERE id = ?");
         $stmt->execute([$existingUser['id']]);
@@ -230,13 +232,9 @@ try {
         ]);
         error_log("OTP stored");
 
-        // Commit transaction
-        $pdo->commit();
-        error_log("Database transaction committed");
-
         // Create auth token
         $authToken = bin2hex(random_bytes(32));
-        $expiresAt = date('Y-m-d H:i:s', strtotime('+24 hours'));
+        $expiresAt = date('Y-m-d H:i:s', strtotime('+5 minutes'));
         
         $stmt = $pdo->prepare("
             INSERT INTO auth_tokens (user_id, token, expires_at)
@@ -248,6 +246,10 @@ try {
             ':token' => $authToken,
             ':expires_at' => $expiresAt
         ]);
+
+        // Commit transaction
+        $pdo->commit();
+        error_log("Database transaction committed");
 
         // Prepare response
         $response = [
