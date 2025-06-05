@@ -234,7 +234,7 @@ try {
 
         // Create auth token
         $authToken = bin2hex(random_bytes(32));
-        $expiresAt = date('Y-m-d H:i:s', strtotime('+24 hours'));
+        $expiresAt = date('Y-m-d H:i:s', strtotime('+5 minutes'));
         
         $stmt = $pdo->prepare("
             INSERT INTO auth_tokens (user_id, token, expires_at)
