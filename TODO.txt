@@ -2,3 +2,6 @@ Optional:
 1. Butang sa response status taga response sa documentation (201)
 2. Butang ug note sa register endpoint na no need na mag call ug request-otp after sa register kay automatic na
 3. Butang sa request-otp sa purpose na parameter na puyde sad pang password reset
+
+
+sa register line 237 ang expiration sa auth token is 24 hours?
