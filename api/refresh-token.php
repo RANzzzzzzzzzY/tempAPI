@@ -84,7 +84,7 @@ try {
         'success' => true,
         'message' => 'Token refreshed successfully',
         'data' => [
-            'token' => $newToken,
+            'auth_token' => $newToken,
             'expires_at' => $tokenExpiresAt
         ]
     ]);
