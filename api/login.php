@@ -188,18 +188,17 @@ try {
 
         // Generate new auth token
         $token = bin2hex(random_bytes(32));
-        $expiresAt = date('Y-m-d H:i:s', strtotime('+24 hours')); // Changed to 24 hours to match registration
+        $expiresAt = date('Y-m-d H:i:s', strtotime('+30 minutes'));
         
         // Store auth token
         $stmt = $pdo->prepare("
             INSERT INTO auth_tokens (user_id, token, expires_at)
-            VALUES (:user_id, :token, :expires_at)
+            VALUES (:user_id, :token, NOW() + INTERVAL 30 MINUTE)
         ");
         
         $stmt->execute([
             ':user_id' => $user['id'],
             ':token' => $token,
-            ':expires_at' => $expiresAt
         ]);
 
         // Commit transaction

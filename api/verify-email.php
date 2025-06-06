@@ -245,13 +245,12 @@ try {
         // Insert new token
         $stmt = $pdo->prepare("
             INSERT INTO auth_tokens (user_id, token, expires_at)
-            VALUES (:user_id, :token, :expires_at)
+            VALUES (:user_id, :token, NOW() + INTERVAL 30 MINUTE)
         ");
 
         $stmt->execute([
             ':user_id' => $user['id'],
             ':token' => $authToken,
-            ':expires_at' => $expiresAt
         ]);
 
         // Commit transaction

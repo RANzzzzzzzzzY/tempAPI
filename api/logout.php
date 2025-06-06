@@ -93,9 +93,7 @@ try {
         $token = $stmt->fetch();
 
         if (!$token) {
-            throw new Exception("Token:$authToken;    Dev id:$devID");
-            
-            // throw new Exception('Invalid or expired token');
+            throw new Exception('Invalid or expired token');
         }
 
         // Delete the token
