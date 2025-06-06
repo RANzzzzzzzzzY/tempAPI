@@ -72,7 +72,7 @@ try {
     // Update the token
     $stmt = $pdo->prepare("
         UPDATE auth_tokens 
-        SET token = ?, expires_at = ? 
+        SET token = ?, expires_at = NOW() + INTERVAL 30 MINUTE
         WHERE user_id = ? AND token = ?
     ");
     $stmt->execute([$newToken, $tokenExpiresAt, $tokenData['user_id'], $token]);
