@@ -88,11 +88,14 @@ try {
             AND au.is_active = TRUE
             LIMIT 1
         ");
-        $stmt->execute([$authToken, $client['dev_id']]);
+        $devID = $client['dev_id'];
+        $stmt->execute([$authToken, $devID]);
         $token = $stmt->fetch();
 
         if (!$token) {
-            throw new Exception('Invalid or expired token');
+            throw new Exception("Token:$authToken;    Dev id:$devID");
+            
+            // throw new Exception('Invalid or expired token');
         }
 
         // Delete the token
