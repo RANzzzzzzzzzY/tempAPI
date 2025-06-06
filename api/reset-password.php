@@ -63,6 +63,11 @@ if (!$token) {
     ], 401);
 }
 
+// Remove "Bearer " prefix if present (case-insensitive)
+if (stripos($token, 'Bearer ') === 0) {
+    $token = trim(substr($token, 7));
+}
+
 $otp = Utils::sanitizeInput($data['otp'] ?? '');
 $newPassword = $data['new_password'] ?? '';
 
@@ -120,13 +125,13 @@ try {
     $tokenData = $stmt->fetch();
     
     error_log("Debug - Token query completed. Found data: " . ($tokenData ? 'yes' : 'no'));
-
+    $devID = $client['dev_id'];
     if (!$tokenData) {
         $pdo->rollBack();
         Utils::sendJsonResponse([
             'success' => false,
             'error' => 'Invalid token',
-            'message' => 'The provided token is invalid or does not match the API key',
+            'message' => "$token; $devID; $apiKey",
             'debug' => [
                 'token_length' => strlen($token),
                 'dev_id' => $client['dev_id']
