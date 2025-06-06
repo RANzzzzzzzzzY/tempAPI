@@ -1,4 +1,5 @@
 -- Create database if not exists
+DROP DATABASE IF EXISTS auth_api_system;
 CREATE DATABASE IF NOT EXISTS auth_api_system;
 USE auth_api_system;
 
@@ -20,7 +21,7 @@ CREATE TABLE IF NOT EXISTS api_clients (
     api_key VARCHAR(255) NOT NULL UNIQUE,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     is_active BOOLEAN DEFAULT TRUE,
-    FOREIGN KEY (dev_id) REFERENCES dev_accounts(id)
+    FOREIGN KEY (dev_id) REFERENCES dev_accounts(id) ON DELETE CASCADE
 );
 
 -- Email OTPs table
@@ -44,7 +45,7 @@ CREATE TABLE IF NOT EXISTS api_users (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     is_active BOOLEAN DEFAULT TRUE,
     is_email_verified BOOLEAN DEFAULT FALSE,
-    FOREIGN KEY (dev_id) REFERENCES dev_accounts(id),
+    FOREIGN KEY (dev_id) REFERENCES dev_accounts(id) ON DELETE CASCADE,
     UNIQUE KEY unique_email_per_dev (email, dev_id)
 );
 
@@ -69,11 +70,6 @@ CREATE TABLE IF NOT EXISTS password_reset_otps (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (api_user_id) REFERENCES api_users(id) ON DELETE CASCADE
 );
-
--- Create indexes for better performance
-CREATE INDEX idx_dev_email ON dev_accounts(email);
-CREATE INDEX idx_api_key ON api_clients(api_key);
-CREATE INDEX idx_api_user_email ON api_users(email);
 
 -- Trigger to delete old email OTPs when new one is inserted
 DELIMITER //
