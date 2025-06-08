@@ -94,5 +94,5 @@ try {
         $pdo->rollBack();
     }
     error_log($e->getMessage());
-    Utils::sendJsonResponse(['error' => 'Failed to refresh token. Please try again.'], 500);
+    Utils::sendJsonResponse(['error' => $e->getMessage()], 500);
 } 
