@@ -76,7 +76,7 @@ try {
         SET token = ?, expires_at = NOW() + INTERVAL 30 MINUTE
         WHERE user_id = ? AND token = ?
     ");
-    $stmt->execute([$newToken, $tokenExpiresAt, $tokenData['user_id'], $token]);
+    $stmt->execute([$newToken, $tokenData['user_id'], $token]);
 
     // Commit transaction
     $pdo->commit();
