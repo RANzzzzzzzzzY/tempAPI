@@ -1,6 +1,7 @@
 <?php
 require_once '../config/database.php';
 require_once '../includes/Utils.php';
+require_once '../includes/ApiTracker.php';
 require_once 'middleware/verify_api_key.php';
 
 header('Content-Type: application/json');
@@ -79,6 +80,9 @@ try {
 
     // Commit transaction
     $pdo->commit();
+
+    ApiTracker::init($pdo);
+    ApiTracker::logCall($client['dev_id'], 'refresh-token');
 
     Utils::sendJsonResponse([
         'success' => true,
